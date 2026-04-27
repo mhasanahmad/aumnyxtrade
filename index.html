@@ -1,2345 +1,1713 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AUMNYX Trade — Global Trade & Supply Solutions</title>
-  <meta name="description" content="AUMNYX Trade supports automotive aftermarket and industrial supply needs through focused sourcing, dependable product categories, and practical trade partnerships."/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600;700;800&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=G6ZkNEKNIoBdWskd16yuNHv9ODTy0ui2VY82T-SxwBnrdPUtFRVoYatraPUvhNCmpFh7QQ-dDx0lxMhKF--4U605Pz7L4BClgFvy_6J9eZFapANFc8v3DQpRuy6i7uojT_f5wIOHAgwvAwkQDWxgDlYhWTXWrAdVg5XDTqq4cGoOEMBB9cRTw9rUnZD9ccEQjPavEMoklQCNQb4TFoAn7qs2xcGxod1skxiZHP7wRtGFMG0cmUTWQxxSuhClARd5o3eTPBpT2MWWoA6uFhryIA" charset="UTF-8"></script><style>
-    :root {
-      --bg:      #f7fbff;
-      --bg2:     #edf5fb;
-      --bg3:     #dbe8f2;
-      --ink:     #0b2341;
-      --ink2:    #1f3f64;
-      --ink3:    #58708a;
-      --ink4:    #9cafc1;
-      --line:    rgba(11,35,65,0.13);
-      --line2:   rgba(11,35,65,0.06);
-      --accent:  #f58220;
-      --accent2: #f7c948;
-      --blue:    #1f5f99;
-      --steel:   #58708c;
-      --deep:    #06182b;
-
-      --serif: 'Roboto Slab', Georgia, serif;
-      --sans:  'Manrope', sans-serif;
-      --snap:  cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { font-size: 16px; scroll-behavior: smooth; }
-    body {
-      background: linear-gradient(135deg, #f8fbff 0%, #eef5fb 48%, #fff7e6 100%);
-      color: var(--ink);
-      font-family: var(--sans);
-      font-weight: 300;
-      line-height: 1.6;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-      cursor: auto;
-    }
-    a { color: inherit; text-decoration: none; }
-    p, h1, h2, h3, h4, .hs-l, .stat-l, .seg-card-title, .auto-url { overflow-wrap: anywhere; }
-    ul { list-style: none; }
-    ::-webkit-scrollbar { width: 3px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--ink4); }
-
-    /* ── CURSOR ── */
-    #cur {
-      display: none;
-      position: fixed; top: 0; left: 0; z-index: 9999;
-      width: 8px; height: 8px;
-      background: var(--ink);
-      border-radius: 50%;
-      pointer-events: none;
-      transform: translate(-50%,-50%);
-      transition: width .25s var(--snap), height .25s var(--snap);
-      mix-blend-mode: difference;
-    }
-    #cur.big { width: 48px; height: 48px; }
-
-    /* ── NAV ── */
-    #nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 800;
-      padding: 0 48px; height: 64px;
-      display: flex; align-items: center;
-      transition: background .4s, border-color .4s;
-      border-bottom: 1px solid transparent;
-    }
-    #nav.scrolled {
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(20px);
-      border-color: var(--line);
-    }
-    .nav-w {
-      width: 100%; max-width: 1320px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .nav-brand {
-      font-family: var(--serif); font-weight: 700; font-size: 20px;
-      letter-spacing: -0.01em; color: var(--ink);
-    }
-    .nav-brand span { font-style: italic; color: var(--ink3); }
-    .nav-links { display: flex; align-items: center; gap: 36px; }
-    .nav-links a {
-      font-size: 13px; font-weight: 500; letter-spacing: 0.04em;
-      color: var(--ink3); transition: color .2s;
-    }
-    .nav-links a:hover { color: var(--ink); }
-    .nav-btn {
-      display: inline-flex; align-items: center;
-      padding: 10px 22px;
-      border: 1px solid var(--line);
-      font-size: 12px; font-weight: 500; letter-spacing: 0.06em;
-      color: var(--ink); transition: background .2s, border-color .2s, color .2s;
-    }
-    .nav-btn { border-color: rgba(245,130,32,0.45); }
-    .nav-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
-    .hbg { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-    .hbg span { display: block; width: 22px; height: 1px; background: var(--ink); transition: .25s; }
-    .hbg.open span:nth-child(1) { transform: rotate(45deg) translate(4px,4px); }
-    .hbg.open span:nth-child(2) { opacity: 0; }
-    .hbg.open span:nth-child(3) { transform: rotate(-45deg) translate(4px,-4px); }
-    .mob {
-      display: none; position: fixed; inset: 64px 0 0;
-      background: var(--bg); z-index: 799;
-      flex-direction: column; padding: 40px 48px;
-      border-top: 1px solid var(--line);
-    }
-    .mob.open { display: flex; }
-    .mob a {
-      font-family: var(--serif); font-weight: 700; font-size: 32px;
-      color: var(--ink); padding: 18px 0;
-      border-bottom: 1px solid var(--line);
-      transition: color .2s;
-    }
-    .mob a:hover { color: var(--ink3); }
-
-    /* ── HERO ── */
-    #hero {
-      min-height: 100svh; position: relative;
-      display: flex; flex-direction: column; justify-content: flex-end;
-      padding-top: 64px; padding-bottom: 0; overflow: hidden;
-      background: var(--bg);
-    }
-
-    /* Subtle warm gradient wash */
-    .hero-wash {
-      position: absolute; inset: 0; pointer-events: none;
-      background: radial-gradient(ellipse 70% 60% at 76% 38%, rgba(246,195,67,0.30) 0%, transparent 58%), radial-gradient(ellipse 60% 50% at 18% 24%, rgba(47,111,181,0.18) 0%, transparent 64%);
-    }
-
-    /* Vertical ticker */
-    .hero-ticker {
-      position: absolute; left: 48px; top: 50%; transform: translateY(-50%);
-      writing-mode: vertical-rl;
-      font-size: 10px; font-weight: 500; letter-spacing: 0.3em;
-      text-transform: uppercase; color: var(--ink4);
-      display: flex; align-items: center; gap: 16px;
-      opacity: 0; animation: fadeIn .6s 1.6s forwards;
-    }
-    .hero-ticker::before {
-      content: ''; display: block; width: 1px; height: 48px;
-      background: var(--ink4);
-    }
-
-    .hero-inner {
-      position: relative; z-index: 2;
-      max-width: 1320px; width: 100%; margin: 0 auto;
-      padding: 0 48px 80px;
-    }
-
-    /* Giant ghost number */
-    .hero-num {
-      position: absolute; right: 40px; bottom: 60px;
-      font-family: var(--serif); font-weight: 900;
-      font-size: clamp(140px, 18vw, 240px);
-      line-height: 1; letter-spacing: -0.04em;
-      color: rgba(16,35,63,0.055);
-      pointer-events: none; user-select: none;
-    }
-    .hero-image-card {
-      position: absolute; right: 48px; top: 80px;
-      width: min(36vw, 460px); height: 300px;
-      border: 1px solid rgba(16,35,63,0.12);
-      overflow: hidden; background: #dfeaf5;
-      box-shadow: 0 22px 60px rgba(16,35,63,0.12);
-    }
-    .hero-image-card::after {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(7,23,40,0.45), rgba(7,23,40,0.06));
-    }
-    .hero-image-card img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.92) contrast(1.02); }
-    .hero-image-card span {
-      position: absolute; left: 22px; bottom: 18px; z-index: 2;
-      font-size: 10px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase;
-      color: rgba(255,255,255,.82);
-    }
-
-    .hero-kicker {
-      display: inline-flex; align-items: center; gap: 14px;
-      font-size: 11px; font-weight: 500; letter-spacing: 0.24em;
-      text-transform: uppercase; color: var(--ink3);
-      margin-bottom: 32px;
-      opacity: 0; animation: slideUp .6s .3s var(--snap) forwards;
-    }
-    .hero-kicker::before { content: '—'; color: var(--ink4); }
-
-    h1.hero-h1 {
-      font-family: var(--serif); font-weight: 900;
-      font-size: clamp(58px, 9.5vw, 138px);
-      line-height: .9; letter-spacing: -0.03em;
-      color: var(--ink); max-width: 760px;
-      opacity: 0; animation: slideUp .9s .45s var(--snap) forwards;
-    }
-    h1.hero-h1 em { font-style: normal; color: var(--blue); }
-
-    .hero-bottom {
-      margin-top: 56px;
-      display: flex; align-items: flex-end; justify-content: space-between;
-      gap: 48px; flex-wrap: wrap;
-      opacity: 0; animation: slideUp .7s .75s var(--snap) forwards;
-    }
-    .hero-desc {
-      font-size: 16px; font-weight: 300; line-height: 1.8;
-      color: var(--ink3); max-width: 420px;
-    }
-    .hero-actions { display: flex; gap: 20px; align-items: center; flex-shrink: 0; }
-
-    /* Circle arrow button — MGK signature */
-    .btn-circle {
-      display: inline-flex; align-items: center; gap: 16px;
-      font-size: 13px; font-weight: 500; letter-spacing: 0.04em;
-      color: var(--ink); transition: gap .25s var(--snap);
-    }
-    .btn-circle .circle {
-      width: 52px; height: 52px; border-radius: 50%;
-      border: 1px solid rgba(20,18,16,0.2);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 18px;
-      transition: background .25s, border-color .25s, transform .3s var(--snap), color .25s;
-    }
-    .btn-circle:hover { gap: 22px; }
-    .btn-circle:hover .circle { background: var(--ink); color: var(--bg); border-color: var(--ink); transform: rotate(45deg); }
-    .btn-circle.filled .circle { background: var(--accent); color: #fff; border-color: var(--accent); }
-    .btn-circle.filled:hover .circle { background: transparent; color: var(--ink); transform: rotate(45deg); }
-
-    /* Scroll line */
-    .hero-scroll {
-      position: absolute; bottom: 0; right: 48px;
-      width: 1px; height: 72px;
-      background: linear-gradient(to bottom, transparent, var(--ink4));
-      opacity: 0; animation: fadeIn .6s 1.8s forwards;
-    }
-
-    /* Hero bottom bar — stats */
-    .hero-stats-bar {
-      position: relative; z-index: 2;
-      border-top: 1px solid var(--line);
-      display: grid; grid-template-columns: repeat(3,1fr);
-      opacity: 0; animation: fadeIn .6s 1.2s forwards;
-    }
-    .hs {
-      padding: 48px 56px;
-      border-right: 1px solid var(--line);
-      display: flex; flex-direction: column; justify-content: center; align-items: center;
-      text-align: center;
-    }
-    .hs:first-child { padding-left: 48px; padding-right: 56px; }
-    .hs:nth-child(2) { padding-left: 56px; padding-right: 56px; }
-    .hs:last-child { border-right: none; padding-left: 56px; padding-right: 48px; }
-    .hs-n {
-      font-family: var(--serif); font-weight: 900;
-      font-size: 48px; line-height: 1; letter-spacing: -0.03em;
-      color: var(--ink); margin-bottom: 8px;
-    }
-    .hs-n em { font-style: normal; color: var(--ink3); font-size: 32px; }
-    .hs-l { font-size: 12px; font-weight: 500; letter-spacing: 0.04em; color: var(--ink3); }
-
-    /* ── SECTION COMMONS ── */
-    .sec-tag {
-      display: inline-flex; align-items: center; gap: 12px;
-      font-size: 10px; font-weight: 600; letter-spacing: 0.3em;
-      text-transform: uppercase; color: var(--ink3); margin-bottom: 28px;
-    }
-    .sec-tag::before { content: ''; width: 28px; height: 1px; background: var(--ink4); display: block; }
-
-    /* ── INTRO ── */
-    #introduction {
-      padding: 140px 0 0; background: var(--bg2);
-      border-top: 1px solid var(--line);
-    }
-    .intro-w { max-width: 1320px; margin: 0 auto; padding: 0 48px; }
-
-    .intro-top {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 120px; align-items: center; padding-bottom: 0;
-    }
-
-    .intro-h2 {
-      font-family: var(--serif); font-weight: 900;
-      font-size: clamp(40px, 5vw, 68px);
-      line-height: .95; letter-spacing: -0.03em;
-      color: var(--ink); margin-bottom: 28px;
-    }
-    .intro-h2 em { font-style: normal; color: var(--blue); }
-    .intro-body {
-      font-size: 16px; font-weight: 300; line-height: 1.8;
-      color: var(--ink3); margin-bottom: 44px; max-width: 440px;
-    }
-    .pillars { display: flex; flex-direction: column; }
-    .pillar {
-      display: flex; align-items: flex-start; gap: 32px;
-      padding: 32px 0; border-top: 1px solid var(--line);
-      transition: padding-left .2s var(--snap);
-    }
-    .pillar:last-child { border-bottom: 1px solid var(--line); }
-    .pillar:hover { padding-left: 8px; }
-    .pillar-n {
-      font-family: var(--serif); font-style: italic; font-size: 14px;
-      color: var(--ink4); flex-shrink: 0; padding-top: 4px; min-width: 28px;
-    }
-    .pillar h4 { font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
-    .pillar p { font-size: 14px; color: var(--ink3); line-height: 1.7; }
-
-    /* Intro visual */
-    .intro-visual { position: relative; }
-    .iv-panel {
-      width: 100%; aspect-ratio: 3/4;
-      background: var(--bg3);
-      position: relative; overflow: hidden;
-      border: 1px solid var(--line);
-    }
-    .image-panel img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(.9) contrast(1.04); }
-    .image-panel::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(7,23,40,.34), rgba(7,23,40,.02)); pointer-events: none; }
-    /* Top red-like accent stripe — use ink */
-    .iv-panel::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0;
-      height: 4px; background: linear-gradient(90deg, var(--accent), var(--accent2));
-    }
-    /* Corner mark */
-    .iv-corner {
-      position: absolute; bottom: 20px; right: 20px;
-      width: 22px; height: 22px;
-      border-bottom: 1px solid var(--ink4);
-      border-right: 1px solid var(--ink4);
-    }
-    .iv-svg-wrap {
-      position: absolute; inset: 0;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .iv-svg-wrap svg { width: 65%; height: 65%; }
-    .iv-badge {
-      position: absolute; bottom: 0; right: 0; z-index: 2;
-      background: linear-gradient(135deg, var(--ink), #1f4f83); padding: 20px 28px;
-    }
-    .iv-badge strong {
-      display: block; font-family: var(--serif);
-      font-weight: 900; font-size: 26px;
-      color: var(--bg); letter-spacing: -0.02em; line-height: 1;
-    }
-    .iv-badge span {
-      font-size: 9px; font-weight: 600; letter-spacing: 0.16em;
-      text-transform: uppercase; color: rgba(255,255,255,0.4);
-      margin-top: 2px; display: block;
-    }
-
-    /* Stats strip */
-    .stats-strip {
-      display: grid; grid-template-columns: repeat(3,1fr);
-      border-top: 1px solid var(--line); margin-top: 100px;
-    }
-    .stat {
-      padding: 40px 0; border-right: 1px solid var(--line);
-      padding-left: 0; padding-right: 48px;
-    }
-    .stat:first-child { padding-left: 0; }
-    .stat:last-child { border-right: none; }
-    .stat-n {
-      font-family: var(--serif); font-weight: 900;
-      font-size: 54px; line-height: 1; letter-spacing: -0.03em;
-      color: var(--ink); margin-bottom: 6px;
-    }
-    .stat-n em { font-style: normal; color: var(--ink3); font-size: 34px; }
-    .stat-l { font-size: 12px; font-weight: 500; letter-spacing: 0.04em; color: var(--ink3); }
-
-    /* ── SEGMENTS ── */
-    #segments {
-      padding: 140px 0 0; background: var(--bg);
-      border-top: 1px solid var(--line);
-    }
-    .seg-w { max-width: 1320px; margin: 0 auto; padding: 0 48px; }
-    .seg-header {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 60px; align-items: flex-end; margin-bottom: 72px;
-    }
-    .seg-h2 {
-      font-family: var(--serif); font-weight: 900;
-      font-size: clamp(40px, 5vw, 68px);
-      line-height: .95; letter-spacing: -0.03em; color: var(--ink);
-    }
-    .seg-h2 em { font-style: normal; color: var(--blue); }
-    .seg-lead { font-size: 16px; font-weight: 300; color: var(--ink3); line-height: 1.8; }
-
-    /* Tab switch */
-    .seg-switch {
-      display: flex; border-bottom: 1px solid var(--line);
-      margin-bottom: 64px;
-    }
-    .sw {
-      padding: 14px 32px; background: none; border: none; cursor: pointer;
-      font-family: var(--sans); font-size: 13px; font-weight: 500;
-      letter-spacing: 0.04em; color: var(--ink3);
-      border-bottom: 1.5px solid transparent; margin-bottom: -1px;
-      transition: color .2s, border-color .2s;
-    }
-    .sw.on { color: var(--ink); border-color: var(--accent); background: rgba(245,130,32,0.06); }
-
-    /* Automotive */
-    .auto-pane { display: block; }
-    .auto-pane.hidden { display: none; }
-    .ind-pane { display: none; }
-    .ind-pane.active { display: block; }
-
-    .auto-layout {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 80px; align-items: start; padding-bottom: 120px;
-    }
-    .auto-h3 {
-      font-family: var(--serif); font-weight: 700;
-      font-size: clamp(32px, 4vw, 52px);
-      line-height: .95; letter-spacing: -0.03em;
-      color: var(--ink); margin-bottom: 12px;
-    }
-    .auto-h3 em { font-style: normal; color: var(--blue); }
-    .auto-url {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: 13px; font-weight: 500; color: var(--ink3);
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 3px; margin-bottom: 22px;
-      transition: color .2s, border-color .2s;
-    }
-    .auto-url:hover { color: var(--ink); border-color: rgba(20,18,16,0.25); }
-    .auto-p { font-size: 15px; font-weight: 300; color: var(--ink3); line-height: 1.8; margin-bottom: 28px; }
-    .auto-chips { display: flex; flex-wrap: wrap; gap: 8px; }
-    .auto-chip {
-      padding: 7px 16px; border: 1px solid var(--line);
-      font-size: 12px; font-weight: 500; letter-spacing: 0.04em;
-      color: var(--ink3); transition: border-color .2s, color .2s;
-    }
-    .auto-chip:hover { border-color: rgba(20,18,16,0.25); color: var(--ink); }
-
-    .auto-image-panel {
-      margin-top: 34px;
-      position: relative;
-      height: 260px;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      background: var(--bg3);
-      box-shadow: 0 18px 50px rgba(11,35,65,0.10);
-    }
-    .auto-image-panel img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(.92) contrast(1.04); }
-    .auto-image-panel::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(6,24,43,.42), rgba(6,24,43,.04)); }
-    .auto-image-label {
-      position: absolute; left: 20px; bottom: 18px; z-index: 2;
-      font-size: 10px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase;
-      color: rgba(255,255,255,.86);
-    }
-
-    .auto-feats { display: flex; flex-direction: column; }
-    .auto-feat {
-      padding: 26px 0; border-top: 1px solid var(--line);
-      display: flex; gap: 22px; align-items: flex-start;
-      transition: padding-left .25s var(--snap);
-    }
-    .auto-feat:last-child { border-bottom: 1px solid var(--line); }
-    .auto-feat:hover { padding-left: 8px; }
-    .feat-n {
-      font-family: var(--serif); font-style: italic;
-      font-size: 13px; color: var(--ink4); flex-shrink: 0; padding-top: 2px;
-    }
-    .auto-feat h4 { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
-    .auto-feat p { font-size: 13px; color: var(--ink3); line-height: 1.65; }
-
-    /* Full-bleed cards — industrial */
-    .seg-cards {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 16px; margin: 0;
-    }
-    .seg-card {
-      position: relative; overflow: hidden;
-      aspect-ratio: 16/9; cursor: pointer;
-      border-radius: 4px;
-      border: 1px solid var(--line);
-    }
-    .seg-card:nth-child(1) { background: var(--bg3); }
-    .seg-card:nth-child(2) { background: #eae6df; }
-
-    .seg-card-bg {
-      position: absolute; inset: 0; z-index: 0;
-      transition: transform .6s var(--snap);
-    }
-    .seg-card-bg img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(.9) contrast(1.05); }
-    .seg-card:hover .seg-card-bg { transform: scale(1.04); }
-    .seg-card-icon {
-      font-size: 160px; opacity: .07; display:none;
-      position: absolute; bottom: -20px; right: -10px;
-      pointer-events: none; line-height: 1;
-    }
-
-    /* Soft gradient to ensure text legibility at bottom */
-    .seg-card-overlay {
-      position: absolute; inset: 0; z-index: 1;
-      background: linear-gradient(
-        to top,
-        rgba(7,23,40,0.74) 0%,
-        rgba(16,35,63,0.26) 50%,
-        transparent 80%
-      );
-    }
-    .seg-card-content {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      padding: 32px 36px; z-index: 2;
-    }
-    .seg-card-tag {
-      font-size: 10px; font-weight: 600; letter-spacing: 0.28em;
-      text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 10px;
-    }
-    .seg-card-title {
-      font-family: var(--serif); font-weight: 700;
-      font-size: clamp(22px, 2.5vw, 36px);
-      line-height: 1.05; letter-spacing: -0.02em;
-      color: #fff; margin-bottom: 14px;
-    }
-    .seg-card-desc {
-      font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.65);
-      line-height: 1.65; margin-bottom: 16px; max-width: 340px;
-    }
-    .seg-products { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
-    .seg-ptag {
-      padding: 5px 12px;
-      border: 1px solid rgba(255,255,255,0.6);
-      font-size: 11px; font-weight: 500; letter-spacing: 0.04em;
-      color: rgba(255,255,255,0.75);
-      transition: border-color .2s, color .2s;
-    }
-    .seg-card:hover .seg-ptag { border-color: rgba(255,255,255,0.5); color: #fff; }
-    .seg-arrow {
-      width: 40px; height: 40px; border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.35);
-      display: inline-flex; align-items: center; justify-content: center;
-      font-size: 16px; color: #fff;
-      transition: transform .3s var(--snap), background .25s, border-color .25s;
-    }
-    .seg-card:hover .seg-arrow { background: #fff; color: var(--ink); border-color: #fff; transform: rotate(45deg); }
-
-    /* ── APPROACH ── */
-    #approach {
-      padding: 140px 0; background: var(--bg2);
-      border-top: 1px solid var(--line);
-    }
-    .approach-w { max-width: 1320px; margin: 0 auto; padding: 0 48px; }
-    .approach-header {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 60px; margin-bottom: 80px;
-    }
-    .approach-h2 {
-      font-family: var(--serif); font-weight: 900;
-      font-size: clamp(40px, 5vw, 68px);
-      line-height: .95; letter-spacing: -0.03em; color: var(--ink);
-    }
-    .approach-h2 em { font-style: normal; color: var(--blue); }
-    .approach-lead { font-size: 16px; font-weight: 300; color: var(--ink3); line-height: 1.8; }
-    .approach-rows { display: flex; flex-direction: column; }
-    .approach-row {
-      display: grid; grid-template-columns: 72px 1fr 1fr;
-      gap: 0; padding: 52px 0;
-      border-top: 1px solid var(--line); align-items: start;
-      transition: background .25s;
-    }
-    .approach-row:last-child { border-bottom: 1px solid var(--line); }
-    .approach-row:hover { background: rgba(20,18,16,0.02); }
-    .ar-num {
-      font-family: var(--serif); font-style: italic;
-      font-size: 14px; color: var(--ink4); padding-top: 4px;
-    }
-    .ar-title {
-      font-family: var(--serif); font-weight: 700;
-      font-size: clamp(22px, 2.5vw, 34px);
-      line-height: 1.0; letter-spacing: -0.02em;
-      color: var(--ink); padding-right: 60px;
-    }
-    .ar-body { font-size: 14px; font-weight: 300; color: var(--ink3); line-height: 1.75; }
-
-    /* ── WHY US ── */
-    #why-us {
-      padding: 140px 0; background: var(--bg);
-      border-top: 1px solid var(--line);
-    }
-    .why-w { max-width: 1320px; margin: 0 auto; padding: 0 48px; }
-    .why-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 120px; align-items: start; }
-    .why-h2 {
-      font-family: var(--serif); font-weight: 900;
-      font-size: clamp(40px, 5vw, 68px);
-      line-height: .95; letter-spacing: -0.03em;
-      color: var(--ink); margin-bottom: 56px;
-    }
-    .why-h2 em { font-style: normal; color: var(--blue); }
-    .why-items { display: flex; flex-direction: column; }
-    .why-item {
-      padding: 24px 0; border-top: 1px solid var(--line);
-      display: flex; gap: 20px; align-items: flex-start;
-      transition: padding-left .25s var(--snap);
-    }
-    .why-item:last-child { border-bottom: 1px solid var(--line); }
-    .why-item:hover { padding-left: 8px; }
-
-    .why-item h4 { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
-    .why-item p { font-size: 13px; color: var(--ink3); line-height: 1.65; }
-    .why-right { position: sticky; top: 88px; }
-    .quote-block {
-      background: var(--bg2); border: 1px solid var(--line);
-      padding: 52px 44px; position: relative; overflow: hidden;
-    }
-    .quote-block::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0;
-      height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent2));
-    }
-    .q-mark {
-      font-family: var(--serif); font-weight: 900; font-size: 88px;
-      line-height: .6; color: rgba(20,18,16,0.08);
-      margin-bottom: 24px; display: block;
-    }
-    .q-text {
-      font-family: var(--serif); font-style: italic;
-      font-size: 19px; line-height: 1.7; letter-spacing: -0.01em;
-      color: var(--ink2); margin-bottom: 36px;
-    }
-    .q-attr {
-      font-size: 11px; font-weight: 600; letter-spacing: 0.18em;
-      text-transform: uppercase; color: var(--ink3);
-    }
-
-    /* ── CTA ── */
-    #cta {
-      padding: 160px 0; background: linear-gradient(135deg, var(--deep), #102f55 70%, #5a3608);
-      border-top: 1px solid rgba(255,255,255,0.06);
-      position: relative; overflow: hidden;
-    }
-    /* Subtle grid */
-    #cta::before {
-      content: '';
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-      background-size: 72px 72px;
-    }
-    .cta-ghost {
-      position: absolute; bottom: -80px; right: -20px;
-      font-family: var(--serif); font-weight: 900;
-      font-size: clamp(180px, 22vw, 300px);
-      line-height: 1; letter-spacing: -0.04em;
-      color: rgba(255,255,255,0.03); pointer-events: none; user-select: none;
-    }
-    .cta-w { max-width: 1320px; margin: 0 auto; padding: 0 48px; position: relative; z-index: 1; }
-    .cta-kicker {
-      display: inline-flex; align-items: center; gap: 12px;
-      font-size: 11px; font-weight: 500; letter-spacing: 0.28em;
-      text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 28px;
-    }
-    .cta-kicker::before { content: '—'; }
-    .cta-h2 {
-      font-family: var(--serif); font-weight: 900;
-      font-size: clamp(52px, 8vw, 110px);
-      line-height: .9; letter-spacing: -0.03em;
-      color: #fff; margin-bottom: 28px;
-    }
-    .cta-h2 em { font-style: italic; color: rgba(255,255,255,0.45); }
-    .cta-lead {
-      font-size: 18px; font-weight: 300; line-height: 1.75;
-      color: rgba(255,255,255,0.45); max-width: 520px; margin-bottom: 56px;
-    }
-    .cta-btns { display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
-    .btn-light-circle {
-      display: inline-flex; align-items: center; gap: 18px;
-      font-size: 13px; font-weight: 600; letter-spacing: 0.04em;
-      color: #fff; transition: gap .25s var(--snap);
-    }
-    .btn-light-circle .circle {
-      width: 56px; height: 56px; border-radius: 50%;
-      background: #fff; color: var(--ink);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 20px;
-      transition: transform .3s var(--snap), background .25s, color .25s;
-    }
-    .btn-light-circle:hover { gap: 24px; }
-    .btn-light-circle:hover .circle { transform: rotate(45deg); background: rgba(255,255,255,0.85); }
-    .cta-link {
-      font-size: 13px; font-weight: 500;
-      color: rgba(255,255,255,0.4);
-      border-bottom: 1px solid rgba(255,255,255,0.45);
-      padding-bottom: 2px; transition: color .2s, border-color .2s;
-    }
-    .cta-link:hover { color: rgba(255,255,255,0.8); border-color: rgba(255,255,255,0.4); }
-
-    /* ── FOOTER ── */
-    footer { background: #07111d; padding: 64px 0 36px; border-top: 1px solid rgba(255,255,255,0.05); }
-    .footer-w { max-width: 1320px; margin: 0 auto; padding: 0 48px; }
-    .footer-top {
-      display: grid; grid-template-columns: 2fr 1fr 1fr;
-      gap: 60px; padding-bottom: 52px;
-      border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 32px;
-    }
-    .f-brand {
-      font-family: var(--serif); font-weight: 700; font-size: 22px;
-      color: rgba(255,255,255,0.7); margin-bottom: 14px;
-    }
-    .f-brand em { font-style: italic; color: rgba(255,255,255,0.3); }
-    .f-desc { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.75; max-width: 280px; }
-    .f-col h5 {
-      font-size: 10px; font-weight: 600; letter-spacing: 0.28em;
-      text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 20px;
-    }
-    .f-col li { margin-bottom: 12px; }
-    .f-col a { font-size: 13px; color: rgba(255,255,255,0.6); transition: color .2s; }
-    .f-col a:hover { color: rgba(255,255,255,0.7); }
-    .footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-    .footer-bottom p { font-size: 12px; color: rgba(255,255,255,0.45); }
-
-    /* ── REVEAL ── */
-    .rv {
-      opacity: 0; transform: translateY(28px);
-      transition: opacity .9s var(--snap), transform .9s var(--snap);
-    }
-    .rv.in { opacity: 1; transform: none; }
-    .rv.d1 { transition-delay: .1s; }
-    .rv.d2 { transition-delay: .2s; }
-    .rv.d3 { transition-delay: .3s; }
-    .rv.d4 { transition-delay: .4s; }
-
-    /* ── KEYFRAMES ── */
-    @keyframes slideUp { to { opacity: 1; transform: translateY(0); } }
-    @keyframes fadeIn  { to { opacity: 1; } }
-    @keyframes spinSlow { to { transform: rotate(360deg); } }
-    @keyframes dashDraw { to { stroke-dashoffset: 0; } }
-    @keyframes floatPulse {
-      0%,100% { opacity: .7; transform: scale(1); }
-      50% { opacity: 1; transform: scale(1.08); }
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (hover: hover) and (pointer: fine) {
-      body { cursor: none; }
-      #cur { display: block; }
-    }
-    @media (max-width: 1180px) {
-      .hero-image-card { opacity: .42; }
-      h1.hero-h1 { max-width: 680px; }
-      .hero-bottom { max-width: 680px; }
-    }
-    @media (max-width: 768px) {
-      .intro-top, .seg-header, .approach-header, .why-layout { grid-template-columns: 1fr; gap: 60px; }
-      .auto-layout, .seg-cards { grid-template-columns: 1fr; }
-      .seg-card { aspect-ratio: 4/3; }
-      .approach-row { grid-template-columns: 60px 1fr; }
-      .ar-body { grid-column: 2; }
-      .footer-top { grid-template-columns: 1fr 1fr; }
-      .footer-top > :first-child { grid-column: span 2; }
-      .why-right { position: static; }
-      .nav-links { display: none; }
-      .hbg { display: flex; }
-      .hero-ticker { display: none; }
-      .hero-image-card { position: relative; right: auto; top: auto; width: 100%; height: 260px; margin: 32px 0 0; }
-      .stats-strip, .hero-stats-bar { grid-template-columns: 1fr 1fr; }
-      .hero-stats-bar .hs:nth-child(3) { border-top: 1px solid var(--line); grid-column: span 2; border-right: none; }
-      .stats-strip .stat:nth-child(3) { border-right: none; grid-column: span 2; border-top: 1px solid var(--line); }
-    }
-    @media (max-width: 640px) {
-      #nav, .intro-w, .seg-w, .approach-w, .why-w, .cta-w, .footer-w { padding-left: 22px; padding-right: 22px; }
-      .hero-inner { padding: 0 22px 64px; }
-      h1.hero-h1 { font-size: clamp(48px, 13vw, 80px); }
-      .hero-num { font-size: clamp(100px, 28vw, 160px); right: 16px; }
-      .hs, .stat { padding: 24px 0; }
-      .hero-stats-bar .hs, .stats-strip .stat { padding-left: 18px; padding-right: 18px; }
-      .seg-cards { margin: 0; }
-      .hero-stats-bar { grid-template-columns: 1fr; }
-      .hero-stats-bar .hs { border-right: none; border-top: 1px solid var(--line); grid-column: auto; }
-      .stats-strip { grid-template-columns: 1fr; }
-      .stats-strip .stat { border-right: none; border-top: 1px solid var(--line); grid-column: auto; }
-      .footer-top { grid-template-columns: 1fr; }
-      .footer-top > :first-child { grid-column: span 1; }
-      .approach-row { grid-template-columns: 1fr; }
-      .ar-num { display: none; }
-      .ar-body { grid-column: auto; }
-    }
-  
-/* Cursor color change in footer */
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>AUMNYX Trade — Global Trade & Supply Solutions</title><meta name="description" content="AUMNYX Trade supports automotive aftermarket and industrial supply needs through focused sourcing, dependable product categories, and practical trade partnerships."/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600;700;800&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet"/><script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=OzHv0Z8lD4hmMhoYPOXp3PnVquXI2FNvdcJRVejWScwHtL2CLIeQpVzc_k1fZMVvQd0e3Os7Vllxw-bhU0tcqUSa9jE_a59UBh6aUBPHTVcB6bxCQslwmJpX2FjjNdTpIaoYzeGwKERJnpFAQ5GmbArpDlnaPwC84EdxvSIyu_vE-5Dhn91ka9vW-m0DjmdXQLgp4tY7RDK5x7dy6TUdwmJ995QW7wanvnEG0b_9KtILVGdkpGOqVQY9QWcoBqKycfNoUqU4XszvNst1b6dqrQ" charset="UTF-8"></script><style>
+:root {
+--bg:      #f7fbff;
+--bg2:     #edf5fb;
+--bg3:     #dbe8f2;
+--ink:     #0b2341;
+--ink2:    #1f3f64;
+--ink3:    #58708a;
+--ink4:    #9cafc1;
+--line:    rgba(11,35,65,0.13);
+--line2:   rgba(11,35,65,0.06);
+--accent:  #f58220;
+--accent2: #f7c948;
+--blue:    #1f5f99;
+--steel:   #58708c;
+--deep:    #06182b;
+--serif: 'Roboto Slab', Georgia, serif;
+--sans:  'Manrope', sans-serif;
+--snap:  cubic-bezier(0.16, 1, 0.3, 1);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+background: linear-gradient(135deg, #f8fbff 0%, #eef5fb 48%, #fff7e6 100%);
+color: var(--ink);
+font-family: var(--sans);
+font-weight: 300;
+line-height: 1.6;
+overflow-x: hidden;
+-webkit-font-smoothing: antialiased;
+cursor: auto;
+}
+a { color: inherit; text-decoration: none; }
+p, h1, h2, h3, h4, .hs-l, .stat-l, .seg-card-title, .auto-url { overflow-wrap: anywhere; }
+ul { list-style: none; }
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--ink4); }
+#cur {
+display: none;
+position: fixed; top: 0; left: 0; z-index: 9999;
+width: 8px; height: 8px;
+background: var(--ink);
+border-radius: 50%;
+pointer-events: none;
+transform: translate(-50%,-50%);
+transition: width .25s var(--snap), height .25s var(--snap);
+mix-blend-mode: difference;
+}
+#cur.big { width: 48px; height: 48px; }
+#nav {
+position: fixed; top: 0; left: 0; right: 0; z-index: 800;
+padding: 0 48px; height: 64px;
+display: flex; align-items: center;
+transition: background .4s, border-color .4s;
+border-bottom: 1px solid transparent;
+}
+#nav.scrolled {
+background: rgba(255,255,255,0.92);
+backdrop-filter: blur(20px);
+border-color: var(--line);
+}
+.nav-w {
+width: 100%; max-width: 1320px; margin: 0 auto;
+display: flex; align-items: center; justify-content: space-between;
+}
+.nav-brand {
+font-family: var(--serif); font-weight: 700; font-size: 20px;
+letter-spacing: -0.01em; color: var(--ink);
+}
+.nav-brand span { font-style: italic; color: var(--ink3); }
+.nav-links { display: flex; align-items: center; gap: 36px; }
+.nav-links a {
+font-size: 13px; font-weight: 500; letter-spacing: 0.04em;
+color: var(--ink3); transition: color .2s;
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-btn {
+display: inline-flex; align-items: center;
+padding: 10px 22px;
+border: 1px solid var(--line);
+font-size: 12px; font-weight: 500; letter-spacing: 0.06em;
+color: var(--ink); transition: background .2s, border-color .2s, color .2s;
+}
+.nav-btn { border-color: rgba(245,130,32,0.45); }
+.nav-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+.hbg { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+.hbg span { display: block; width: 22px; height: 1px; background: var(--ink); transition: .25s; }
+.hbg.open span:nth-child(1) { transform: rotate(45deg) translate(4px,4px); }
+.hbg.open span:nth-child(2) { opacity: 0; }
+.hbg.open span:nth-child(3) { transform: rotate(-45deg) translate(4px,-4px); }
+.mob {
+display: none; position: fixed; inset: 64px 0 0;
+background: var(--bg); z-index: 799;
+flex-direction: column; padding: 40px 48px;
+border-top: 1px solid var(--line);
+}
+.mob.open { display: flex; }
+.mob a {
+font-family: var(--serif); font-weight: 700; font-size: 32px;
+color: var(--ink); padding: 18px 0;
+border-bottom: 1px solid var(--line);
+transition: color .2s;
+}
+.mob a:hover { color: var(--ink3); }
+#hero {
+min-height: 100svh; position: relative;
+display: flex; flex-direction: column; justify-content: flex-end;
+padding-top: 64px; padding-bottom: 0; overflow: hidden;
+background: var(--bg);
+}
+.hero-wash {
+position: absolute; inset: 0; pointer-events: none;
+background: radial-gradient(ellipse 70% 60% at 76% 38%, rgba(246,195,67,0.30) 0%, transparent 58%), radial-gradient(ellipse 60% 50% at 18% 24%, rgba(47,111,181,0.18) 0%, transparent 64%);
+}
+.hero-ticker {
+position: absolute; left: 48px; top: 50%; transform: translateY(-50%);
+writing-mode: vertical-rl;
+font-size: 10px; font-weight: 500; letter-spacing: 0.3em;
+text-transform: uppercase; color: var(--ink4);
+display: flex; align-items: center; gap: 16px;
+opacity: 0; animation: fadeIn .6s 1.6s forwards;
+}
+.hero-ticker::before {
+content: ''; display: block; width: 1px; height: 48px;
+background: var(--ink4);
+}
+.hero-inner {
+position: relative; z-index: 2;
+max-width: 1320px; width: 100%; margin: 0 auto;
+padding: 0 48px 80px;
+}
+.hero-num {
+position: absolute; right: 40px; bottom: 60px;
+font-family: var(--serif); font-weight: 900;
+font-size: clamp(140px, 18vw, 240px);
+line-height: 1; letter-spacing: -0.04em;
+color: rgba(16,35,63,0.055);
+pointer-events: none; user-select: none;
+}
+.hero-image-card {
+position: absolute; right: 48px; top: 80px;
+width: min(36vw, 460px); height: 300px;
+border: 1px solid rgba(16,35,63,0.12);
+overflow: hidden; background: #dfeaf5;
+box-shadow: 0 22px 60px rgba(16,35,63,0.12);
+}
+.hero-image-card::after {
+content: ''; position: absolute; inset: 0;
+background: linear-gradient(to top, rgba(7,23,40,0.45), rgba(7,23,40,0.06));
+}
+.hero-image-card img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.92) contrast(1.02); }
+.hero-image-card span {
+position: absolute; left: 22px; bottom: 18px; z-index: 2;
+font-size: 10px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase;
+color: rgba(255,255,255,.82);
+}
+.hero-kicker {
+display: inline-flex; align-items: center; gap: 14px;
+font-size: 11px; font-weight: 500; letter-spacing: 0.24em;
+text-transform: uppercase; color: var(--ink3);
+margin-bottom: 32px;
+opacity: 0; animation: slideUp .6s .3s var(--snap) forwards;
+}
+.hero-kicker::before { content: '—'; color: var(--ink4); }
+h1.hero-h1 {
+font-family: var(--serif); font-weight: 900;
+font-size: clamp(58px, 9.5vw, 138px);
+line-height: .9; letter-spacing: -0.03em;
+color: var(--ink); max-width: 760px;
+opacity: 0; animation: slideUp .9s .45s var(--snap) forwards;
+}
+h1.hero-h1 em { font-style: normal; color: var(--blue); }
+.hero-bottom {
+margin-top: 56px;
+display: flex; align-items: flex-end; justify-content: space-between;
+gap: 48px; flex-wrap: wrap;
+opacity: 0; animation: slideUp .7s .75s var(--snap) forwards;
+}
+.hero-desc {
+font-size: 16px; font-weight: 300; line-height: 1.8;
+color: var(--ink3); max-width: 420px;
+}
+.hero-actions { display: flex; gap: 20px; align-items: center; flex-shrink: 0; }
+.btn-circle {
+display: inline-flex; align-items: center; gap: 16px;
+font-size: 13px; font-weight: 500; letter-spacing: 0.04em;
+color: var(--ink); transition: gap .25s var(--snap);
+}
+.btn-circle .circle {
+width: 52px; height: 52px; border-radius: 50%;
+border: 1px solid rgba(20,18,16,0.2);
+display: flex; align-items: center; justify-content: center;
+font-size: 18px;
+transition: background .25s, border-color .25s, transform .3s var(--snap), color .25s;
+}
+.btn-circle:hover { gap: 22px; }
+.btn-circle:hover .circle { background: var(--ink); color: var(--bg); border-color: var(--ink); transform: rotate(45deg); }
+.btn-circle.filled .circle { background: var(--accent); color: #fff; border-color: var(--accent); }
+.btn-circle.filled:hover .circle { background: transparent; color: var(--ink); transform: rotate(45deg); }
+.hero-scroll {
+position: absolute; bottom: 0; right: 48px;
+width: 1px; height: 72px;
+background: linear-gradient(to bottom, transparent, var(--ink4));
+opacity: 0; animation: fadeIn .6s 1.8s forwards;
+}
+.hero-stats-bar {
+position: relative; z-index: 2;
+border-top: 1px solid var(--line);
+display: grid; grid-template-columns: repeat(3,1fr);
+opacity: 0; animation: fadeIn .6s 1.2s forwards;
+}
+.hs {
+padding: 48px 56px;
+border-right: 1px solid var(--line);
+display: flex; flex-direction: column; justify-content: center; align-items: center;
+text-align: center;
+}
+.hs:first-child { padding-left: 48px; padding-right: 56px; }
+.hs:nth-child(2) { padding-left: 56px; padding-right: 56px; }
+.hs:last-child { border-right: none; padding-left: 56px; padding-right: 48px; }
+.hs-n {
+font-family: var(--serif); font-weight: 900;
+font-size: 48px; line-height: 1; letter-spacing: -0.03em;
+color: var(--ink); margin-bottom: 8px;
+}
+.hs-n em { font-style: normal; color: var(--ink3); font-size: 32px; }
+.hs-l { font-size: 12px; font-weight: 500; letter-spacing: 0.04em; color: var(--ink3); }
+.sec-tag {
+display: inline-flex; align-items: center; gap: 12px;
+font-size: 10px; font-weight: 600; letter-spacing: 0.3em;
+text-transform: uppercase; color: var(--ink3); margin-bottom: 28px;
+}
+.sec-tag::before { content: ''; width: 28px; height: 1px; background: var(--ink4); display: block; }
+#introduction {
+padding: 140px 0 0; background: var(--bg2);
+border-top: 1px solid var(--line);
+}
+.intro-w { max-width: 1320px; margin: 0 auto; padding: 0 48px; }
+.intro-top {
+display: grid; grid-template-columns: 1fr 1fr;
+gap: 120px; align-items: center; padding-bottom: 0;
+}
+.intro-h2 {
+font-family: var(--serif); font-weight: 900;
+font-size: clamp(40px, 5vw, 68px);
+line-height: .95; letter-spacing: -0.03em;
+color: var(--ink); margin-bottom: 28px;
+}
+.intro-h2 em { font-style: normal; color: var(--blue); }
+.intro-body {
+font-size: 16px; font-weight: 300; line-height: 1.8;
+color: var(--ink3); margin-bottom: 44px; max-width: 440px;
+}
+.pillars { display: flex; flex-direction: column; }
+.pillar {
+display: flex; align-items: flex-start; gap: 32px;
+padding: 32px 0; border-top: 1px solid var(--line);
+transition: padding-left .2s var(--snap);
+}
+.pillar:last-child { border-bottom: 1px solid var(--line); }
+.pillar:hover { padding-left: 8px; }
+.pillar-n {
+font-family: var(--serif); font-style: italic; font-size: 14px;
+color: var(--ink4); flex-shrink: 0; padding-top: 4px; min-width: 28px;
+}
+.pillar h4 { font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.pillar p { font-size: 14px; color: var(--ink3); line-height: 1.7; }
+.intro-visual { position: relative; }
+.iv-panel {
+width: 100%; aspect-ratio: 3/4;
+background: var(--bg3);
+position: relative; overflow: hidden;
+border: 1px solid var(--line);
+}
+.image-panel img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(.9) contrast(1.04); }
+.image-panel::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(7,23,40,.34), rgba(7,23,40,.02)); pointer-events: none; }
+.iv-panel::before {
+content: '';
+position: absolute; top: 0; left: 0; right: 0;
+height: 4px; background: linear-gradient(90deg, var(--accent), var(--accent2));
+}
+.iv-corner {
+position: absolute; bottom: 20px; right: 20px;
+width: 22px; height: 22px;
+border-bottom: 1px solid var(--ink4);
+border-right: 1px solid var(--ink4);
+}
+.iv-svg-wrap {
+position: absolute; inset: 0;
+display: flex; align-items: center; justify-content: center;
+}
+.iv-svg-wrap svg { width: 65%; height: 65%; }
+.iv-badge {
+position: absolute; bottom: 0; right: 0; z-index: 2;
+background: linear-gradient(135deg, var(--ink), #1f4f83); padding: 20px 28px;
+}
+.iv-badge strong {
+display: block; font-family: var(--serif);
+font-weight: 900; font-size: 26px;
+color: var(--bg); letter-spacing: -0.02em; line-height: 1;
+}
+.iv-badge span {
+font-size: 9px; font-weight: 600; letter-spacing: 0.16em;
+text-transform: uppercase; color: rgba(255,255,255,0.4);
+margin-top: 2px; display: block;
+}
+.stats-strip {
+display: grid; grid-template-columns: repeat(3,1fr);
+border-top: 1px solid var(--line); margin-top: 100px;
+}
+.stat {
+padding: 40px 0; border-right: 1px solid var(--line);
+padding-left: 0; padding-right: 48px;
+}
+.stat:first-child { padding-left: 0; }
+.stat:last-child { border-right: none; }
+.stat-n {
+font-family: var(--serif); font-weight: 900;
+font-size: 54px; line-height: 1; letter-spacing: -0.03em;
+color: var(--ink); margin-bottom: 6px;
+}
+.stat-n em { font-style: normal; color: var(--ink3); font-size: 34px; }
+.stat-l { font-size: 12px; font-weight: 500; letter-spacing: 0.04em; color: var(--ink3); }
+#segments {
+padding: 140px 0 0; background: var(--bg);
+border-top: 1px solid var(--line);
+}
+.seg-w { max-width: 1320px; margin: 0 auto; padding: 0 48px; }
+.seg-header {
+display: grid; grid-template-columns: 1fr 1fr;
+gap: 60px; align-items: flex-end; margin-bottom: 72px;
+}
+.seg-h2 {
+font-family: var(--serif); font-weight: 900;
+font-size: clamp(40px, 5vw, 68px);
+line-height: .95; letter-spacing: -0.03em; color: var(--ink);
+}
+.seg-h2 em { font-style: normal; color: var(--blue); }
+.seg-lead { font-size: 16px; font-weight: 300; color: var(--ink3); line-height: 1.8; }
+.seg-switch {
+display: flex; border-bottom: 1px solid var(--line);
+margin-bottom: 64px;
+}
+.sw {
+padding: 14px 32px; background: none; border: none; cursor: pointer;
+font-family: var(--sans); font-size: 13px; font-weight: 500;
+letter-spacing: 0.04em; color: var(--ink3);
+border-bottom: 1.5px solid transparent; margin-bottom: -1px;
+transition: color .2s, border-color .2s;
+}
+.sw.on { color: var(--ink); border-color: var(--accent); background: rgba(245,130,32,0.06); }
+.auto-pane { display: block; }
+.auto-pane.hidden { display: none; }
+.ind-pane { display: none; }
+.ind-pane.active { display: block; }
+.auto-layout {
+display: grid; grid-template-columns: 1fr 1fr;
+gap: 80px; align-items: start; padding-bottom: 120px;
+}
+.auto-h3 {
+font-family: var(--serif); font-weight: 700;
+font-size: clamp(32px, 4vw, 52px);
+line-height: .95; letter-spacing: -0.03em;
+color: var(--ink); margin-bottom: 12px;
+}
+.auto-h3 em { font-style: normal; color: var(--blue); }
+.auto-url {
+display: inline-flex; align-items: center; gap: 6px;
+font-size: 13px; font-weight: 500; color: var(--ink3);
+border-bottom: 1px solid var(--line);
+padding-bottom: 3px; margin-bottom: 22px;
+transition: color .2s, border-color .2s;
+}
+.auto-url:hover { color: var(--ink); border-color: rgba(20,18,16,0.25); }
+.auto-p { font-size: 15px; font-weight: 300; color: var(--ink3); line-height: 1.8; margin-bottom: 28px; }
+.auto-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.auto-chip {
+padding: 7px 16px; border: 1px solid var(--line);
+font-size: 12px; font-weight: 500; letter-spacing: 0.04em;
+color: var(--ink3); transition: border-color .2s, color .2s;
+}
+.auto-chip:hover { border-color: rgba(20,18,16,0.25); color: var(--ink); }
+.auto-image-panel {
+margin-top: 34px;
+position: relative;
+height: 260px;
+overflow: hidden;
+border: 1px solid var(--line);
+background: var(--bg3);
+box-shadow: 0 18px 50px rgba(11,35,65,0.10);
+}
+.auto-image-panel img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(.92) contrast(1.04); }
+.auto-image-panel::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(6,24,43,.42), rgba(6,24,43,.04)); }
+.auto-image-label {
+position: absolute; left: 20px; bottom: 18px; z-index: 2;
+font-size: 10px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase;
+color: rgba(255,255,255,.86);
+}
+.auto-feats { display: flex; flex-direction: column; }
+.auto-feat {
+padding: 26px 0; border-top: 1px solid var(--line);
+display: flex; gap: 22px; align-items: flex-start;
+transition: padding-left .25s var(--snap);
+}
+.auto-feat:last-child { border-bottom: 1px solid var(--line); }
+.auto-feat:hover { padding-left: 8px; }
+.feat-n {
+font-family: var(--serif); font-style: italic;
+font-size: 13px; color: var(--ink4); flex-shrink: 0; padding-top: 2px;
+}
+.auto-feat h4 { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+.auto-feat p { font-size: 13px; color: var(--ink3); line-height: 1.65; }
+.seg-cards {
+display: grid; grid-template-columns: 1fr 1fr;
+gap: 16px; margin: 0;
+}
+.seg-card {
+position: relative; overflow: hidden;
+aspect-ratio: 16/9; cursor: pointer;
+border-radius: 4px;
+border: 1px solid var(--line);
+}
+.seg-card:nth-child(1) { background: var(--bg3); }
+.seg-card:nth-child(2) { background: #eae6df; }
+.seg-card-bg {
+position: absolute; inset: 0; z-index: 0;
+transition: transform .6s var(--snap);
+}
+.seg-card-bg img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(.9) contrast(1.05); }
+.seg-card:hover .seg-card-bg { transform: scale(1.04); }
+.seg-card-icon {
+font-size: 160px; opacity: .07; display:none;
+position: absolute; bottom: -20px; right: -10px;
+pointer-events: none; line-height: 1;
+}
+.seg-card-overlay {
+position: absolute; inset: 0; z-index: 1;
+background: linear-gradient(
+to top,
+rgba(7,23,40,0.74) 0%,
+rgba(16,35,63,0.26) 50%,
+transparent 80%
+);
+}
+.seg-card-content {
+position: absolute; bottom: 0; left: 0; right: 0;
+padding: 32px 36px; z-index: 2;
+}
+.seg-card-tag {
+font-size: 10px; font-weight: 600; letter-spacing: 0.28em;
+text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 10px;
+}
+.seg-card-title {
+font-family: var(--serif); font-weight: 700;
+font-size: clamp(22px, 2.5vw, 36px);
+line-height: 1.05; letter-spacing: -0.02em;
+color: #fff; margin-bottom: 14px;
+}
+.seg-card-desc {
+font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.65);
+line-height: 1.65; margin-bottom: 16px; max-width: 340px;
+}
+.seg-products { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.seg-ptag {
+padding: 5px 12px;
+border: 1px solid rgba(255,255,255,0.6);
+font-size: 11px; font-weight: 500; letter-spacing: 0.04em;
+color: rgba(255,255,255,0.75);
+transition: border-color .2s, color .2s;
+}
+.seg-card:hover .seg-ptag { border-color: rgba(255,255,255,0.5); color: #fff; }
+.seg-arrow {
+width: 40px; height: 40px; border-radius: 50%;
+border: 1px solid rgba(255,255,255,0.35);
+display: inline-flex; align-items: center; justify-content: center;
+font-size: 16px; color: #fff;
+transition: transform .3s var(--snap), background .25s, border-color .25s;
+}
+.seg-card:hover .seg-arrow { background: #fff; color: var(--ink); border-color: #fff; transform: rotate(45deg); }
+#approach {
+padding: 140px 0; background: var(--bg2);
+border-top: 1px solid var(--line);
+}
+.approach-w { max-width: 1320px; margin: 0 auto; padding: 0 48px; }
+.approach-header {
+display: grid; grid-template-columns: 1fr 1fr;
+gap: 60px; margin-bottom: 80px;
+}
+.approach-h2 {
+font-family: var(--serif); font-weight: 900;
+font-size: clamp(40px, 5vw, 68px);
+line-height: .95; letter-spacing: -0.03em; color: var(--ink);
+}
+.approach-h2 em { font-style: normal; color: var(--blue); }
+.approach-lead { font-size: 16px; font-weight: 300; color: var(--ink3); line-height: 1.8; }
+.approach-rows { display: flex; flex-direction: column; }
+.approach-row {
+display: grid; grid-template-columns: 72px 1fr 1fr;
+gap: 0; padding: 52px 0;
+border-top: 1px solid var(--line); align-items: start;
+transition: background .25s;
+}
+.approach-row:last-child { border-bottom: 1px solid var(--line); }
+.approach-row:hover { background: rgba(20,18,16,0.02); }
+.ar-num {
+font-family: var(--serif); font-style: italic;
+font-size: 14px; color: var(--ink4); padding-top: 4px;
+}
+.ar-title {
+font-family: var(--serif); font-weight: 700;
+font-size: clamp(22px, 2.5vw, 34px);
+line-height: 1.0; letter-spacing: -0.02em;
+color: var(--ink); padding-right: 60px;
+}
+.ar-body { font-size: 14px; font-weight: 300; color: var(--ink3); line-height: 1.75; }
+#why-us {
+padding: 140px 0; background: var(--bg);
+border-top: 1px solid var(--line);
+}
+.why-w { max-width: 1320px; margin: 0 auto; padding: 0 48px; }
+.why-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 120px; align-items: start; }
+.why-h2 {
+font-family: var(--serif); font-weight: 900;
+font-size: clamp(40px, 5vw, 68px);
+line-height: .95; letter-spacing: -0.03em;
+color: var(--ink); margin-bottom: 56px;
+}
+.why-h2 em { font-style: normal; color: var(--blue); }
+.why-items { display: flex; flex-direction: column; }
+.why-item {
+padding: 24px 0; border-top: 1px solid var(--line);
+display: flex; gap: 20px; align-items: flex-start;
+transition: padding-left .25s var(--snap);
+}
+.why-item:last-child { border-bottom: 1px solid var(--line); }
+.why-item:hover { padding-left: 8px; }
+.why-item h4 { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+.why-item p { font-size: 13px; color: var(--ink3); line-height: 1.65; }
+.why-right { position: sticky; top: 88px; }
+.quote-block {
+background: var(--bg2); border: 1px solid var(--line);
+padding: 52px 44px; position: relative; overflow: hidden;
+}
+.quote-block::before {
+content: ''; position: absolute; top: 0; left: 0; right: 0;
+height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent2));
+}
+.q-mark {
+font-family: var(--serif); font-weight: 900; font-size: 88px;
+line-height: .6; color: rgba(20,18,16,0.08);
+margin-bottom: 24px; display: block;
+}
+.q-text {
+font-family: var(--serif); font-style: italic;
+font-size: 19px; line-height: 1.7; letter-spacing: -0.01em;
+color: var(--ink2); margin-bottom: 36px;
+}
+.q-attr {
+font-size: 11px; font-weight: 600; letter-spacing: 0.18em;
+text-transform: uppercase; color: var(--ink3);
+}
+#cta {
+padding: 160px 0; background: linear-gradient(135deg, var(--deep), #102f55 70%, #5a3608);
+border-top: 1px solid rgba(255,255,255,0.06);
+position: relative; overflow: hidden;
+}
+#cta::before {
+content: '';
+position: absolute; inset: 0;
+background-image:
+linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+background-size: 72px 72px;
+}
+.cta-ghost {
+position: absolute; bottom: -80px; right: -20px;
+font-family: var(--serif); font-weight: 900;
+font-size: clamp(180px, 22vw, 300px);
+line-height: 1; letter-spacing: -0.04em;
+color: rgba(255,255,255,0.03); pointer-events: none; user-select: none;
+}
+.cta-w { max-width: 1320px; margin: 0 auto; padding: 0 48px; position: relative; z-index: 1; }
+.cta-kicker {
+display: inline-flex; align-items: center; gap: 12px;
+font-size: 11px; font-weight: 500; letter-spacing: 0.28em;
+text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 28px;
+}
+.cta-kicker::before { content: '—'; }
+.cta-h2 {
+font-family: var(--serif); font-weight: 900;
+font-size: clamp(52px, 8vw, 110px);
+line-height: .9; letter-spacing: -0.03em;
+color: #fff; margin-bottom: 28px;
+}
+.cta-h2 em { font-style: italic; color: rgba(255,255,255,0.45); }
+.cta-lead {
+font-size: 18px; font-weight: 300; line-height: 1.75;
+color: rgba(255,255,255,0.45); max-width: 520px; margin-bottom: 56px;
+}
+.cta-btns { display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+.btn-light-circle {
+display: inline-flex; align-items: center; gap: 18px;
+font-size: 13px; font-weight: 600; letter-spacing: 0.04em;
+color: #fff; transition: gap .25s var(--snap);
+}
+.btn-light-circle .circle {
+width: 56px; height: 56px; border-radius: 50%;
+background: #fff; color: var(--ink);
+display: flex; align-items: center; justify-content: center;
+font-size: 20px;
+transition: transform .3s var(--snap), background .25s, color .25s;
+}
+.btn-light-circle:hover { gap: 24px; }
+.btn-light-circle:hover .circle { transform: rotate(45deg); background: rgba(255,255,255,0.85); }
+.cta-link {
+font-size: 13px; font-weight: 500;
+color: rgba(255,255,255,0.4);
+border-bottom: 1px solid rgba(255,255,255,0.45);
+padding-bottom: 2px; transition: color .2s, border-color .2s;
+}
+.cta-link:hover { color: rgba(255,255,255,0.8); border-color: rgba(255,255,255,0.4); }
+footer { background: #07111d; padding: 64px 0 36px; border-top: 1px solid rgba(255,255,255,0.05); }
+.footer-w { max-width: 1320px; margin: 0 auto; padding: 0 48px; }
+.footer-top {
+display: grid; grid-template-columns: 2fr 1fr 1fr;
+gap: 60px; padding-bottom: 52px;
+border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 32px;
+}
+.f-brand {
+font-family: var(--serif); font-weight: 700; font-size: 22px;
+color: rgba(255,255,255,0.7); margin-bottom: 14px;
+}
+.f-brand em { font-style: italic; color: rgba(255,255,255,0.3); }
+.f-desc { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.75; max-width: 280px; }
+.f-col h5 {
+font-size: 10px; font-weight: 600; letter-spacing: 0.28em;
+text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 20px;
+}
+.f-col li { margin-bottom: 12px; }
+.f-col a { font-size: 13px; color: rgba(255,255,255,0.6); transition: color .2s; }
+.f-col a:hover { color: rgba(255,255,255,0.7); }
+.footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.footer-bottom p { font-size: 12px; color: rgba(255,255,255,0.45); }
+.rv {
+opacity: 0; transform: translateY(28px);
+transition: opacity .9s var(--snap), transform .9s var(--snap);
+}
+.rv.in { opacity: 1; transform: none; }
+.rv.d1 { transition-delay: .1s; }
+.rv.d2 { transition-delay: .2s; }
+.rv.d3 { transition-delay: .3s; }
+.rv.d4 { transition-delay: .4s; }
+@keyframes slideUp { to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn  { to { opacity: 1; } }
+@keyframes spinSlow { to { transform: rotate(360deg); } }
+@keyframes dashDraw { to { stroke-dashoffset: 0; } }
+@keyframes floatPulse {
+0%,100% { opacity: .7; transform: scale(1); }
+50% { opacity: 1; transform: scale(1.08); }
+}
+@media (hover: hover) and (pointer: fine) {
+body { cursor: none; }
+#cur { display: block; }
+}
+@media (max-width: 1180px) {
+.hero-image-card { opacity: .42; }
+h1.hero-h1 { max-width: 680px; }
+.hero-bottom { max-width: 680px; }
+}
+@media (max-width: 768px) {
+.intro-top, .seg-header, .approach-header, .why-layout { grid-template-columns: 1fr; gap: 60px; }
+.auto-layout, .seg-cards { grid-template-columns: 1fr; }
+.seg-card { aspect-ratio: 4/3; }
+.approach-row { grid-template-columns: 60px 1fr; }
+.ar-body { grid-column: 2; }
+.footer-top { grid-template-columns: 1fr 1fr; }
+.footer-top > :first-child { grid-column: span 2; }
+.why-right { position: static; }
+.nav-links { display: none; }
+.hbg { display: flex; }
+.hero-ticker { display: none; }
+.hero-image-card { position: relative; right: auto; top: auto; width: 100%; height: 260px; margin: 32px 0 0; }
+.stats-strip, .hero-stats-bar { grid-template-columns: 1fr 1fr; }
+.hero-stats-bar .hs:nth-child(3) { border-top: 1px solid var(--line); grid-column: span 2; border-right: none; }
+.stats-strip .stat:nth-child(3) { border-right: none; grid-column: span 2; border-top: 1px solid var(--line); }
+}
+@media (max-width: 640px) {
+#nav, .intro-w, .seg-w, .approach-w, .why-w, .cta-w, .footer-w { padding-left: 22px; padding-right: 22px; }
+.hero-inner { padding: 0 22px 64px; }
+h1.hero-h1 { font-size: clamp(48px, 13vw, 80px); }
+.hero-num { font-size: clamp(100px, 28vw, 160px); right: 16px; }
+.hs, .stat { padding: 24px 0; }
+.hero-stats-bar .hs, .stats-strip .stat { padding-left: 18px; padding-right: 18px; }
+.seg-cards { margin: 0; }
+.hero-stats-bar { grid-template-columns: 1fr; }
+.hero-stats-bar .hs { border-right: none; border-top: 1px solid var(--line); grid-column: auto; }
+.stats-strip { grid-template-columns: 1fr; }
+.stats-strip .stat { border-right: none; border-top: 1px solid var(--line); grid-column: auto; }
+.footer-top { grid-template-columns: 1fr; }
+.footer-top > :first-child { grid-column: span 1; }
+.approach-row { grid-template-columns: 1fr; }
+.ar-num { display: none; }
+.ar-body { grid-column: auto; }
+}
 footer:hover ~ #cur,
 footer #cur {
-  background: #f58220 !important;
+background: #f58220 !important;
 }
-
-/* Subtle parallax image effect */
 .hero-image-card,
 .iv-panel.image-panel,
 .auto-image-panel,
 .seg-card {
-  transform-style: preserve-3d;
+transform-style: preserve-3d;
 }
-
 .hero-image-card img,
 .iv-panel.image-panel img,
 .auto-image-panel img,
 .seg-card-bg img {
-  will-change: transform;
-  transform: scale(1.12);
-  transition: transform 0.18s linear;
+will-change: transform;
+transform: scale(1.12);
+transition: transform 0.18s linear;
 }
-
-/* Minimal animated trade mark beside Trade */
 .trade-mark {
-  width: 52px;
-  height: 52px;
-  margin-left: 12px;
-  vertical-align: -16px;
-  display: inline-block;
-  flex: 0 0 auto;
-  overflow: visible;
+width: 52px;
+height: 52px;
+margin-left: 12px;
+vertical-align: -16px;
+display: inline-block;
+flex: 0 0 auto;
+overflow: visible;
 }
-
 .trade-mark .globe-sphere {
-  fill: url(#oceanGradient);
-  stroke: rgba(11,35,65,0.34);
-  stroke-width: 1.1;
-  filter: drop-shadow(0 6px 10px rgba(11,35,65,0.14));
+fill: url(#oceanGradient);
+stroke: rgba(11,35,65,0.34);
+stroke-width: 1.1;
+filter: drop-shadow(0 6px 10px rgba(11,35,65,0.14));
 }
-
 .trade-mark .globe-highlight {
-  fill: rgba(255,255,255,0.42);
-  opacity: 0.75;
+fill: rgba(255,255,255,0.42);
+opacity: 0.75;
 }
-
 .trade-mark .land {
-  fill: rgba(37,142,80,0.82);
-  stroke: rgba(255,255,255,0.32);
-  stroke-width: 0.35;
+fill: rgba(37,142,80,0.82);
+stroke: rgba(255,255,255,0.32);
+stroke-width: 0.35;
 }
-
 .trade-mark .globe-line {
-  fill: none;
-  stroke: rgba(255,255,255,0.30);
-  stroke-width: 0.6;
-  stroke-linecap: round;
+fill: none;
+stroke: rgba(255,255,255,0.30);
+stroke-width: 0.6;
+stroke-linecap: round;
 }
-
 .trade-mark .orbit-ring {
-  fill: none;
-  stroke: rgba(245,130,32,0.30);
-  stroke-width: 0.8;
-  stroke-dasharray: 3 5;
+fill: none;
+stroke: rgba(245,130,32,0.30);
+stroke-width: 0.8;
+stroke-dasharray: 3 5;
 }
-
 .trade-mark .orbiter {
-  transform-box: view-box;
-  transform-origin: 32px 32px;
-  will-change: transform, opacity, filter;
+transform-box: view-box;
+transform-origin: 32px 32px;
+will-change: transform, opacity, filter;
 }
-
 .trade-mark .vehicle path,
 .trade-mark .vehicle circle {
-  fill: none;
-  stroke: var(--accent);
-  stroke-width: 1.35;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+fill: none;
+stroke: var(--accent);
+stroke-width: 1.35;
+stroke-linecap: round;
+stroke-linejoin: round;
 }
-
 .trade-mark .vehicle-fill {
-  fill: rgba(245,130,32,0.16);
-  stroke: var(--accent);
+fill: rgba(245,130,32,0.16);
+stroke: var(--accent);
 }
-
 .trade-mark .front-pass {
-  pointer-events: none;
-  fill: none;
-  stroke: rgba(255,255,255,0.22);
-  stroke-width: 0.7;
-  stroke-linecap: round;
+pointer-events: none;
+fill: none;
+stroke: rgba(255,255,255,0.22);
+stroke-width: 0.7;
+stroke-linecap: round;
 }
-
 .trade-mark .plane-orbit {
-  animation: orbitPlaneSmooth 9s linear infinite;
+animation: orbitPlaneSmooth 9s linear infinite;
 }
-
 @keyframes orbitPlaneSmooth {
-  0%    { transform: translate(25px,-6px) scale(.70); opacity: .42; filter: blur(.12px); }
-  12.5% { transform: translate(18px,-16px) scale(.62); opacity: .34; filter: blur(.16px); }
-  25%   { transform: translate(0px,-20px) scale(.58); opacity: .30; filter: blur(.18px); }
-  37.5% { transform: translate(-20px,-13px) scale(.68); opacity: .40; filter: blur(.10px); }
-  50%   { transform: translate(-28px,0px) scale(.86); opacity: .62; filter: blur(0); }
-  62.5% { transform: translate(-20px,14px) scale(1.08); opacity: .86; filter: drop-shadow(0 2px 4px rgba(245,130,32,.14)); }
-  75%   { transform: translate(0px,21px) scale(1.24); opacity: 1; filter: drop-shadow(0 3px 6px rgba(245,130,32,.22)); }
-  87.5% { transform: translate(20px,12px) scale(1.02); opacity: .78; filter: drop-shadow(0 2px 4px rgba(245,130,32,.14)); }
-  100%  { transform: translate(25px,-6px) scale(.70); opacity: .42; filter: blur(.12px); }
+0%    { transform: translate(25px,-6px) scale(.70); opacity: .42; filter: blur(.12px); }
+12.5% { transform: translate(18px,-16px) scale(.62); opacity: .34; filter: blur(.16px); }
+25%   { transform: translate(0px,-20px) scale(.58); opacity: .30; filter: blur(.18px); }
+37.5% { transform: translate(-20px,-13px) scale(.68); opacity: .40; filter: blur(.10px); }
+50%   { transform: translate(-28px,0px) scale(.86); opacity: .62; filter: blur(0); }
+62.5% { transform: translate(-20px,14px) scale(1.08); opacity: .86; filter: drop-shadow(0 2px 4px rgba(245,130,32,.14)); }
+75%   { transform: translate(0px,21px) scale(1.24); opacity: 1; filter: drop-shadow(0 3px 6px rgba(245,130,32,.22)); }
+87.5% { transform: translate(20px,12px) scale(1.02); opacity: .78; filter: drop-shadow(0 2px 4px rgba(245,130,32,.14)); }
+100%  { transform: translate(25px,-6px) scale(.70); opacity: .42; filter: blur(.12px); }
 }
-
 .nav-brand,
 .f-brand {
-  display: inline-flex;
-  align-items: center;
+display: inline-flex;
+align-items: center;
 }
-
 .f-brand .trade-mark {
-  width: 48px;
-  height: 48px;
-  margin-left: 11px;
+width: 48px;
+height: 48px;
+margin-left: 11px;
 }
-
 @media (max-width: 640px) {
-  .trade-mark {
-    width: 42px;
-    height: 42px;
-    margin-left: 8px;
-  }
+.trade-mark {
+width: 42px;
+height: 42px;
+margin-left: 8px;
 }
-
-/* ── SCROLL TO TOP ARROW ── */
+}
 .scroll-top-arrow {
-  position: fixed;
-  right: 28px;
-  bottom: 28px;
-  z-index: 950;
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  border: 1px solid rgba(245,130,32,0.36);
-  background: rgba(245,130,32,0.72);
-  color: #fff;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  line-height: 1;
-  cursor: pointer;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(12px);
-  transition: opacity .25s var(--snap), visibility .25s var(--snap), transform .25s var(--snap), background .25s, border-color .25s;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 14px 34px rgba(11,35,65,0.18);
+position: fixed;
+right: 28px;
+bottom: 28px;
+z-index: 950;
+width: 46px;
+height: 46px;
+border-radius: 50%;
+border: 1px solid rgba(245,130,32,0.36);
+background: rgba(245,130,32,0.72);
+color: #fff;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+font-size: 20px;
+line-height: 1;
+cursor: pointer;
+opacity: 0;
+visibility: hidden;
+transform: translateY(12px);
+transition: opacity .25s var(--snap), visibility .25s var(--snap), transform .25s var(--snap), background .25s, border-color .25s;
+backdrop-filter: blur(10px);
+box-shadow: 0 14px 34px rgba(11,35,65,0.18);
 }
 .scroll-top-arrow.show {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
+opacity: 1;
+visibility: visible;
+transform: translateY(0);
 }
 .scroll-top-arrow:hover {
-  background: rgba(245,130,32,0.92);
-  border-color: rgba(245,130,32,0.72);
-  transform: translateY(-3px);
+background: rgba(245,130,32,0.92);
+border-color: rgba(245,130,32,0.72);
+transform: translateY(-3px);
 }
 @media (max-width: 640px) {
-  .scroll-top-arrow {
-    right: 18px;
-    bottom: 18px;
-    width: 42px;
-    height: 42px;
-    font-size: 18px;
-  }
+.scroll-top-arrow {
+right: 18px;
+bottom: 18px;
+width: 42px;
+height: 42px;
+font-size: 18px;
 }
-
-/* ── MOBILE RESPONSIVE SAFETY FIXES ONLY ── */
+}
 @media (max-width: 768px) {
-  html, body {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-
-  #nav {
-    height: 64px;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  .nav-w {
-    min-width: 0;
-  }
-
-  .nav-brand {
-    max-width: calc(100vw - 88px);
-    min-width: 0;
-    white-space: nowrap;
-    font-size: 17px;
-    line-height: 1;
-  }
-
-  .nav-brand .trade-mark {
-    width: 34px;
-    height: 34px;
-    margin-left: 7px;
-    vertical-align: middle;
-  }
-
-  .hbg {
-    flex: 0 0 auto;
-    background: transparent;
-    border: 0;
-    padding: 8px;
-  }
-
-  .mob {
-    overflow-y: auto;
-    padding: 30px 28px 42px;
-  }
-
-  .mob a {
-    font-size: 26px;
-    line-height: 1.15;
-  }
-
-  #hero {
-    min-height: auto;
-    padding-top: 64px;
-  }
-
-  .hero-inner {
-    padding-top: 34px;
-    padding-bottom: 52px;
-  }
-
-  .hero-kicker {
-    margin-bottom: 22px;
-    letter-spacing: 0.16em;
-    line-height: 1.5;
-  }
-
-  h1.hero-h1 {
-    max-width: 100%;
-    line-height: 0.96;
-  }
-
-  .hero-bottom {
-    margin-top: 34px;
-    align-items: flex-start;
-    gap: 28px;
-  }
-
-  .hero-desc {
-    max-width: 100%;
-    font-size: 15px;
-  }
-
-  .hero-actions {
-    width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-  }
-
-  .btn-circle {
-    max-width: 100%;
-  }
-
-  .hero-image-card {
-    opacity: 1;
-    max-width: 100%;
-  }
-
-  #introduction,
-  #segments,
-  #approach,
-  #why-us {
-    padding-top: 86px;
-  }
-
-  #approach,
-  #why-us {
-    padding-bottom: 86px;
-  }
-
-  #cta {
-    padding-top: 96px;
-    padding-bottom: 96px;
-  }
-
-  .intro-h2,
-  .seg-h2,
-  .approach-h2,
-  .why-h2 {
-    max-width: 100%;
-  }
-
-  .seg-switch {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-
-  .seg-switch::-webkit-scrollbar {
-    display: none;
-  }
-
-  .sw {
-    flex: 0 0 auto;
-    white-space: nowrap;
-    padding-left: 22px;
-    padding-right: 22px;
-  }
-
-  .auto-layout {
-    gap: 48px;
-    padding-bottom: 86px;
-  }
-
-  .auto-url {
-    max-width: 100%;
-    word-break: break-word;
-  }
-
-  .seg-card-content {
-    padding: 26px 24px;
-  }
-
-  .approach-row {
-    row-gap: 16px;
-  }
-
-  .ar-title {
-    padding-right: 0;
-  }
-
-  .quote-block {
-    padding: 42px 30px;
-  }
-
-  .cta-h2 {
-    max-width: 100%;
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-  }
+html, body {
+width: 100%;
+max-width: 100%;
+overflow-x: hidden;
 }
-
+#nav {
+height: 64px;
+padding-left: 20px;
+padding-right: 20px;
+}
+.nav-w {
+min-width: 0;
+}
+.nav-brand {
+max-width: calc(100vw - 88px);
+min-width: 0;
+white-space: nowrap;
+font-size: 17px;
+line-height: 1;
+}
+.nav-brand .trade-mark {
+width: 34px;
+height: 34px;
+margin-left: 7px;
+vertical-align: middle;
+}
+.hbg {
+flex: 0 0 auto;
+background: transparent;
+border: 0;
+padding: 8px;
+}
+.mob {
+overflow-y: auto;
+padding: 30px 28px 42px;
+}
+.mob a {
+font-size: 26px;
+line-height: 1.15;
+}
+#hero {
+min-height: auto;
+padding-top: 64px;
+}
+.hero-inner {
+padding-top: 34px;
+padding-bottom: 52px;
+}
+.hero-kicker {
+margin-bottom: 22px;
+letter-spacing: 0.16em;
+line-height: 1.5;
+}
+h1.hero-h1 {
+max-width: 100%;
+line-height: 0.96;
+}
+.hero-bottom {
+margin-top: 34px;
+align-items: flex-start;
+gap: 28px;
+}
+.hero-desc {
+max-width: 100%;
+font-size: 15px;
+}
+.hero-actions {
+width: 100%;
+flex-direction: column;
+align-items: flex-start;
+gap: 16px;
+}
+.btn-circle {
+max-width: 100%;
+}
+.hero-image-card {
+opacity: 1;
+max-width: 100%;
+}
+#introduction,
+#segments,
+#approach,
+#why-us {
+padding-top: 86px;
+}
+#approach,
+#why-us {
+padding-bottom: 86px;
+}
+#cta {
+padding-top: 96px;
+padding-bottom: 96px;
+}
+.intro-h2,
+.seg-h2,
+.approach-h2,
+.why-h2 {
+max-width: 100%;
+}
+.seg-switch {
+overflow-x: auto;
+-webkit-overflow-scrolling: touch;
+scrollbar-width: none;
+}
+.seg-switch::-webkit-scrollbar {
+display: none;
+}
+.sw {
+flex: 0 0 auto;
+white-space: nowrap;
+padding-left: 22px;
+padding-right: 22px;
+}
+.auto-layout {
+gap: 48px;
+padding-bottom: 86px;
+}
+.auto-url {
+max-width: 100%;
+word-break: break-word;
+}
+.seg-card-content {
+padding: 26px 24px;
+}
+.approach-row {
+row-gap: 16px;
+}
+.ar-title {
+padding-right: 0;
+}
+.quote-block {
+padding: 42px 30px;
+}
+.cta-h2 {
+max-width: 100%;
+}
+.footer-bottom {
+flex-direction: column;
+}
+}
 @media (max-width: 480px) {
-  #nav,
-  .intro-w,
-  .seg-w,
-  .approach-w,
-  .why-w,
-  .cta-w,
-  .footer-w {
-    padding-left: 18px;
-    padding-right: 18px;
-  }
-
-  .hero-inner {
-    padding-left: 18px;
-    padding-right: 18px;
-  }
-
-  .nav-brand {
-    font-size: 15px;
-    max-width: calc(100vw - 76px);
-  }
-
-  .nav-brand .trade-mark {
-    width: 30px;
-    height: 30px;
-    margin-left: 5px;
-  }
-
-  h1.hero-h1 {
-    font-size: clamp(42px, 13vw, 58px);
-  }
-
-  .intro-h2,
-  .seg-h2,
-  .approach-h2,
-  .why-h2 {
-    font-size: clamp(34px, 10vw, 46px);
-  }
-
-  .auto-h3 {
-    font-size: clamp(30px, 9vw, 42px);
-  }
-
-  .cta-h2 {
-    font-size: clamp(44px, 13vw, 64px);
-  }
-
-  .hero-image-card,
-  .auto-image-panel {
-    height: 230px;
-  }
-
-  .seg-card {
-    aspect-ratio: 3/4;
-  }
-
-  .seg-card-title {
-    font-size: 27px;
-  }
-
-  .f-brand .trade-mark {
-    width: 34px;
-    height: 34px;
-  }
+#nav,
+.intro-w,
+.seg-w,
+.approach-w,
+.why-w,
+.cta-w,
+.footer-w {
+padding-left: 18px;
+padding-right: 18px;
 }
-
-/* ── STRONG MOBILE PRESERVATION FIXES: keeps desktop unchanged ── */
+.hero-inner {
+padding-left: 18px;
+padding-right: 18px;
+}
+.nav-brand {
+font-size: 15px;
+max-width: calc(100vw - 76px);
+}
+.nav-brand .trade-mark {
+width: 30px;
+height: 30px;
+margin-left: 5px;
+}
+h1.hero-h1 {
+font-size: clamp(42px, 13vw, 58px);
+}
+.intro-h2,
+.seg-h2,
+.approach-h2,
+.why-h2 {
+font-size: clamp(34px, 10vw, 46px);
+}
+.auto-h3 {
+font-size: clamp(30px, 9vw, 42px);
+}
+.cta-h2 {
+font-size: clamp(44px, 13vw, 64px);
+}
+.hero-image-card,
+.auto-image-panel {
+height: 230px;
+}
+.seg-card {
+aspect-ratio: 3/4;
+}
+.seg-card-title {
+font-size: 27px;
+}
+.f-brand .trade-mark {
+width: 34px;
+height: 34px;
+}
+}
 @media (max-width: 768px) {
-  /* Make sure reveal-animation content never stays invisible on mobile */
-  .rv,
-  .rv.d1,
-  .rv.d2,
-  .rv.d3,
-  .rv.d4 {
-    opacity: 1 !important;
-    transform: none !important;
-    transition-delay: 0s !important;
-  }
-
-  /* Prevent any section from collapsing or disappearing */
-  section,
-  #hero,
-  #introduction,
-  #segments,
-  #approach,
-  #why-us,
-  #cta,
-  footer {
-    display: block !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    overflow-x: hidden !important;
-  }
-
-  .hero-inner,
-  .intro-w,
-  .seg-w,
-  .approach-w,
-  .why-w,
-  .cta-w,
-  .footer-w {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
-  /* Keep main two-column content readable as a full single-column page */
-  .intro-top,
-  .seg-header,
-  .auto-layout,
-  .approach-header,
-  .why-layout,
-  .footer-top,
-  .seg-cards {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 44px !important;
-  }
-
-  /* Show both segment blocks on mobile so no product/service content appears missing */
-  .auto-pane,
-  .auto-pane.hidden,
-  .ind-pane,
-  .ind-pane.active {
-    display: block !important;
-  }
-
-  .ind-pane {
-    margin-top: 18px;
-    padding-bottom: 72px;
-  }
-
-  .seg-switch {
-    display: none !important;
-  }
-
-  /* Preserve visual blocks without cutting them off */
-  .hero-image-card,
-  .iv-panel,
-  .auto-image-panel,
-  .seg-card,
-  .quote-block {
-    display: block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    max-width: 100% !important;
-  }
-
-  .hero-image-card img,
-  .iv-panel.image-panel img,
-  .auto-image-panel img,
-  .seg-card-bg img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-  }
-
-  .hero-stats-bar,
-  .stats-strip {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-  }
-
-  .hs,
-  .stat {
-    border-right: none !important;
-    border-top: 1px solid var(--line) !important;
-    padding: 28px 22px !important;
-  }
-
-  .approach-row {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 14px !important;
-  }
-
-  .ar-body {
-    grid-column: auto !important;
-  }
-
-  .footer-top > :first-child {
-    grid-column: auto !important;
-  }
-
-  /* Avoid oversized logo/nav from pushing content out of view */
-  .nav-brand,
-  .f-brand {
-    display: inline-flex !important;
-    align-items: center !important;
-    min-width: 0 !important;
-  }
-
-  .trade-mark {
-    flex: 0 0 auto !important;
-  }
+.rv,
+.rv.d1,
+.rv.d2,
+.rv.d3,
+.rv.d4 {
+opacity: 1 !important;
+transform: none !important;
+transition-delay: 0s !important;
 }
-
+section,
+#hero,
+#introduction,
+#segments,
+#approach,
+#why-us,
+#cta,
+footer {
+display: block !important;
+width: 100% !important;
+max-width: 100% !important;
+overflow-x: hidden !important;
+}
+.hero-inner,
+.intro-w,
+.seg-w,
+.approach-w,
+.why-w,
+.cta-w,
+.footer-w {
+width: 100% !important;
+max-width: 100% !important;
+}
+.intro-top,
+.seg-header,
+.auto-layout,
+.approach-header,
+.why-layout,
+.footer-top,
+.seg-cards {
+display: grid !important;
+grid-template-columns: 1fr !important;
+gap: 44px !important;
+}
+.auto-pane,
+.auto-pane.hidden,
+.ind-pane,
+.ind-pane.active {
+display: block !important;
+}
+.ind-pane {
+margin-top: 18px;
+padding-bottom: 72px;
+}
+.seg-switch {
+display: none !important;
+}
+.hero-image-card,
+.iv-panel,
+.auto-image-panel,
+.seg-card,
+.quote-block {
+display: block !important;
+opacity: 1 !important;
+visibility: visible !important;
+max-width: 100% !important;
+}
+.hero-image-card img,
+.iv-panel.image-panel img,
+.auto-image-panel img,
+.seg-card-bg img {
+width: 100% !important;
+height: 100% !important;
+object-fit: cover !important;
+}
+.hero-stats-bar,
+.stats-strip {
+display: grid !important;
+grid-template-columns: 1fr !important;
+}
+.hs,
+.stat {
+border-right: none !important;
+border-top: 1px solid var(--line) !important;
+padding: 28px 22px !important;
+}
+.approach-row {
+display: grid !important;
+grid-template-columns: 1fr !important;
+gap: 14px !important;
+}
+.ar-body {
+grid-column: auto !important;
+}
+.footer-top > :first-child {
+grid-column: auto !important;
+}
+.nav-brand,
+.f-brand {
+display: inline-flex !important;
+align-items: center !important;
+min-width: 0 !important;
+}
+.trade-mark {
+flex: 0 0 auto !important;
+}
+}
 @media (max-width: 480px) {
-  .hero-actions,
-  .cta-btns {
-    width: 100% !important;
-    align-items: stretch !important;
-  }
-
-  .btn-circle,
-  .btn-light-circle,
-  .cta-link {
-    width: 100% !important;
-    justify-content: flex-start !important;
-  }
-
-  .seg-card-content {
-    padding: 22px 20px !important;
-  }
-
-  .seg-products,
-  .auto-chips {
-    gap: 7px !important;
-  }
+.hero-actions,
+.cta-btns {
+width: 100% !important;
+align-items: stretch !important;
 }
-
-/* SEPARATE MOBILE UI ONLY */
+.btn-circle,
+.btn-light-circle,
+.cta-link {
+width: 100% !important;
+justify-content: flex-start !important;
+}
+.seg-card-content {
+padding: 22px 20px !important;
+}
+.seg-products,
+.auto-chips {
+gap: 7px !important;
+}
+}
 #mobile-site { display: none; }
 @media (max-width: 768px) {
-  body > :not(#mobile-site):not(#scrollTopArrow):not(.icon-sprite) { display: none !important; }
-  html, body { width:100% !important; overflow-x:hidden !important; background:#f7fbff !important; }
-  #mobile-site { display:block !important; min-height:100vh; font-family:var(--sans); color:var(--ink); background:radial-gradient(circle at 100% 0%, rgba(247,201,72,.24), transparent 38%), radial-gradient(circle at 0% 10%, rgba(31,95,153,.16), transparent 34%), linear-gradient(135deg,#f9fcff 0%,#eef6fc 52%,#fff8e8 100%); }
-  .m-shell{width:100%;max-width:480px;margin:0 auto;padding:0 18px;}
-  .m-nav{position:sticky;top:0;z-index:2000;background:rgba(255,255,255,.88);backdrop-filter:blur(18px);border-bottom:1px solid rgba(11,35,65,.10);}
-  .m-nav-inner{height:64px;display:flex;align-items:center;justify-content:space-between;gap:14px;}
-  .m-brand{display:inline-flex;align-items:center;gap:8px;min-width:0;font-family:var(--serif);font-weight:800;font-size:17px;color:var(--ink);white-space:nowrap;}
-  .m-brand em{font-style:italic;color:var(--ink3);}
-  .m-logo-orbit{width:38px;height:38px;flex:0 0 38px;}
-  .m-menu-btn{width:42px;height:42px;border-radius:50%;border:1px solid rgba(245,130,32,.34);background:rgba(245,130,32,.10);color:var(--ink);display:inline-flex;align-items:center;justify-content:center;font-size:20px;line-height:1;}
-  .m-menu{display:none;padding:8px 18px 18px;border-top:1px solid rgba(11,35,65,.08);}
-  .m-menu.open{display:grid;gap:8px;}
-  .m-menu a{display:block;padding:13px 14px;border:1px solid rgba(11,35,65,.08);border-radius:16px;background:rgba(255,255,255,.74);font-size:13px;font-weight:600;color:var(--ink2);}
-  .m-hero{padding:34px 0 28px;}
-  .m-kicker{display:inline-flex;align-items:center;gap:8px;margin-bottom:16px;font-size:10px;font-weight:700;letter-spacing:.20em;text-transform:uppercase;color:var(--ink3);}
-  .m-kicker::before{content:'';width:22px;height:1px;background:var(--accent);}
-  .m-hero h1{font-family:var(--serif);font-size:clamp(42px,12vw,60px);line-height:.92;letter-spacing:-.045em;color:var(--ink);margin-bottom:18px;}
-  .m-hero h1 span,.m-section-title span{color:var(--blue);}
-  .m-hero p,.m-lead{font-size:15px;line-height:1.75;color:var(--ink3);margin-bottom:22px;}
-  .m-actions{display:grid;grid-template-columns:1fr;gap:10px;}
-  .m-btn{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:15px 16px;border-radius:18px;font-size:13px;font-weight:700;letter-spacing:.02em;}
-  .m-btn.primary{background:var(--accent);color:#fff;box-shadow:0 16px 34px rgba(245,130,32,.25);}
-  .m-btn.secondary{background:rgba(255,255,255,.72);border:1px solid rgba(11,35,65,.11);color:var(--ink);}
-  .m-image-card{margin-top:26px;height:260px;border-radius:28px;overflow:hidden;position:relative;border:1px solid rgba(11,35,65,.10);box-shadow:0 22px 60px rgba(11,35,65,.13);background:#dbe8f2;}
-  .m-image-card img,.m-card-img img{width:100%;height:100%;object-fit:cover;display:block;}
-  .m-image-card::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(6,24,43,.55),transparent 62%);}
-  .m-image-label{position:absolute;left:18px;bottom:16px;z-index:2;color:rgba(255,255,255,.88);font-size:10px;font-weight:800;letter-spacing:.20em;text-transform:uppercase;}
-  .m-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0 0;}
-  .m-stat{min-width:0;padding:14px 10px;border-radius:18px;background:rgba(255,255,255,.72);border:1px solid rgba(11,35,65,.08);text-align:center;}
-  .m-stat strong{display:block;font-family:var(--serif);font-size:23px;line-height:1;color:var(--ink);}
-  .m-stat span{display:block;margin-top:5px;font-size:9px;line-height:1.25;color:var(--ink3);font-weight:700;letter-spacing:.03em;}
-  .m-section{padding:54px 0;border-top:1px solid rgba(11,35,65,.09);}
-  .m-section.compact{padding-top:34px;}
-  .m-section-title{font-family:var(--serif);font-size:clamp(31px,9vw,44px);line-height:.98;letter-spacing:-.035em;color:var(--ink);margin-bottom:14px;}
-  .m-list,.m-grid{display:grid;gap:12px;}
-  .m-list-item,.m-card{border-radius:22px;background:rgba(255,255,255,.76);border:1px solid rgba(11,35,65,.09);box-shadow:0 14px 34px rgba(11,35,65,.06);}
-  .m-list-item{padding:18px;display:grid;grid-template-columns:34px 1fr;gap:14px;}
-  .m-num{width:34px;height:34px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:rgba(245,130,32,.12);color:var(--accent);font-family:var(--serif);font-weight:800;font-size:13px;}
-  .m-list-item h3,.m-card h3{font-size:15px;font-weight:800;color:var(--ink);margin-bottom:4px;}
-  .m-list-item p,.m-card p{font-size:13px;line-height:1.65;color:var(--ink3);}
-  .m-card{overflow:hidden;} .m-card-img{height:180px;overflow:hidden;position:relative;background:var(--bg3);} .m-card-body{padding:18px;}
-  .m-chip-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;} .m-chip{padding:6px 10px;border-radius:999px;border:1px solid rgba(11,35,65,.10);background:rgba(247,251,255,.84);color:var(--ink3);font-size:11px;font-weight:700;}
-  .m-quote{padding:26px 22px;border-radius:26px;background:linear-gradient(135deg,var(--deep),#123963 70%,#5a3608);color:#fff;box-shadow:0 20px 48px rgba(6,24,43,.22);}
-  .m-quote p{font-family:var(--serif);font-size:17px;line-height:1.65;color:rgba(255,255,255,.82);}
-  .m-cta{padding:62px 0 38px;background:linear-gradient(135deg,#06182b,#102f55 68%,#5a3608);color:#fff;}
-  .m-cta .m-section-title{color:#fff;} .m-cta .m-lead{color:rgba(255,255,255,.68);}
-  .m-footer{padding:28px 0 34px;background:#07111d;color:rgba(255,255,255,.62);}
-  .m-footer p{font-size:12px;line-height:1.7;color:rgba(255,255,255,.58);}
-  .m-footer-links{display:flex;flex-wrap:wrap;gap:10px 16px;margin:18px 0;} .m-footer-links a{color:rgba(255,255,255,.70);font-size:12px;font-weight:700;}
-  .scroll-top-arrow{right:16px !important;bottom:16px !important;}
+body > :not(#mobile-site):not(#scrollTopArrow):not(.icon-sprite) { display: none !important; }
+html, body { width:100% !important; overflow-x:hidden !important; background:#f7fbff !important; }
+#mobile-site { display:block !important; min-height:100vh; font-family:var(--sans); color:var(--ink); background:radial-gradient(circle at 100% 0%, rgba(247,201,72,.24), transparent 38%), radial-gradient(circle at 0% 10%, rgba(31,95,153,.16), transparent 34%), linear-gradient(135deg,#f9fcff 0%,#eef6fc 52%,#fff8e8 100%); }
+.m-shell{width:100%;max-width:480px;margin:0 auto;padding:0 18px;}
+.m-nav{position:sticky;top:0;z-index:2000;background:rgba(255,255,255,.88);backdrop-filter:blur(18px);border-bottom:1px solid rgba(11,35,65,.10);}
+.m-nav-inner{height:64px;display:flex;align-items:center;justify-content:space-between;gap:14px;}
+.m-brand{display:inline-flex;align-items:center;gap:8px;min-width:0;font-family:var(--serif);font-weight:800;font-size:17px;color:var(--ink);white-space:nowrap;}
+.m-brand em{font-style:italic;color:var(--ink3);}
+.m-logo-orbit{width:38px;height:38px;flex:0 0 38px;}
+.m-menu-btn{width:42px;height:42px;border-radius:50%;border:1px solid rgba(245,130,32,.34);background:rgba(245,130,32,.10);color:var(--ink);display:inline-flex;align-items:center;justify-content:center;font-size:20px;line-height:1;}
+.m-menu{display:none;padding:8px 18px 18px;border-top:1px solid rgba(11,35,65,.08);}
+.m-menu.open{display:grid;gap:8px;}
+.m-menu a{display:block;padding:13px 14px;border:1px solid rgba(11,35,65,.08);border-radius:16px;background:rgba(255,255,255,.74);font-size:13px;font-weight:600;color:var(--ink2);}
+.m-hero{padding:34px 0 28px;}
+.m-kicker{display:inline-flex;align-items:center;gap:8px;margin-bottom:16px;font-size:10px;font-weight:700;letter-spacing:.20em;text-transform:uppercase;color:var(--ink3);}
+.m-kicker::before{content:'';width:22px;height:1px;background:var(--accent);}
+.m-hero h1{font-family:var(--serif);font-size:clamp(42px,12vw,60px);line-height:.92;letter-spacing:-.045em;color:var(--ink);margin-bottom:18px;}
+.m-hero h1 span,.m-section-title span{color:var(--blue);}
+.m-hero p,.m-lead{font-size:15px;line-height:1.75;color:var(--ink3);margin-bottom:22px;}
+.m-actions{display:grid;grid-template-columns:1fr;gap:10px;}
+.m-btn{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:15px 16px;border-radius:18px;font-size:13px;font-weight:700;letter-spacing:.02em;}
+.m-btn.primary{background:var(--accent);color:#fff;box-shadow:0 16px 34px rgba(245,130,32,.25);}
+.m-btn.secondary{background:rgba(255,255,255,.72);border:1px solid rgba(11,35,65,.11);color:var(--ink);}
+.m-image-card{margin-top:26px;height:260px;border-radius:28px;overflow:hidden;position:relative;border:1px solid rgba(11,35,65,.10);box-shadow:0 22px 60px rgba(11,35,65,.13);background:#dbe8f2;}
+.m-image-card img,.m-card-img img{width:100%;height:100%;object-fit:cover;display:block;}
+.m-image-card::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(6,24,43,.55),transparent 62%);}
+.m-image-label{position:absolute;left:18px;bottom:16px;z-index:2;color:rgba(255,255,255,.88);font-size:10px;font-weight:800;letter-spacing:.20em;text-transform:uppercase;}
+.m-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0 0;}
+.m-stat{min-width:0;padding:14px 10px;border-radius:18px;background:rgba(255,255,255,.72);border:1px solid rgba(11,35,65,.08);text-align:center;}
+.m-stat strong{display:block;font-family:var(--serif);font-size:23px;line-height:1;color:var(--ink);}
+.m-stat span{display:block;margin-top:5px;font-size:9px;line-height:1.25;color:var(--ink3);font-weight:700;letter-spacing:.03em;}
+.m-section{padding:54px 0;border-top:1px solid rgba(11,35,65,.09);}
+.m-section.compact{padding-top:34px;}
+.m-section-title{font-family:var(--serif);font-size:clamp(31px,9vw,44px);line-height:.98;letter-spacing:-.035em;color:var(--ink);margin-bottom:14px;}
+.m-list,.m-grid{display:grid;gap:12px;}
+.m-list-item,.m-card{border-radius:22px;background:rgba(255,255,255,.76);border:1px solid rgba(11,35,65,.09);box-shadow:0 14px 34px rgba(11,35,65,.06);}
+.m-list-item{padding:18px;display:grid;grid-template-columns:34px 1fr;gap:14px;}
+.m-num{width:34px;height:34px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:rgba(245,130,32,.12);color:var(--accent);font-family:var(--serif);font-weight:800;font-size:13px;}
+.m-list-item h3,.m-card h3{font-size:15px;font-weight:800;color:var(--ink);margin-bottom:4px;}
+.m-list-item p,.m-card p{font-size:13px;line-height:1.65;color:var(--ink3);}
+.m-card{overflow:hidden;} .m-card-img{height:180px;overflow:hidden;position:relative;background:var(--bg3);} .m-card-body{padding:18px;}
+.m-chip-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;} .m-chip{padding:6px 10px;border-radius:999px;border:1px solid rgba(11,35,65,.10);background:rgba(247,251,255,.84);color:var(--ink3);font-size:11px;font-weight:700;}
+.m-quote{padding:26px 22px;border-radius:26px;background:linear-gradient(135deg,var(--deep),#123963 70%,#5a3608);color:#fff;box-shadow:0 20px 48px rgba(6,24,43,.22);}
+.m-quote p{font-family:var(--serif);font-size:17px;line-height:1.65;color:rgba(255,255,255,.82);}
+.m-cta{padding:62px 0 38px;background:linear-gradient(135deg,#06182b,#102f55 68%,#5a3608);color:#fff;}
+.m-cta .m-section-title{color:#fff;} .m-cta .m-lead{color:rgba(255,255,255,.68);}
+.m-footer{padding:28px 0 34px;background:#07111d;color:rgba(255,255,255,.62);}
+.m-footer p{font-size:12px;line-height:1.7;color:rgba(255,255,255,.58);}
+.m-footer-links{display:flex;flex-wrap:wrap;gap:10px 16px;margin:18px 0;} .m-footer-links a{color:rgba(255,255,255,.70);font-size:12px;font-weight:700;}
+.scroll-top-arrow{right:16px !important;bottom:16px !important;}
 }
-
-/* FINAL MOBILE POLISH: light line icons, compact buttons, visible image fallbacks */
 @media (max-width: 768px) {
-  .m-actions {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-    gap: 10px !important;
-  }
-  .m-btn {
-    width: auto !important;
-    max-width: max-content !important;
-    min-height: 50px;
-    display: inline-flex !important;
-    justify-content: center !important;
-    padding: 14px 18px !important;
-    border-radius: 999px !important;
-    white-space: nowrap;
-  }
-  .m-btn-icon {
-    width: 18px;
-    height: 18px;
-    flex: 0 0 18px;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1.65;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-  .m-bottom-nav {
-    border-radius: 28px !important;
-    padding: 9px 10px !important;
-  }
-  .m-bottom-nav a {
-    gap: 5px !important;
-    padding: 9px 4px !important;
-    font-size: 10px !important;
-    font-weight: 700 !important;
-    color: #58708a !important;
-  }
-  .m-bottom-nav a span { display: none !important; }
-  .m-line-icon {
-    width: 20px;
-    height: 20px;
-    fill: none;
-    stroke: var(--accent);
-    stroke-width: 1.55;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    opacity: .96;
-  }
-  .m-bottom-nav a:hover .m-line-icon,
-  .m-bottom-nav a:active .m-line-icon {
-    stroke: var(--accent);
-  }
-  .m-image-card,
-  .m-card-img {
-    background-color: #dbe8f2 !important;
-    background-size: cover !important;
-    background-position: center !important;
-  }
+.m-actions {
+display: flex !important;
+flex-wrap: wrap !important;
+align-items: center !important;
+justify-content: flex-start !important;
+gap: 10px !important;
+}
+.m-btn {
+width: auto !important;
+max-width: max-content !important;
+min-height: 50px;
+display: inline-flex !important;
+justify-content: center !important;
+padding: 14px 18px !important;
+border-radius: 999px !important;
+white-space: nowrap;
+}
+.m-btn-icon {
+width: 18px;
+height: 18px;
+flex: 0 0 18px;
+fill: none;
+stroke: currentColor;
+stroke-width: 1.65;
+stroke-linecap: round;
+stroke-linejoin: round;
+}
+.m-bottom-nav {
+border-radius: 28px !important;
+padding: 9px 10px !important;
+}
+.m-bottom-nav a {
+gap: 5px !important;
+padding: 9px 4px !important;
+font-size: 10px !important;
+font-weight: 700 !important;
+color: #58708a !important;
+}
+.m-bottom-nav a span { display: none !important; }
+.m-line-icon {
+width: 20px;
+height: 20px;
+fill: none;
+stroke: var(--accent);
+stroke-width: 1.55;
+stroke-linecap: round;
+stroke-linejoin: round;
+opacity: .96;
+}
+.m-bottom-nav a:hover .m-line-icon,
+.m-bottom-nav a:active .m-line-icon {
+stroke: var(--accent);
+}
+.m-image-card,
+.m-card-img {
+background-color: #dbe8f2 !important;
+background-size: cover !important;
+background-position: center !important;
+}
 }
 @media (max-width: 480px) {
-  .m-actions, .cta-btns {
-    align-items: center !important;
-    justify-content: flex-start !important;
-  }
-  .m-btn {
-    width: auto !important;
-    max-width: calc(100vw - 36px) !important;
-    justify-content: center !important;
-  }
+.m-actions, .cta-btns {
+align-items: center !important;
+justify-content: flex-start !important;
 }
-
-/* FAST MOBILE NAV + PERFORMANCE PATCH */
+.m-btn {
+width: auto !important;
+max-width: calc(100vw - 36px) !important;
+justify-content: center !important;
+}
+}
 @media (max-width: 768px) {
-  .m-nav { position: relative !important; top: auto !important; border-bottom: 1px solid rgba(11,35,65,.08); }
-  .m-menu-btn, .m-menu { display: none !important; }
-  .m-bottom-nav { position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 3000; display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; padding: 9px 10px; border-radius: 28px; background: rgba(255,255,255,.88); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(11,35,65,.12); box-shadow: 0 14px 36px rgba(6,24,43,.14); }
-  .m-bottom-nav a { min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; padding: 9px 4px; border-radius: 17px; color: #58708a; font-size: 10px; font-weight: 700; letter-spacing: .02em; line-height: 1; text-align: center; }
-  .m-bottom-nav a span { display: none !important; }
-  .m-line-icon { width: 20px; height: 20px; fill: none; stroke: var(--accent); stroke-width: 1.55; stroke-linecap: round; stroke-linejoin: round; opacity: .96; }
-  .m-bottom-nav a:active, .m-bottom-nav a:hover { background: rgba(245,130,32,.10); color: var(--ink); }
-  #mobile-site { padding-bottom: 92px; }
-  .m-footer { padding-bottom: 112px; }
-  .scroll-top-arrow { right: 18px !important; bottom: 92px !important; }
-  #mobile-site .m-image-card, #mobile-site .m-card-img { background-image: none !important; background-color: #eef5fb !important; }
-  #mobile-site .m-list-item, #mobile-site .m-card, #mobile-site .m-stat { box-shadow: 0 10px 24px rgba(11,35,65,.045) !important; }
-  #mobile-site .m-section { content-visibility: auto; contain-intrinsic-size: 700px; }
+.m-nav { position: relative !important; top: auto !important; border-bottom: 1px solid rgba(11,35,65,.08); }
+.m-menu-btn, .m-menu { display: none !important; }
+.m-bottom-nav { position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 3000; display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; padding: 9px 10px; border-radius: 28px; background: rgba(255,255,255,.88); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(11,35,65,.12); box-shadow: 0 14px 36px rgba(6,24,43,.14); }
+.m-bottom-nav a { min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; padding: 9px 4px; border-radius: 17px; color: #58708a; font-size: 10px; font-weight: 700; letter-spacing: .02em; line-height: 1; text-align: center; }
+.m-bottom-nav a span { display: none !important; }
+.m-line-icon { width: 20px; height: 20px; fill: none; stroke: var(--accent); stroke-width: 1.55; stroke-linecap: round; stroke-linejoin: round; opacity: .96; }
+.m-bottom-nav a:active, .m-bottom-nav a:hover { background: rgba(245,130,32,.10); color: var(--ink); }
+#mobile-site { padding-bottom: 92px; }
+.m-footer { padding-bottom: 112px; }
+.scroll-top-arrow { right: 18px !important; bottom: 92px !important; }
+#mobile-site .m-image-card, #mobile-site .m-card-img { background-image: none !important; background-color: #eef5fb !important; }
+#mobile-site .m-list-item, #mobile-site .m-card, #mobile-site .m-stat { box-shadow: 0 10px 24px rgba(11,35,65,.045) !important; }
+#mobile-site .m-section { content-visibility: auto; contain-intrinsic-size: 700px; }
 }
 @media (max-width: 768px) and (prefers-reduced-motion: no-preference) {
-  #mobile-site .m-orbit, #mobile-site .m-route, #mobile-site .m-gear-lg, #mobile-site .m-gear-sm, #mobile-site .m-conveyor span, #mobile-site .m-sun, #mobile-site .m-energy-line span { animation-duration: 14s !important; }
+#mobile-site .m-orbit, #mobile-site .m-route, #mobile-site .m-gear-lg, #mobile-site .m-gear-sm, #mobile-site .m-conveyor span, #mobile-site .m-sun, #mobile-site .m-energy-line span { animation-duration: 14s !important; }
 }
-
-/* AUMNYX MOBILE CSS ILLUSTRATIONS ONLY — desktop image system remains untouched */
 @media (max-width: 768px) {
-  #mobile-site .m-image-card,
-  #mobile-site .m-card-img {
-    background-image: none !important;
-    background-color: #eef5fb !important;
-  }
-
-  #mobile-site .m-illustration {
-    position: relative !important;
-    overflow: hidden !important;
-    isolation: isolate;
-    background:
-      radial-gradient(circle at 18% 14%, rgba(247,201,72,.34), transparent 30%),
-      radial-gradient(circle at 82% 18%, rgba(245,130,32,.20), transparent 28%),
-      linear-gradient(135deg, #f8fbff 0%, #edf5fb 55%, #fff7e6 100%) !important;
-  }
-
-  #mobile-site .m-illustration::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(145deg, rgba(255,255,255,.48), transparent 45%, rgba(31,95,153,.08));
-    z-index: 0;
-    pointer-events: none;
-  }
-
-  #mobile-site .m-illustration::after {
-    content: '';
-    position: absolute;
-    inset: auto 0 0 0;
-    height: 42%;
-    background: linear-gradient(to top, rgba(6,24,43,.16), transparent);
-    z-index: 0;
-    pointer-events: none;
-  }
-
-  #mobile-site .m-illu-grid {
-    position: absolute;
-    inset: 0;
-    opacity: .24;
-    background-image:
-      linear-gradient(rgba(31,95,153,.20) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(31,95,153,.20) 1px, transparent 1px);
-    background-size: 28px 28px;
-    z-index: 0;
-  }
-
-  #mobile-site .m-image-label { z-index: 5; }
-
-  /* Hero: global trade network */
-  #mobile-site .m-illu-globe {
-    position: absolute;
-    width: 118px;
-    height: 118px;
-    left: 50%;
-    top: 48%;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    border: 1.5px solid rgba(31,95,153,.50);
-    background:
-      radial-gradient(circle at 35% 28%, rgba(255,255,255,.78), transparent 22%),
-      radial-gradient(circle at 60% 65%, rgba(25,124,140,.20), transparent 30%),
-      linear-gradient(135deg, rgba(31,95,153,.18), rgba(245,130,32,.08));
-    box-shadow: 0 22px 50px rgba(11,35,65,.15);
-    z-index: 2;
-  }
-
-  #mobile-site .m-illu-globe::before,
-  #mobile-site .m-illu-globe::after,
-  #mobile-site .m-illu-globe span {
-    content: '';
-    position: absolute;
-    inset: 18px 8px;
-    border: 1px solid rgba(31,95,153,.32);
-    border-radius: 50%;
-  }
-
-  #mobile-site .m-illu-globe::after { inset: 8px 38px; }
-  #mobile-site .m-illu-globe span { inset: 56px 10px auto; height: 1px; border-radius: 0; border-width: 1px 0 0; }
-
-  #mobile-site .m-orbit {
-    position: absolute;
-    left: 50%;
-    top: 48%;
-    border: 1px dashed rgba(245,130,32,.55);
-    border-radius: 50%;
-    z-index: 3;
-    animation: mOrbitSpin 9s linear infinite;
-  }
-
-  #mobile-site .m-orbit-a { width: 178px; height: 72px; margin-left: -89px; margin-top: -36px; }
-  #mobile-site .m-orbit-b { width: 72px; height: 178px; margin-left: -36px; margin-top: -89px; animation-duration: 12s; animation-direction: reverse; }
-
-  #mobile-site .m-orbit i {
-    position: absolute;
-    width: 9px;
-    height: 9px;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    border-radius: 50%;
-    background: var(--accent);
-    box-shadow: 0 0 0 6px rgba(245,130,32,.12);
-  }
-
-  #mobile-site .m-route {
-    position: absolute;
-    height: 2px;
-    width: 44%;
-    left: 8%;
-    background: linear-gradient(90deg, transparent, var(--accent), transparent);
-    z-index: 1;
-    animation: mFlow 3.8s ease-in-out infinite;
-  }
-  #mobile-site .m-route-1 { top: 30%; }
-  #mobile-site .m-route-2 { top: 70%; left: 48%; animation-delay: 1.2s; }
-
-  /* Automotive */
-  #mobile-site .m-gear {
-    position: absolute;
-    border: 2px solid var(--blue);
-    border-radius: 50%;
-    z-index: 2;
-    box-shadow: inset 0 0 0 12px rgba(31,95,153,.08), 0 18px 38px rgba(11,35,65,.10);
-  }
-  #mobile-site .m-gear::before {
-    content: '';
-    position: absolute;
-    inset: 30%;
-    border: 2px solid rgba(245,130,32,.72);
-    border-radius: 50%;
-  }
-  #mobile-site .m-gear::after {
-    content: '';
-    position: absolute;
-    left: 50%; top: -8px;
-    width: 12px; height: calc(100% + 16px);
-    transform: translateX(-50%);
-    background: linear-gradient(to bottom, var(--blue) 0 10px, transparent 10px calc(100% - 10px), var(--blue) calc(100% - 10px));
-    box-shadow: 0 0 0 0 var(--blue);
-  }
-  #mobile-site .m-gear-lg { width: 88px; height: 88px; left: 36%; top: 45%; animation: mSpin 7s linear infinite; }
-  #mobile-site .m-gear-sm { width: 54px; height: 54px; left: 61%; top: 56%; animation: mSpinReverse 5s linear infinite; }
-
-  #mobile-site .m-conveyor {
-    position: absolute;
-    left: 15%; right: 15%; bottom: 24%; height: 3px;
-    background: rgba(31,95,153,.32);
-    z-index: 2;
-  }
-  #mobile-site .m-conveyor span {
-    position: absolute;
-    top: -5px;
-    width: 10px; height: 10px;
-    border-radius: 2px;
-    background: var(--accent);
-    animation: mPartMove 3s linear infinite;
-  }
-  #mobile-site .m-conveyor span:nth-child(2) { animation-delay: .9s; }
-  #mobile-site .m-conveyor span:nth-child(3) { animation-delay: 1.8s; }
-
-  /* Solar / EV */
-  #mobile-site .m-sun {
-    position: absolute;
-    width: 68px; height: 68px;
-    left: 50%; top: 28%;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    background: radial-gradient(circle, #fff4ba 0 26%, var(--accent2) 27% 62%, rgba(245,130,32,.55) 63%);
-    box-shadow: 0 0 0 16px rgba(247,201,72,.14), 0 0 48px rgba(247,201,72,.46);
-    z-index: 2;
-    animation: mPulse 3.4s ease-in-out infinite;
-  }
-  #mobile-site .m-panel {
-    position: absolute;
-    width: 132px; height: 58px;
-    left: 50%; bottom: 22%;
-    transform: translateX(-50%) skewX(-12deg);
-    border: 2px solid var(--blue);
-    border-radius: 8px;
-    background: linear-gradient(135deg, rgba(31,95,153,.20), rgba(25,124,140,.10));
-    z-index: 2;
-  }
-  #mobile-site .m-panel::before,
-  #mobile-site .m-panel::after,
-  #mobile-site .m-panel i {
-    content: '';
-    position: absolute;
-    top: 0; bottom: 0;
-    width: 1px;
-    background: rgba(31,95,153,.42);
-  }
-  #mobile-site .m-panel::before { left: 33%; }
-  #mobile-site .m-panel::after { left: 66%; }
-  #mobile-site .m-panel i:nth-child(1) { left: 0; right: 0; top: 50%; bottom: auto; width: 100%; height: 1px; }
-  #mobile-site .m-energy-line {
-    position: absolute;
-    left: 50%; top: 44%;
-    width: 2px; height: 54px;
-    background: linear-gradient(to bottom, var(--accent2), var(--accent));
-    z-index: 2;
-    overflow: visible;
-  }
-  #mobile-site .m-energy-line span {
-    position: absolute;
-    width: 9px; height: 9px;
-    left: -3.5px; top: 0;
-    border-radius: 50%;
-    background: var(--accent);
-    animation: mEnergyDrop 1.8s ease-in-out infinite;
-  }
-
-  /* HVAC */
-  #mobile-site .m-hvac-unit {
-    position: absolute;
-    left: 50%; top: 42%;
-    transform: translate(-50%, -50%);
-    width: 126px; height: 62px;
-    border-radius: 14px;
-    border: 2px solid var(--blue);
-    background: rgba(255,255,255,.46);
-    box-shadow: 0 18px 40px rgba(11,35,65,.10);
-    z-index: 2;
-  }
-  #mobile-site .m-hvac-unit::before {
-    content: '';
-    position: absolute;
-    left: 14px; right: 14px; top: 16px;
-    height: 2px;
-    background: rgba(31,95,153,.36);
-    box-shadow: 0 12px 0 rgba(31,95,153,.24);
-  }
-  #mobile-site .m-hvac-unit i {
-    position: absolute;
-    right: 14px; top: 14px;
-    width: 13px; height: 13px;
-    border-radius: 50%;
-    border: 2px solid var(--accent);
-  }
-  #mobile-site .m-air {
-    position: absolute;
-    left: 12%; right: 12%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--accent), var(--blue), transparent);
-    border-radius: 999px;
-    z-index: 2;
-    animation: mAirFlow 3s ease-in-out infinite;
-  }
-  #mobile-site .m-air-1 { top: 61%; }
-  #mobile-site .m-air-2 { top: 70%; animation-delay: .45s; }
-  #mobile-site .m-air-3 { top: 79%; animation-delay: .9s; }
-
-  @keyframes mSpin { to { transform: rotate(360deg); } }
-  @keyframes mSpinReverse { to { transform: rotate(-360deg); } }
-  @keyframes mOrbitSpin { to { transform: rotate(360deg); } }
-  @keyframes mFlow { 0%,100% { opacity:.2; transform: translateX(-8px); } 50% { opacity:.9; transform: translateX(18px); } }
-  @keyframes mPartMove { from { left: 0; opacity:0; } 15%,85% { opacity:1; } to { left: calc(100% - 10px); opacity:0; } }
-  @keyframes mPulse { 0%,100% { transform: translate(-50%, -50%) scale(1); } 50% { transform: translate(-50%, -50%) scale(1.08); } }
-  @keyframes mEnergyDrop { from { top: -2px; opacity: 0; } 20%,80% { opacity: 1; } to { top: 50px; opacity: 0; } }
-  @keyframes mAirFlow { 0% { opacity:0; transform: translateX(-18px) scaleX(.65); } 45% { opacity:.95; } 100% { opacity:0; transform: translateX(18px) scaleX(1); } }
-
-  @media (prefers-reduced-motion: reduce) {
-    #mobile-site .m-illustration * { animation: none !important; }
-  }
+#mobile-site .m-image-card,
+#mobile-site .m-card-img {
+background-image: none !important;
+background-color: #eef5fb !important;
 }
-
-/* ── FINAL MOBILE LOAD PATCH: desktop unchanged ── */
+#mobile-site .m-illustration {
+position: relative !important;
+overflow: hidden !important;
+isolation: isolate;
+background:
+radial-gradient(circle at 18% 14%, rgba(247,201,72,.34), transparent 30%),
+radial-gradient(circle at 82% 18%, rgba(245,130,32,.20), transparent 28%),
+linear-gradient(135deg, #f8fbff 0%, #edf5fb 55%, #fff7e6 100%) !important;
+}
+#mobile-site .m-illustration::before {
+content: '';
+position: absolute;
+inset: 0;
+background: linear-gradient(145deg, rgba(255,255,255,.48), transparent 45%, rgba(31,95,153,.08));
+z-index: 0;
+pointer-events: none;
+}
+#mobile-site .m-illustration::after {
+content: '';
+position: absolute;
+inset: auto 0 0 0;
+height: 42%;
+background: linear-gradient(to top, rgba(6,24,43,.16), transparent);
+z-index: 0;
+pointer-events: none;
+}
+#mobile-site .m-illu-grid {
+position: absolute;
+inset: 0;
+opacity: .24;
+background-image:
+linear-gradient(rgba(31,95,153,.20) 1px, transparent 1px),
+linear-gradient(90deg, rgba(31,95,153,.20) 1px, transparent 1px);
+background-size: 28px 28px;
+z-index: 0;
+}
+#mobile-site .m-image-label { z-index: 5; }
+#mobile-site .m-illu-globe {
+position: absolute;
+width: 118px;
+height: 118px;
+left: 50%;
+top: 48%;
+transform: translate(-50%, -50%);
+border-radius: 50%;
+border: 1.5px solid rgba(31,95,153,.50);
+background:
+radial-gradient(circle at 35% 28%, rgba(255,255,255,.78), transparent 22%),
+radial-gradient(circle at 60% 65%, rgba(25,124,140,.20), transparent 30%),
+linear-gradient(135deg, rgba(31,95,153,.18), rgba(245,130,32,.08));
+box-shadow: 0 22px 50px rgba(11,35,65,.15);
+z-index: 2;
+}
+#mobile-site .m-illu-globe::before,
+#mobile-site .m-illu-globe::after,
+#mobile-site .m-illu-globe span {
+content: '';
+position: absolute;
+inset: 18px 8px;
+border: 1px solid rgba(31,95,153,.32);
+border-radius: 50%;
+}
+#mobile-site .m-illu-globe::after { inset: 8px 38px; }
+#mobile-site .m-illu-globe span { inset: 56px 10px auto; height: 1px; border-radius: 0; border-width: 1px 0 0; }
+#mobile-site .m-orbit {
+position: absolute;
+left: 50%;
+top: 48%;
+border: 1px dashed rgba(245,130,32,.55);
+border-radius: 50%;
+z-index: 3;
+animation: mOrbitSpin 9s linear infinite;
+}
+#mobile-site .m-orbit-a { width: 178px; height: 72px; margin-left: -89px; margin-top: -36px; }
+#mobile-site .m-orbit-b { width: 72px; height: 178px; margin-left: -36px; margin-top: -89px; animation-duration: 12s; animation-direction: reverse; }
+#mobile-site .m-orbit i {
+position: absolute;
+width: 9px;
+height: 9px;
+right: 12px;
+top: 50%;
+transform: translateY(-50%);
+border-radius: 50%;
+background: var(--accent);
+box-shadow: 0 0 0 6px rgba(245,130,32,.12);
+}
+#mobile-site .m-route {
+position: absolute;
+height: 2px;
+width: 44%;
+left: 8%;
+background: linear-gradient(90deg, transparent, var(--accent), transparent);
+z-index: 1;
+animation: mFlow 3.8s ease-in-out infinite;
+}
+#mobile-site .m-route-1 { top: 30%; }
+#mobile-site .m-route-2 { top: 70%; left: 48%; animation-delay: 1.2s; }
+#mobile-site .m-gear {
+position: absolute;
+border: 2px solid var(--blue);
+border-radius: 50%;
+z-index: 2;
+box-shadow: inset 0 0 0 12px rgba(31,95,153,.08), 0 18px 38px rgba(11,35,65,.10);
+}
+#mobile-site .m-gear::before {
+content: '';
+position: absolute;
+inset: 30%;
+border: 2px solid rgba(245,130,32,.72);
+border-radius: 50%;
+}
+#mobile-site .m-gear::after {
+content: '';
+position: absolute;
+left: 50%; top: -8px;
+width: 12px; height: calc(100% + 16px);
+transform: translateX(-50%);
+background: linear-gradient(to bottom, var(--blue) 0 10px, transparent 10px calc(100% - 10px), var(--blue) calc(100% - 10px));
+box-shadow: 0 0 0 0 var(--blue);
+}
+#mobile-site .m-gear-lg { width: 88px; height: 88px; left: 36%; top: 45%; animation: mSpin 7s linear infinite; }
+#mobile-site .m-gear-sm { width: 54px; height: 54px; left: 61%; top: 56%; animation: mSpinReverse 5s linear infinite; }
+#mobile-site .m-conveyor {
+position: absolute;
+left: 15%; right: 15%; bottom: 24%; height: 3px;
+background: rgba(31,95,153,.32);
+z-index: 2;
+}
+#mobile-site .m-conveyor span {
+position: absolute;
+top: -5px;
+width: 10px; height: 10px;
+border-radius: 2px;
+background: var(--accent);
+animation: mPartMove 3s linear infinite;
+}
+#mobile-site .m-conveyor span:nth-child(2) { animation-delay: .9s; }
+#mobile-site .m-conveyor span:nth-child(3) { animation-delay: 1.8s; }
+#mobile-site .m-sun {
+position: absolute;
+width: 68px; height: 68px;
+left: 50%; top: 28%;
+transform: translate(-50%, -50%);
+border-radius: 50%;
+background: radial-gradient(circle, #fff4ba 0 26%, var(--accent2) 27% 62%, rgba(245,130,32,.55) 63%);
+box-shadow: 0 0 0 16px rgba(247,201,72,.14), 0 0 48px rgba(247,201,72,.46);
+z-index: 2;
+animation: mPulse 3.4s ease-in-out infinite;
+}
+#mobile-site .m-panel {
+position: absolute;
+width: 132px; height: 58px;
+left: 50%; bottom: 22%;
+transform: translateX(-50%) skewX(-12deg);
+border: 2px solid var(--blue);
+border-radius: 8px;
+background: linear-gradient(135deg, rgba(31,95,153,.20), rgba(25,124,140,.10));
+z-index: 2;
+}
+#mobile-site .m-panel::before,
+#mobile-site .m-panel::after,
+#mobile-site .m-panel i {
+content: '';
+position: absolute;
+top: 0; bottom: 0;
+width: 1px;
+background: rgba(31,95,153,.42);
+}
+#mobile-site .m-panel::before { left: 33%; }
+#mobile-site .m-panel::after { left: 66%; }
+#mobile-site .m-panel i:nth-child(1) { left: 0; right: 0; top: 50%; bottom: auto; width: 100%; height: 1px; }
+#mobile-site .m-energy-line {
+position: absolute;
+left: 50%; top: 44%;
+width: 2px; height: 54px;
+background: linear-gradient(to bottom, var(--accent2), var(--accent));
+z-index: 2;
+overflow: visible;
+}
+#mobile-site .m-energy-line span {
+position: absolute;
+width: 9px; height: 9px;
+left: -3.5px; top: 0;
+border-radius: 50%;
+background: var(--accent);
+animation: mEnergyDrop 1.8s ease-in-out infinite;
+}
+#mobile-site .m-hvac-unit {
+position: absolute;
+left: 50%; top: 42%;
+transform: translate(-50%, -50%);
+width: 126px; height: 62px;
+border-radius: 14px;
+border: 2px solid var(--blue);
+background: rgba(255,255,255,.46);
+box-shadow: 0 18px 40px rgba(11,35,65,.10);
+z-index: 2;
+}
+#mobile-site .m-hvac-unit::before {
+content: '';
+position: absolute;
+left: 14px; right: 14px; top: 16px;
+height: 2px;
+background: rgba(31,95,153,.36);
+box-shadow: 0 12px 0 rgba(31,95,153,.24);
+}
+#mobile-site .m-hvac-unit i {
+position: absolute;
+right: 14px; top: 14px;
+width: 13px; height: 13px;
+border-radius: 50%;
+border: 2px solid var(--accent);
+}
+#mobile-site .m-air {
+position: absolute;
+left: 12%; right: 12%;
+height: 2px;
+background: linear-gradient(90deg, transparent, var(--accent), var(--blue), transparent);
+border-radius: 999px;
+z-index: 2;
+animation: mAirFlow 3s ease-in-out infinite;
+}
+#mobile-site .m-air-1 { top: 61%; }
+#mobile-site .m-air-2 { top: 70%; animation-delay: .45s; }
+#mobile-site .m-air-3 { top: 79%; animation-delay: .9s; }
+@keyframes mSpin { to { transform: rotate(360deg); } }
+@keyframes mSpinReverse { to { transform: rotate(-360deg); } }
+@keyframes mOrbitSpin { to { transform: rotate(360deg); } }
+@keyframes mFlow { 0%,100% { opacity:.2; transform: translateX(-8px); } 50% { opacity:.9; transform: translateX(18px); } }
+@keyframes mPartMove { from { left: 0; opacity:0; } 15%,85% { opacity:1; } to { left: calc(100% - 10px); opacity:0; } }
+@keyframes mPulse { 0%,100% { transform: translate(-50%, -50%) scale(1); } 50% { transform: translate(-50%, -50%) scale(1.08); } }
+@keyframes mEnergyDrop { from { top: -2px; opacity: 0; } 20%,80% { opacity: 1; } to { top: 50px; opacity: 0; } }
+@keyframes mAirFlow { 0% { opacity:0; transform: translateX(-18px) scaleX(.65); } 45% { opacity:.95; } 100% { opacity:0; transform: translateX(18px) scaleX(1); } }
+@media (prefers-reduced-motion: reduce) {
+#mobile-site .m-illustration * { animation: none !important; }
+}
+}
 @media (max-width: 768px) {
-  body > :not(#mobile-site):not(#scrollTopArrow):not(.icon-sprite) {
-    display: none !important;
-  }
-
-  .icon-sprite {
-    display: block !important;
-    position: absolute !important;
-    width: 0 !important;
-    height: 0 !important;
-    overflow: hidden !important;
-  }
-
-  #mobile-site {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    min-height: 100dvh !important;
-    position: relative !important;
-    z-index: 1 !important;
-  }
-
-  #mobile-site *,
-  #mobile-site *::before,
-  #mobile-site *::after {
-    box-sizing: border-box !important;
-  }
-
-  #mobile-site .m-shell {
-    width: 100% !important;
-    max-width: 480px !important;
-  }
-
-  #mobile-site .m-nav,
-  #mobile-site section,
-  #mobile-site footer,
-  #mobile-site .m-card,
-  #mobile-site .m-list-item,
-  #mobile-site .m-image-card,
-  #mobile-site .m-card-img,
-  #mobile-site .m-illustration {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
-
-  #mobile-site .m-nav-inner,
-  #mobile-site .m-actions,
-  #mobile-site .m-btn,
-  #mobile-site .m-list-item,
-  #mobile-site .m-stat,
-  #mobile-site .m-chip-row {
-    display: flex !important;
-  }
-
-  #mobile-site .m-grid,
-  #mobile-site .m-list,
-  #mobile-site .m-stats,
-  #mobile-site .m-menu.open {
-    display: grid !important;
-  }
-
-  #mobile-site .m-image-card,
-  #mobile-site .m-card-img {
-    min-height: 180px !important;
-    background-color: #dbe8f2 !important;
-    background-image: radial-gradient(circle at 30% 20%, rgba(247,201,72,.25), transparent 34%), linear-gradient(135deg, rgba(31,95,153,.16), rgba(245,130,32,.08)) !important;
-  }
-
-  #mobile-site .m-image-card {
-    min-height: 260px !important;
-  }
-
-  #mobile-site .m-line-icon,
-  #mobile-site .m-btn-icon {
-    width: 20px !important;
-    height: 20px !important;
-    stroke: currentColor !important;
-    fill: none !important;
-    stroke-width: 1.7 !important;
-  }
+body > :not(#mobile-site):not(#scrollTopArrow):not(.icon-sprite) {
+display: none !important;
 }
-
-</style>
-</head>
-<body>
-
-<div id="cur"></div>
-<button class="scroll-top-arrow" id="scrollTopArrow" aria-label="Back to top" type="button">↑</button>
-
-<svg class="icon-sprite" width="0" height="0" style="position:absolute; width:0; height:0; overflow:hidden;" aria-hidden="true" focusable="false">
-  <symbol id="i-home" viewBox="0 0 24 24"><path d="M4.5 10.8 12 4.7l7.5 6.1"/><path d="M6.8 10.2v8.6h10.4v-8.6"/><path d="M10 18.8v-5h4v5"/></symbol>
-  <symbol id="i-about" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.2"/><path d="M12 10.6v5.2"/><path d="M12 7.7h.01"/></symbol>
-  <symbol id="i-segments" viewBox="0 0 24 24"><rect x="5" y="5" width="6" height="6" rx="1.2"/><rect x="13" y="5" width="6" height="6" rx="1.2"/><rect x="5" y="13" width="6" height="6" rx="1.2"/><rect x="13" y="13" width="6" height="6" rx="1.2"/></symbol>
-  <symbol id="i-approach" viewBox="0 0 24 24"><path d="M5 18.5h14"/><path d="M7 15.5c3.8-6.8 8-9 12-9"/><path d="M15 6.5h4v4"/></symbol>
-  <symbol id="i-contact" viewBox="0 0 24 24"><rect x="4.5" y="6.5" width="15" height="11" rx="2"/><path d="m5.8 8.2 6.2 5 6.2-5"/></symbol>
-  <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h13"/><path d="m13 7 5 5-5 5"/></symbol>
-  <symbol id="i-external" viewBox="0 0 24 24"><path d="M9 7h8v8"/><path d="M17 7 7 17"/><path d="M6.5 10v7.5h7.5"/></symbol>
-  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="m7 14 5 5 5-5"/></symbol>
-</svg>
-
-<div id="mobile-site">
-  <header class="m-nav">
-    <div class="m-shell m-nav-inner">
-      <a href="#m-hero" class="m-brand" aria-label="AUMNYX Trade home">
-        <span>AUMNYX <em>Trade</em></span>
-        <svg class="m-logo-orbit" viewBox="0 0 64 64" aria-hidden="true">
-          <defs><radialGradient id="mOceanGradient" cx="34%" cy="24%" r="72%"><stop offset="0%" stop-color="rgba(255,255,255,0.72)"/><stop offset="42%" stop-color="rgba(62,155,205,0.54)"/><stop offset="100%" stop-color="rgba(22,76,130,0.58)"/></radialGradient></defs>
-          <circle cx="32" cy="32" r="17" fill="url(#mOceanGradient)" stroke="rgba(11,35,65,0.22)" stroke-width="1"/>
-          <path d="M18 31c3-4 6-7 10-8 4-1 7 1 10 0 3-1 5-3 8-2-2 6-5 10-9 12-4 2-8 1-11 3-3 2-5 5-8 4-2-3-2-6 0-9z" fill="rgba(40,142,88,0.72)"/>
-          <path d="M36 42c2-2 4-3 7-3 2 0 3 2 4 3-2 3-6 4-10 5-2-1-2-3-1-5z" fill="rgba(40,142,88,0.58)"/>
-          <ellipse cx="32" cy="32" rx="27" ry="10" fill="none" stroke="rgba(245,130,32,0.30)" stroke-width="1.2" transform="rotate(-18 32 32)"/>
-          <g class="logo-plane-orbit"><path d="M0 4.6l12-4.2-4.1 12-2.1-5.1-5.8-2.7z" fill="#f58220"/></g>
-        </svg>
-      </a>
-      <button class="m-menu-btn" id="mMenuBtn" type="button" aria-label="Open mobile menu">☰</button>
-    </div>
-    <nav class="m-menu" id="mMenu">
-      <a href="#m-about">About</a><a href="#m-segments">Segments</a><a href="#m-approach">Approach</a><a href="#m-why">Why Us</a><a href="#m-contact">Contact</a>
-    </nav>
-  </header>
-  <nav class="m-bottom-nav" aria-label="Mobile bottom navigation">
-    <a href="#m-hero"><svg class="m-line-icon"><use href="#i-home"></use></svg>Home</a>
-    <a href="#m-about"><svg class="m-line-icon"><use href="#i-about"></use></svg>About</a>
-    <a href="#m-segments"><svg class="m-line-icon"><use href="#i-segments"></use></svg>Segments</a>
-    <a href="#m-approach"><svg class="m-line-icon"><use href="#i-approach"></use></svg>Approach</a>
-    <a href="#m-contact"><svg class="m-line-icon"><use href="#i-contact"></use></svg>Contact</a>
-  </nav>
-  <main>
-    <section class="m-hero" id="m-hero"><div class="m-shell"><div class="m-kicker">Global Trade &amp; Supply</div><h1>Industrial trade <span>with precision.</span></h1><p>Reliable automotive aftermarket and industrial supply solutions, built for focused sourcing, dependable delivery, and long-term partnerships.</p><div class="m-actions"><a href="#m-segments" class="m-btn primary">Explore Portfolio <svg class="m-btn-icon"><use href="#i-down"></use></svg></a><a href="#m-contact" class="m-btn secondary">Partner With Us <svg class="m-btn-icon"><use href="#i-arrow-right"></use></svg></a></div><div class="m-image-card m-illustration m-trade-illu" role="img" aria-label="Animated industrial trade network illustration"><div class="m-illu-grid"></div><div class="m-illu-globe"><span></span></div><div class="m-orbit m-orbit-a"><i></i></div><div class="m-orbit m-orbit-b"><i></i></div><div class="m-route m-route-1"></div><div class="m-route m-route-2"></div><span class="m-image-label">Supply Operations</span></div><div class="m-stats"><div class="m-stat"><strong>2+</strong><span>Business Verticals</span></div><div class="m-stat"><strong>4+</strong><span>Product Categories</span></div><div class="m-stat"><strong>24/7</strong><span>Reliability Support</span></div></div></div></section>
-    <section class="m-section compact" id="m-about"><div class="m-shell"><div class="m-kicker">About AUMNYX Trade</div><h2 class="m-section-title">Built for <span>Industrial Supply</span></h2><p class="m-lead">AUMNYX Trade, a division of AUMNYX Corporate, supports automotive aftermarket and industrial supply needs through practical trade partnerships.</p><div class="m-list"><div class="m-list-item"><span class="m-num">i</span><div><h3>Automotive Aftermarket</h3><p>Through Bestin Auto Spare Trading LLC and bestinautosolutions.com.</p></div></div><div class="m-list-item"><span class="m-num">ii</span><div><h3>Industrial Products</h3><p>Solar and EV solutions, HVAC, refrigeration, and technical supplies.</p></div></div><div class="m-list-item"><span class="m-num">iii</span><div><h3>Supply-Driven Approach</h3><p>Dependable delivery with responsive, market-aligned service.</p></div></div></div></div></section>
-    <section class="m-section" id="m-segments"><div class="m-shell"><div class="m-kicker">What We Do</div><h2 class="m-section-title">Our Business <span>Segments</span></h2><p class="m-lead">Two focused verticals, each designed around a clear market need and practical supply efficiency.</p><div class="m-grid"><article class="m-card"><div class="m-card-img m-illustration m-auto-illu" role="img" aria-label="Animated automotive parts illustration"><div class="m-illu-grid"></div><div class="m-gear m-gear-lg"></div><div class="m-gear m-gear-sm"></div><div class="m-conveyor"><span></span><span></span><span></span></div></div><div class="m-card-body"><h3>Bestin Auto Spare Trading</h3><p>Genuine and OEM-quality automotive products for workshops, traders, fleet operators, and channel partners.</p><div class="m-chip-row"><span class="m-chip">OEM Quality</span><span class="m-chip">Workshops</span><span class="m-chip">Fleet Operators</span></div></div></article><article class="m-card"><div class="m-card-img m-illustration m-solar-illu" role="img" aria-label="Animated solar and EV energy illustration"><div class="m-illu-grid"></div><div class="m-sun"></div><div class="m-panel"><i></i><i></i><i></i></div><div class="m-energy-line"><span></span></div></div><div class="m-card-body"><h3>Solar &amp; EV Solutions</h3><p>Solar street lamps, water heaters, EV chargers, batteries, and related clean-energy supply products.</p><div class="m-chip-row"><span class="m-chip">EV Chargers</span><span class="m-chip">Solar Batteries</span><span class="m-chip">Water Heaters</span></div></div></article><article class="m-card"><div class="m-card-img m-illustration m-hvac-illu" role="img" aria-label="Animated HVAC airflow illustration"><div class="m-illu-grid"></div><div class="m-hvac-unit"><i></i></div><div class="m-air m-air-1"></div><div class="m-air m-air-2"></div><div class="m-air m-air-3"></div></div><div class="m-card-body"><h3>HVAC &amp; Refrigeration</h3><p>Split AC, refrigerants, copper products, AC spare parts, and practical technical supply categories.</p><div class="m-chip-row"><span class="m-chip">Split AC</span><span class="m-chip">Refrigerants</span><span class="m-chip">Copper Products</span></div></div></article></div></div></section>
-    <section class="m-section" id="m-approach"><div class="m-shell"><div class="m-kicker">How We Work</div><h2 class="m-section-title">Three principles. <span>Every trade.</span></h2><div class="m-list"><div class="m-list-item"><span class="m-num">01</span><div><h3>Specialized Category Focus</h3><p>Deep understanding of each product segment, from automotive to energy and HVAC.</p></div></div><div class="m-list-item"><span class="m-num">02</span><div><h3>Supply Efficiency</h3><p>Reliable sourcing, timely delivery, and practical logistics discipline.</p></div></div><div class="m-list-item"><span class="m-num">03</span><div><h3>Market Relevance</h3><p>Solutions aligned with real business needs and evolving market demand.</p></div></div></div></div></section>
-    <section class="m-section" id="m-why"><div class="m-shell"><div class="m-kicker">Why AUMNYX Trade</div><h2 class="m-section-title">Built for <span>long-term trade.</span></h2><div class="m-list"><div class="m-list-item"><span class="m-num">✓</span><div><h3>Reliable Product Supply</h3><p>Focused product categories with clear communication and delivery planning.</p></div></div><div class="m-list-item"><span class="m-num">✓</span><div><h3>Category Specialization</h3><p>Structured verticals for deeper expertise and better sourcing decisions.</p></div></div><div class="m-list-item"><span class="m-num">✓</span><div><h3>Global Sourcing Capability</h3><p>International supplier networks supporting quality product access.</p></div></div><div class="m-list-item"><span class="m-num">✓</span><div><h3>Customer-Focused Service</h3><p>Responsive support built around genuine long-term trade partnerships.</p></div></div></div><div class="m-quote" style="margin-top:16px;"><p>AUMNYX Trade combines specialized category focus with strong market relevance across automotive, energy, HVAC, and industrial supply needs.</p></div></div></section>
-    <section class="m-cta" id="m-contact"><div class="m-shell"><div class="m-kicker">Let's Connect</div><h2 class="m-section-title">Let's build stronger chains together.</h2><p class="m-lead">For reliable sourcing, technical supply solutions, or long-term trading partnerships, AUMNYX Trade is ready to support your business.</p><div class="m-actions"><a href="mailto:info@aumnyx.com" class="m-btn primary">Contact Us <svg class="m-btn-icon"><use href="#i-arrow-right"></use></svg></a><a href="https://www.bestinautosolutions.com" target="_blank" rel="noopener noreferrer" class="m-btn secondary">Visit Bestin Auto <svg class="m-btn-icon"><use href="#i-external"></use></svg></a></div></div></section>
-  </main>
-  <footer class="m-footer"><div class="m-shell"><div class="m-brand" style="color:rgba(255,255,255,0.82);">AUMNYX <em>Trade</em></div><p style="margin-top:10px;">A division of AUMNYX Corporate, delivering reliable automotive aftermarket and industrial trade solutions globally.</p><div class="m-footer-links"><a href="#m-about">About</a><a href="#m-segments">Segments</a><a href="#m-approach">Approach</a><a href="#m-contact">Contact</a></div><p>© 2025 AUMNYX Trade. All rights reserved.</p></div></footer>
-</div>
-
-<nav id="nav">
-  <div class="nav-w">
-    <a href="#hero" class="nav-brand">AUMNYX <span>Trade</span><svg class="trade-mark" viewBox="0 0 64 64" aria-hidden="true">
-  <defs>
-    <radialGradient id="oceanGradient" cx="34%" cy="24%" r="72%">
-      <stop offset="0%" stop-color="rgba(255,255,255,0.72)"/>
-      <stop offset="36%" stop-color="rgba(62,155,205,0.50)"/>
-      <stop offset="100%" stop-color="rgba(26,75,132,0.58)"/>
-    </radialGradient>
-  </defs>
-
-  <circle class="globe-sphere" cx="32" cy="32" r="16.5"></circle>
-  <ellipse class="globe-highlight" cx="26" cy="23" rx="6.5" ry="3.8" transform="rotate(-28 26 23)"></ellipse>
-
-  <path class="land" d="M22 22.5c2.4-2.1 5.4-3.7 8.6-3.6 1.5 0 2.6.5 3.9 1.1-1.6.9-2.9 1.9-3.3 3.2-.5 1.6.8 2.8 2.5 3.3-2.1.5-4.7.5-6.5-.2-1.9-.7-2.4-2.2-5.2-3.8z"></path>
-  <path class="land" d="M37.7 22.3c3.6 1.2 6.3 4.3 7.1 8.1-1.9-.7-3.9-.8-5.6-.1-1.9.8-2.8 2.2-4.8 1.7-1.6-.4-2.1-1.7-1.3-3 .9-1.5 2.8-2.3 4.2-3.1 1.2-.8 1.1-2 .4-3.6z"></path>
-  <path class="land" d="M26.6 33.4c2.5-.4 4.9.1 6.3 1.6 1.2 1.3 1 3.1.1 4.7-.8 1.4-1.6 2.7-1.2 4.6-4.5-.1-8.4-2.5-10.6-6.3 1.6-.3 2.4-1.2 3.1-2.2.6-.9 1.1-2 2.3-2.4z"></path>
-  <path class="land" d="M39 38.2c1.9-.3 3.5.2 4.8 1.1-1.7 2.8-4.3 4.7-7.5 5.4.1-1.4.5-2.4 1.2-3.3.7-1 1-1.9 1.5-3.2z"></path>
-
-  <path class="globe-line" d="M15.5 32h33"></path>
-  <path class="globe-line" d="M32 15.5c5.1 5 7.4 10.3 7.4 16.5S37.1 43.5 32 48.5"></path>
-  <path class="globe-line" d="M32 15.5c-5.1 5-7.4 10.3-7.4 16.5s2.3 11.5 7.4 16.5"></path>
-
-  <ellipse class="orbit-ring" cx="32" cy="32" rx="28" ry="10.5" transform="rotate(-18 32 32)"></ellipse>
-  <ellipse class="orbit-ring" cx="32" cy="32" rx="28" ry="10.5" transform="rotate(25 32 32)"></ellipse>
-
-  <path class="front-pass" d="M7 36c8.2 8 41.8 8 50 0"></path>
-
-  <g class="orbiter plane-orbit vehicle">
-    <g transform="translate(32 32) rotate(16) translate(-6 -6)">
-      <path class="vehicle-fill" d="M0 4.6l12-4.2-4.1 12-2.1-5.1-5.8-2.7z"></path>
-    </g>
-  </g>
-
-  
-</svg></a>
-    <div class="nav-links">
-      <a href="#introduction">About</a>
-      <a href="#segments">Segments</a>
-      <a href="#approach">Approach</a>
-      <a href="#why-us">Why Us</a>
-      <a href="#cta" class="nav-btn">Get in Touch</a>
-    </div>
-    <button class="hbg" id="hbg"><span></span><span></span><span></span></button>
-  </div>
-</nav>
-<div class="mob" id="mob">
-  <a href="#introduction" class="ml">About</a>
-  <a href="#segments" class="ml">Segments</a>
-  <a href="#approach" class="ml">Approach</a>
-  <a href="#why-us" class="ml">Why Us</a>
-  <a href="#cta" class="ml">Get in Touch</a>
-</div>
-
-<section id="hero">
-  <div class="hero-wash"></div>
-  <div class="hero-ticker">Global Trade &amp; Supply — AUMNYX — 2025</div>
-  <div class="hero-scroll"></div>
-
-  <div class="hero-inner">
-    <div class="hero-num">01</div>
-    <div class="hero-image-card">
-      <img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?fm=jpg&fit=crop&w=1200&q=80&mobilecache=20260428" alt="Industrial supply and engineering workspace"/>
-      <span>Supply Operations</span>
-    </div>
-    <div class="hero-kicker">Global Trade &amp; Supply Solutions</div>
-    <h1 class="hero-h1">Industrial trade<br/><em>with precision.</em></h1>
-    <div class="hero-bottom">
-      <p class="hero-desc">Enabling businesses to source better, operate efficiently, and scale with confidence through reliable products and responsive trade solutions.</p>
-      <div class="hero-actions">
-        <a href="#segments" class="btn-circle filled">
-          <div class="circle">↓</div>
-          Explore Portfolio
-        </a>
-        <a href="#cta" class="btn-circle">
-          <div class="circle">→</div>
-          Partner With Us
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <div class="hero-stats-bar">
-    <div class="hs">
-      <div class="hs-n">2<em>+</em></div>
-      <div class="hs-l">Business Verticals</div>
-    </div>
-    <div class="hs">
-      <div class="hs-n">4<em>+</em></div>
-      <div class="hs-l">Product Categories</div>
-    </div>
-    <div class="hs">
-      <div class="hs-n">24<em>/7</em></div>
-      <div class="hs-l">Reliability-Led Support</div>
-    </div>
-  </div>
-</section>
-
-<section id="introduction">
-  <div class="intro-w">
-    <div class="intro-top">
-      <div>
-        <div class="sec-tag rv">About AUMNYX Trade</div>
-        <h2 class="intro-h2 rv d1">Built for<br/><em>Industrial Supply</em></h2>
-        <p class="intro-body rv d2">AUMNYX Trade, a division of AUMNYX Corporate, supports automotive aftermarket and industrial supply needs through focused sourcing, dependable product categories, and practical trade partnerships.</p>
-        <div class="pillars rv d3">
-          <div class="pillar">
-            <span class="pillar-n">i.</span>
-            <div><h4>Automotive Aftermarket</h4><p>Through Bestin Auto Spare Trading LLC & bestinautosolutions.com</p></div>
-          </div>
-          <div class="pillar">
-            <span class="pillar-n">ii.</span>
-            <div><h4>Industrial Products</h4><p>Solar & EV Solutions · HVAC, Refrigeration & Technical Supplies</p></div>
-          </div>
-          <div class="pillar">
-            <span class="pillar-n">iii.</span>
-            <div><h4>Practical Supply-Driven Approach</h4><p>Dependable delivery with responsive, market-aligned service</p></div>
-          </div>
-        </div>
-      </div>
-      <div class="intro-visual rv">
-        <div class="iv-panel image-panel">
-          <img decoding="async" referrerpolicy="no-referrer" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?fm=jpg&fit=crop&w=1200&q=80&mobilecache=20260428" alt="Industrial warehouse and supply infrastructure"/>
-          <div class="iv-corner"></div>
-          <div class="iv-badge">
-            <strong>AT</strong>
-            <span>Trade Network</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="segments">
-  <div class="seg-w">
-    <div class="seg-header">
-      <div>
-        <div class="sec-tag rv">What We Do</div>
-        <h2 class="seg-h2 rv d1">Our Business <em>Segments</em></h2>
-      </div>
-      <p class="seg-lead rv d2">Two focused verticals, each built to serve a distinct market need with category expertise, supply efficiency and operational flexibility.</p>
-    </div>
-    <div class="seg-switch rv d3">
-      <button class="sw on" data-t="auto">Automotive</button>
-      <button class="sw" data-t="ind">Industrial</button>
-    </div>
-  </div>
-
-  <div class="auto-pane" id="t-auto">
-    <div class="seg-w">
-      <div class="auto-layout rv d4">
-        <div>
-          <h3 class="auto-h3">Bestin Auto<br/><em>Spare Trading</em></h3>
-          <a href="https://www.bestinautosolutions.com" target="_blank" rel="noopener noreferrer" class="auto-url">www.bestinautosolutions.com ↗</a>
-          <p class="auto-p">Our dedicated automotive aftermarket platform supplies a comprehensive range of genuine and OEM-quality automotive products, ensuring performance, safety and reliability across the supply chain.</p>
-          <div class="auto-chips">
-            <span class="auto-chip">Workshops</span>
-            <span class="auto-chip">Traders</span>
-            <span class="auto-chip">Fleet Operators</span>
-            <span class="auto-chip">Channel Partners</span>
-          </div>
-          <div class="auto-image-panel">
-            <img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?fm=jpg&fit=crop&w=1200&q=80&mobilecache=20260428" alt="Automotive spare parts and workshop supply"/>
-            <span class="auto-image-label">Automotive Aftermarket</span>
-          </div>
-        </div>
-        <div class="auto-feats">
-          <div class="auto-feat">
-            <span class="feat-n">i.</span>
-            <div><h4>OEM Quality</h4><p>Genuine and OEM-grade products ensuring performance & reliability</p></div>
-          </div>
-          <div class="auto-feat">
-            <span class="feat-n">ii.</span>
-            <div><h4>Specialized Platform</h4><p>Dedicated company structure for focused automotive expertise</p></div>
-          </div>
-          <div class="auto-feat">
-            <span class="feat-n">iii.</span>
-            <div><h4>Comprehensive Range</h4><p>Full aftermarket portfolio to support diverse automotive supply needs</p></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="ind-pane" id="t-ind">
-    <div class="seg-w">
-      <div class="seg-cards">
-      <div class="seg-card">
-        <div class="seg-card-bg"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="https://images.unsplash.com/photo-1509391366360-2e959784a276?fm=jpg&fit=crop&w=1200&q=80&mobilecache=20260428" alt="Solar panels and energy infrastructure"/></div>
-        <div class="seg-card-overlay"></div>
-        <div class="seg-card-content">
-          <div class="seg-card-tag">Category A</div>
-          <div class="seg-card-title">Solar & EV<br/>Solutions</div>
-          <div class="seg-products">
-            <span class="seg-ptag">Solar Street Lamps</span>
-            <span class="seg-ptag">Solar Water Heaters</span>
-            <span class="seg-ptag">EV Chargers</span>
-            <span class="seg-ptag">Solar Batteries</span>
-          </div>
-          <div class="seg-arrow">↗</div>
-        </div>
-      </div>
-      <div class="seg-card">
-        <div class="seg-card-bg"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?fm=jpg&fit=crop&w=1200&q=80&mobilecache=20260428" alt="Industrial HVAC and technical infrastructure"/></div>
-        <div class="seg-card-overlay"></div>
-        <div class="seg-card-content">
-          <div class="seg-card-tag">Category B · HVAC</div>
-          <div class="seg-card-title">HVAC &<br/>Refrigeration</div>
-          <div class="seg-products">
-            <span class="seg-ptag">Split AC</span>
-            <span class="seg-ptag">Refrigerants</span>
-            <span class="seg-ptag">Copper Products</span>
-            <span class="seg-ptag">AC Spare Parts</span>
-          </div>
-          <div class="seg-arrow">↗</div>
-        </div>
-      </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="approach">
-  <div class="approach-w">
-    <div class="approach-header">
-      <div>
-        <div class="sec-tag rv">How We Work</div>
-        <h2 class="approach-h2 rv d1">Three principles.<br/><em>Every trade.</em></h2>
-      </div>
-      <p class="approach-lead rv d2">Deep focus, reliable delivery, and real market alignment — the three things that define how AUMNYX Trade operates with every partner.</p>
-    </div>
-    <div class="approach-rows">
-      <div class="approach-row rv">
-        <span class="ar-num">01</span>
-        <div class="ar-title">Specialized<br/>Category Focus</div>
-        <p class="ar-body">Deep understanding of each product segment — automotive, energy, HVAC — allows us to bring genuine expertise, not just logistics, to every supply relationship.</p>
-      </div>
-      <div class="approach-row rv d1">
-        <span class="ar-num">02</span>
-        <div class="ar-title">Supply<br/>Efficiency</div>
-        <p class="ar-body">Reliable sourcing and timely delivery, backed by strong supplier networks and practical logistics. Consistent supply is treated as an operating priority, supported by practical sourcing and logistics discipline.</p>
-      </div>
-      <div class="approach-row rv d2">
-        <span class="ar-num">03</span>
-        <div class="ar-title">Market<br/>Relevance</div>
-        <p class="ar-body">Solutions aligned with real business needs. We track evolving market demands and adapt our portfolio to ensure our partners always have what they need.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="why-us">
-  <div class="why-w">
-    <div class="why-layout">
-      <div>
-        <div class="sec-tag rv">Why AUMNYX Trade</div>
-        <h2 class="why-h2 rv d1">Built for<br/><em>long-term trade.</em></h2>
-        <div class="why-items rv d2">
-          <div class="why-item"><div><h4>Reliable Product Supply</h4><p>Dependable sourcing support across focused product categories, with clear communication and practical delivery planning.</p></div></div>
-          <div class="why-item"><div><h4>Strong Category Specialization</h4><p>Structured verticals mean deeper expertise and better sourcing decisions in each market.</p></div></div>
-          <div class="why-item"><div><h4>Global Sourcing Capability</h4><p>Access to international supplier networks to bring quality products to our customers.</p></div></div>
-          <div class="why-item"><div><h4>Customer-Focused Service</h4><p>Responsive, practical support built on genuine long-term trade partnerships.</p></div></div>
-        </div>
-      </div>
-      <div class="why-right rv d2">
-        <div class="quote-block">
-          <span class="q-mark">"</span>
-          <p class="q-text">AUMNYX Trade is committed to building a dependable trading portfolio that combines specialized category focus with strong market relevance — supporting customers across automotive, energy, HVAC, and industrial supply needs.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="cta">
-  <div class="cta-ghost">AT</div>
-  <div class="cta-w">
-    <div class="cta-kicker rv">Let's Connect</div>
-    <h2 class="cta-h2 rv d1">Let's build<br/><em>stronger</em><br/>chains together.</h2>
-    <p class="cta-lead rv d2">Whether you are looking for reliable sourcing, technical supply solutions, or long-term trading partnerships — AUMNYX Trade is ready to support your business.</p>
-    <div class="cta-btns rv d3">
-      <a href="mailto:info@aumnyx.com" class="btn-light-circle">
-        <div class="circle">→</div>
-        Contact Us
-      </a>
-      <a href="https://www.bestinautosolutions.com" target="_blank" rel="noopener noreferrer" class="cta-link">Visit Bestin Auto ↗</a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="footer-w">
-    <div class="footer-top">
-      <div>
-        <div class="f-brand">AUMNYX <em>Trade</em><svg class="trade-mark" viewBox="0 0 64 64" aria-hidden="true">
-  <defs>
-    <radialGradient id="oceanGradient" cx="34%" cy="24%" r="72%">
-      <stop offset="0%" stop-color="rgba(255,255,255,0.72)"/>
-      <stop offset="36%" stop-color="rgba(62,155,205,0.50)"/>
-      <stop offset="100%" stop-color="rgba(26,75,132,0.58)"/>
-    </radialGradient>
-  </defs>
-
-  <circle class="globe-sphere" cx="32" cy="32" r="16.5"></circle>
-  <ellipse class="globe-highlight" cx="26" cy="23" rx="6.5" ry="3.8" transform="rotate(-28 26 23)"></ellipse>
-
-  <path class="land" d="M22 22.5c2.4-2.1 5.4-3.7 8.6-3.6 1.5 0 2.6.5 3.9 1.1-1.6.9-2.9 1.9-3.3 3.2-.5 1.6.8 2.8 2.5 3.3-2.1.5-4.7.5-6.5-.2-1.9-.7-2.4-2.2-5.2-3.8z"></path>
-  <path class="land" d="M37.7 22.3c3.6 1.2 6.3 4.3 7.1 8.1-1.9-.7-3.9-.8-5.6-.1-1.9.8-2.8 2.2-4.8 1.7-1.6-.4-2.1-1.7-1.3-3 .9-1.5 2.8-2.3 4.2-3.1 1.2-.8 1.1-2 .4-3.6z"></path>
-  <path class="land" d="M26.6 33.4c2.5-.4 4.9.1 6.3 1.6 1.2 1.3 1 3.1.1 4.7-.8 1.4-1.6 2.7-1.2 4.6-4.5-.1-8.4-2.5-10.6-6.3 1.6-.3 2.4-1.2 3.1-2.2.6-.9 1.1-2 2.3-2.4z"></path>
-  <path class="land" d="M39 38.2c1.9-.3 3.5.2 4.8 1.1-1.7 2.8-4.3 4.7-7.5 5.4.1-1.4.5-2.4 1.2-3.3.7-1 1-1.9 1.5-3.2z"></path>
-
-  <path class="globe-line" d="M15.5 32h33"></path>
-  <path class="globe-line" d="M32 15.5c5.1 5 7.4 10.3 7.4 16.5S37.1 43.5 32 48.5"></path>
-  <path class="globe-line" d="M32 15.5c-5.1 5-7.4 10.3-7.4 16.5s2.3 11.5 7.4 16.5"></path>
-
-  <ellipse class="orbit-ring" cx="32" cy="32" rx="28" ry="10.5" transform="rotate(-18 32 32)"></ellipse>
-  <ellipse class="orbit-ring" cx="32" cy="32" rx="28" ry="10.5" transform="rotate(25 32 32)"></ellipse>
-
-  <path class="front-pass" d="M7 36c8.2 8 41.8 8 50 0"></path>
-
-  <g class="orbiter plane-orbit vehicle">
-    <g transform="translate(32 32) rotate(16) translate(-6 -6)">
-      <path class="vehicle-fill" d="M0 4.6l12-4.2-4.1 12-2.1-5.1-5.8-2.7z"></path>
-    </g>
-  </g>
-
-  
-</svg></div>
-        <p class="f-desc">A division of AUMNYX Corporate, delivering reliable automotive aftermarket and industrial trade solutions globally.</p>
-      </div>
-      <div class="f-col">
-        <h5>Segments</h5>
-        <ul>
-          <li><a href="#segments">Automotive Aftermarket</a></li>
-          <li><a href="#segments">Solar & EV Solutions</a></li>
-          <li><a href="#segments">HVAC & Refrigeration</a></li>
-          <li><a href="https://www.bestinautosolutions.com" target="_blank" rel="noopener noreferrer">Bestin Auto ↗</a></li>
-        </ul>
-      </div>
-      <div class="f-col">
-        <h5>Company</h5>
-        <ul>
-          <li><a href="#introduction">About</a></li>
-          <li><a href="#approach">Our Approach</a></li>
-          <li><a href="#why-us">Why Us</a></li>
-          <li><a href="#cta">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2025 AUMNYX Trade. A division of AUMNYX Corporate. All rights reserved.</p>
-      <p>Built for global trade.</p>
-    </div>
-  </div>
-</footer>
-
-<script>
+.icon-sprite {
+display: block !important;
+position: absolute !important;
+width: 0 !important;
+height: 0 !important;
+overflow: hidden !important;
+}
+#mobile-site {
+display: block !important;
+visibility: visible !important;
+opacity: 1 !important;
+min-height: 100dvh !important;
+position: relative !important;
+z-index: 1 !important;
+}
+#mobile-site *,
+#mobile-site *::before,
+#mobile-site *::after {
+box-sizing: border-box !important;
+}
+#mobile-site .m-shell {
+width: 100% !important;
+max-width: 480px !important;
+}
+#mobile-site .m-nav,
+#mobile-site section,
+#mobile-site footer,
+#mobile-site .m-card,
+#mobile-site .m-list-item,
+#mobile-site .m-image-card,
+#mobile-site .m-card-img,
+#mobile-site .m-illustration {
+display: block !important;
+visibility: visible !important;
+opacity: 1 !important;
+}
+#mobile-site .m-nav-inner,
+#mobile-site .m-actions,
+#mobile-site .m-btn,
+#mobile-site .m-list-item,
+#mobile-site .m-stat,
+#mobile-site .m-chip-row {
+display: flex !important;
+}
+#mobile-site .m-grid,
+#mobile-site .m-list,
+#mobile-site .m-stats,
+#mobile-site .m-menu.open {
+display: grid !important;
+}
+#mobile-site .m-image-card,
+#mobile-site .m-card-img {
+min-height: 180px !important;
+background-color: #dbe8f2 !important;
+background-image: radial-gradient(circle at 30% 20%, rgba(247,201,72,.25), transparent 34%), linear-gradient(135deg, rgba(31,95,153,.16), rgba(245,130,32,.08)) !important;
+}
+#mobile-site .m-image-card {
+min-height: 260px !important;
+}
+#mobile-site .m-line-icon,
+#mobile-site .m-btn-icon {
+width: 20px !important;
+height: 20px !important;
+stroke: currentColor !important;
+fill: none !important;
+stroke-width: 1.7 !important;
+}
+}
+</style></head><body><div id="cur"></div><button class="scroll-top-arrow" id="scrollTopArrow" aria-label="Back to top" type="button">↑</button><svg class="icon-sprite" width="0" height="0" style="position:absolute; width:0; height:0; overflow:hidden;" aria-hidden="true" focusable="false"><symbol id="i-home" viewBox="0 0 24 24"><path d="M4.5 10.8 12 4.7l7.5 6.1"/><path d="M6.8 10.2v8.6h10.4v-8.6"/><path d="M10 18.8v-5h4v5"/></symbol><symbol id="i-about" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.2"/><path d="M12 10.6v5.2"/><path d="M12 7.7h.01"/></symbol><symbol id="i-segments" viewBox="0 0 24 24"><rect x="5" y="5" width="6" height="6" rx="1.2"/><rect x="13" y="5" width="6" height="6" rx="1.2"/><rect x="5" y="13" width="6" height="6" rx="1.2"/><rect x="13" y="13" width="6" height="6" rx="1.2"/></symbol><symbol id="i-approach" viewBox="0 0 24 24"><path d="M5 18.5h14"/><path d="M7 15.5c3.8-6.8 8-9 12-9"/><path d="M15 6.5h4v4"/></symbol><symbol id="i-contact" viewBox="0 0 24 24"><rect x="4.5" y="6.5" width="15" height="11" rx="2"/><path d="m5.8 8.2 6.2 5 6.2-5"/></symbol><symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h13"/><path d="m13 7 5 5-5 5"/></symbol><symbol id="i-external" viewBox="0 0 24 24"><path d="M9 7h8v8"/><path d="M17 7 7 17"/><path d="M6.5 10v7.5h7.5"/></symbol><symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="m7 14 5 5 5-5"/></symbol></svg><div id="mobile-site"><header class="m-nav"><div class="m-shell m-nav-inner"><a href="#m-hero" class="m-brand" aria-label="AUMNYX Trade home"><span>AUMNYX <em>Trade</em></span><svg class="m-logo-orbit" viewBox="0 0 64 64" aria-hidden="true"><defs><radialGradient id="mOceanGradient" cx="34%" cy="24%" r="72%"><stop offset="0%" stop-color="rgba(255,255,255,0.72)"/><stop offset="42%" stop-color="rgba(62,155,205,0.54)"/><stop offset="100%" stop-color="rgba(22,76,130,0.58)"/></radialGradient></defs><circle cx="32" cy="32" r="17" fill="url(#mOceanGradient)" stroke="rgba(11,35,65,0.22)" stroke-width="1"/><path d="M18 31c3-4 6-7 10-8 4-1 7 1 10 0 3-1 5-3 8-2-2 6-5 10-9 12-4 2-8 1-11 3-3 2-5 5-8 4-2-3-2-6 0-9z" fill="rgba(40,142,88,0.72)"/><path d="M36 42c2-2 4-3 7-3 2 0 3 2 4 3-2 3-6 4-10 5-2-1-2-3-1-5z" fill="rgba(40,142,88,0.58)"/><ellipse cx="32" cy="32" rx="27" ry="10" fill="none" stroke="rgba(245,130,32,0.30)" stroke-width="1.2" transform="rotate(-18 32 32)"/><g class="logo-plane-orbit"><path d="M0 4.6l12-4.2-4.1 12-2.1-5.1-5.8-2.7z" fill="#f58220"/></g></svg></a><button class="m-menu-btn" id="mMenuBtn" type="button" aria-label="Open mobile menu">☰</button></div><nav class="m-menu" id="mMenu"><a href="#m-about">About</a><a href="#m-segments">Segments</a><a href="#m-approach">Approach</a><a href="#m-why">Why Us</a><a href="#m-contact">Contact</a></nav></header><nav class="m-bottom-nav" aria-label="Mobile bottom navigation"><a href="#m-hero"><svg class="m-line-icon"><use href="#i-home"></use></svg>Home</a><a href="#m-about"><svg class="m-line-icon"><use href="#i-about"></use></svg>About</a><a href="#m-segments"><svg class="m-line-icon"><use href="#i-segments"></use></svg>Segments</a><a href="#m-approach"><svg class="m-line-icon"><use href="#i-approach"></use></svg>Approach</a><a href="#m-contact"><svg class="m-line-icon"><use href="#i-contact"></use></svg>Contact</a></nav><main><section class="m-hero" id="m-hero"><div class="m-shell"><div class="m-kicker">Global Trade &amp; Supply</div><h1>Industrial trade <span>with precision.</span></h1><p>Reliable automotive aftermarket and industrial supply solutions, built for focused sourcing, dependable delivery, and long-term partnerships.</p><div class="m-actions"><a href="#m-segments" class="m-btn primary">Explore Portfolio <svg class="m-btn-icon"><use href="#i-down"></use></svg></a><a href="#m-contact" class="m-btn secondary">Partner With Us <svg class="m-btn-icon"><use href="#i-arrow-right"></use></svg></a></div><div class="m-image-card m-illustration m-trade-illu" role="img" aria-label="Animated industrial trade network illustration"><div class="m-illu-grid"></div><div class="m-illu-globe"><span></span></div><div class="m-orbit m-orbit-a"><i></i></div><div class="m-orbit m-orbit-b"><i></i></div><div class="m-route m-route-1"></div><div class="m-route m-route-2"></div><span class="m-image-label">Supply Operations</span></div><div class="m-stats"><div class="m-stat"><strong>2+</strong><span>Business Verticals</span></div><div class="m-stat"><strong>4+</strong><span>Product Categories</span></div><div class="m-stat"><strong>24/7</strong><span>Reliability Support</span></div></div></div></section><section class="m-section compact" id="m-about"><div class="m-shell"><div class="m-kicker">About AUMNYX Trade</div><h2 class="m-section-title">Built for <span>Industrial Supply</span></h2><p class="m-lead">AUMNYX Trade, a division of AUMNYX Corporate, supports automotive aftermarket and industrial supply needs through practical trade partnerships.</p><div class="m-list"><div class="m-list-item"><span class="m-num">i</span><div><h3>Automotive Aftermarket</h3><p>Through Bestin Auto Spare Trading LLC and bestinautosolutions.com.</p></div></div><div class="m-list-item"><span class="m-num">ii</span><div><h3>Industrial Products</h3><p>Solar and EV solutions, HVAC, refrigeration, and technical supplies.</p></div></div><div class="m-list-item"><span class="m-num">iii</span><div><h3>Supply-Driven Approach</h3><p>Dependable delivery with responsive, market-aligned service.</p></div></div></div></div></section><section class="m-section" id="m-segments"><div class="m-shell"><div class="m-kicker">What We Do</div><h2 class="m-section-title">Our Business <span>Segments</span></h2><p class="m-lead">Two focused verticals, each designed around a clear market need and practical supply efficiency.</p><div class="m-grid"><article class="m-card"><div class="m-card-img m-illustration m-auto-illu" role="img" aria-label="Animated automotive parts illustration"><div class="m-illu-grid"></div><div class="m-gear m-gear-lg"></div><div class="m-gear m-gear-sm"></div><div class="m-conveyor"><span></span><span></span><span></span></div></div><div class="m-card-body"><h3>Bestin Auto Spare Trading</h3><p>Genuine and OEM-quality automotive products for workshops, traders, fleet operators, and channel partners.</p><div class="m-chip-row"><span class="m-chip">OEM Quality</span><span class="m-chip">Workshops</span><span class="m-chip">Fleet Operators</span></div></div></article><article class="m-card"><div class="m-card-img m-illustration m-solar-illu" role="img" aria-label="Animated solar and EV energy illustration"><div class="m-illu-grid"></div><div class="m-sun"></div><div class="m-panel"><i></i><i></i><i></i></div><div class="m-energy-line"><span></span></div></div><div class="m-card-body"><h3>Solar &amp; EV Solutions</h3><p>Solar street lamps, water heaters, EV chargers, batteries, and related clean-energy supply products.</p><div class="m-chip-row"><span class="m-chip">EV Chargers</span><span class="m-chip">Solar Batteries</span><span class="m-chip">Water Heaters</span></div></div></article><article class="m-card"><div class="m-card-img m-illustration m-hvac-illu" role="img" aria-label="Animated HVAC airflow illustration"><div class="m-illu-grid"></div><div class="m-hvac-unit"><i></i></div><div class="m-air m-air-1"></div><div class="m-air m-air-2"></div><div class="m-air m-air-3"></div></div><div class="m-card-body"><h3>HVAC &amp; Refrigeration</h3><p>Split AC, refrigerants, copper products, AC spare parts, and practical technical supply categories.</p><div class="m-chip-row"><span class="m-chip">Split AC</span><span class="m-chip">Refrigerants</span><span class="m-chip">Copper Products</span></div></div></article></div></div></section><section class="m-section" id="m-approach"><div class="m-shell"><div class="m-kicker">How We Work</div><h2 class="m-section-title">Three principles. <span>Every trade.</span></h2><div class="m-list"><div class="m-list-item"><span class="m-num">01</span><div><h3>Specialized Category Focus</h3><p>Deep understanding of each product segment, from automotive to energy and HVAC.</p></div></div><div class="m-list-item"><span class="m-num">02</span><div><h3>Supply Efficiency</h3><p>Reliable sourcing, timely delivery, and practical logistics discipline.</p></div></div><div class="m-list-item"><span class="m-num">03</span><div><h3>Market Relevance</h3><p>Solutions aligned with real business needs and evolving market demand.</p></div></div></div></div></section><section class="m-section" id="m-why"><div class="m-shell"><div class="m-kicker">Why AUMNYX Trade</div><h2 class="m-section-title">Built for <span>long-term trade.</span></h2><div class="m-list"><div class="m-list-item"><span class="m-num">✓</span><div><h3>Reliable Product Supply</h3><p>Focused product categories with clear communication and delivery planning.</p></div></div><div class="m-list-item"><span class="m-num">✓</span><div><h3>Category Specialization</h3><p>Structured verticals for deeper expertise and better sourcing decisions.</p></div></div><div class="m-list-item"><span class="m-num">✓</span><div><h3>Global Sourcing Capability</h3><p>International supplier networks supporting quality product access.</p></div></div><div class="m-list-item"><span class="m-num">✓</span><div><h3>Customer-Focused Service</h3><p>Responsive support built around genuine long-term trade partnerships.</p></div></div></div><div class="m-quote" style="margin-top:16px;"><p>AUMNYX Trade combines specialized category focus with strong market relevance across automotive, energy, HVAC, and industrial supply needs.</p></div></div></section><section class="m-cta" id="m-contact"><div class="m-shell"><div class="m-kicker">Let's Connect</div><h2 class="m-section-title">Let's build stronger chains together.</h2><p class="m-lead">For reliable sourcing, technical supply solutions, or long-term trading partnerships, AUMNYX Trade is ready to support your business.</p><div class="m-actions"><a href="mailto:info@aumnyx.com" class="m-btn primary">Contact Us <svg class="m-btn-icon"><use href="#i-arrow-right"></use></svg></a><a href="https://www.bestinautosolutions.com" target="_blank" rel="noopener noreferrer" class="m-btn secondary">Visit Bestin Auto <svg class="m-btn-icon"><use href="#i-external"></use></svg></a></div></div></section></main><footer class="m-footer"><div class="m-shell"><div class="m-brand" style="color:rgba(255,255,255,0.82);">AUMNYX <em>Trade</em></div><p style="margin-top:10px;">A division of AUMNYX Corporate, delivering reliable automotive aftermarket and industrial trade solutions globally.</p><div class="m-footer-links"><a href="#m-about">About</a><a href="#m-segments">Segments</a><a href="#m-approach">Approach</a><a href="#m-contact">Contact</a></div><p>© 2025 AUMNYX Trade. All rights reserved.</p></div></footer></div><nav id="nav"><div class="nav-w"><a href="#hero" class="nav-brand">AUMNYX <span>Trade</span><svg class="trade-mark" viewBox="0 0 64 64" aria-hidden="true"><defs><radialGradient id="oceanGradient" cx="34%" cy="24%" r="72%"><stop offset="0%" stop-color="rgba(255,255,255,0.72)"/><stop offset="36%" stop-color="rgba(62,155,205,0.50)"/><stop offset="100%" stop-color="rgba(26,75,132,0.58)"/></radialGradient></defs><circle class="globe-sphere" cx="32" cy="32" r="16.5"></circle><ellipse class="globe-highlight" cx="26" cy="23" rx="6.5" ry="3.8" transform="rotate(-28 26 23)"></ellipse><path class="land" d="M22 22.5c2.4-2.1 5.4-3.7 8.6-3.6 1.5 0 2.6.5 3.9 1.1-1.6.9-2.9 1.9-3.3 3.2-.5 1.6.8 2.8 2.5 3.3-2.1.5-4.7.5-6.5-.2-1.9-.7-2.4-2.2-5.2-3.8z"></path><path class="land" d="M37.7 22.3c3.6 1.2 6.3 4.3 7.1 8.1-1.9-.7-3.9-.8-5.6-.1-1.9.8-2.8 2.2-4.8 1.7-1.6-.4-2.1-1.7-1.3-3 .9-1.5 2.8-2.3 4.2-3.1 1.2-.8 1.1-2 .4-3.6z"></path><path class="land" d="M26.6 33.4c2.5-.4 4.9.1 6.3 1.6 1.2 1.3 1 3.1.1 4.7-.8 1.4-1.6 2.7-1.2 4.6-4.5-.1-8.4-2.5-10.6-6.3 1.6-.3 2.4-1.2 3.1-2.2.6-.9 1.1-2 2.3-2.4z"></path><path class="land" d="M39 38.2c1.9-.3 3.5.2 4.8 1.1-1.7 2.8-4.3 4.7-7.5 5.4.1-1.4.5-2.4 1.2-3.3.7-1 1-1.9 1.5-3.2z"></path><path class="globe-line" d="M15.5 32h33"></path><path class="globe-line" d="M32 15.5c5.1 5 7.4 10.3 7.4 16.5S37.1 43.5 32 48.5"></path><path class="globe-line" d="M32 15.5c-5.1 5-7.4 10.3-7.4 16.5s2.3 11.5 7.4 16.5"></path><ellipse class="orbit-ring" cx="32" cy="32" rx="28" ry="10.5" transform="rotate(-18 32 32)"></ellipse><ellipse class="orbit-ring" cx="32" cy="32" rx="28" ry="10.5" transform="rotate(25 32 32)"></ellipse><path class="front-pass" d="M7 36c8.2 8 41.8 8 50 0"></path><g class="orbiter plane-orbit vehicle"><g transform="translate(32 32) rotate(16) translate(-6 -6)"><path class="vehicle-fill" d="M0 4.6l12-4.2-4.1 12-2.1-5.1-5.8-2.7z"></path></g></g></svg></a><div class="nav-links"><a href="#introduction">About</a><a href="#segments">Segments</a><a href="#approach">Approach</a><a href="#why-us">Why Us</a><a href="#cta" class="nav-btn">Get in Touch</a></div><button class="hbg" id="hbg"><span></span><span></span><span></span></button></div></nav><div class="mob" id="mob"><a href="#introduction" class="ml">About</a><a href="#segments" class="ml">Segments</a><a href="#approach" class="ml">Approach</a><a href="#why-us" class="ml">Why Us</a><a href="#cta" class="ml">Get in Touch</a></div><section id="hero"><div class="hero-wash"></div><div class="hero-ticker">Global Trade &amp; Supply — AUMNYX — 2025</div><div class="hero-scroll"></div><div class="hero-inner"><div class="hero-num">01</div><div class="hero-image-card"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?fm=jpg&fit=crop&w=900&q=68" alt="Industrial supply and engineering workspace"/><span>Supply Operations</span></div><div class="hero-kicker">Global Trade &amp; Supply Solutions</div><h1 class="hero-h1">Industrial trade<br/><em>with precision.</em></h1><div class="hero-bottom"><p class="hero-desc">Enabling businesses to source better, operate efficiently, and scale with confidence through reliable products and responsive trade solutions.</p><div class="hero-actions"><a href="#segments" class="btn-circle filled"><div class="circle">↓</div>
+Explore Portfolio
+</a><a href="#cta" class="btn-circle"><div class="circle">→</div>
+Partner With Us
+</a></div></div></div><div class="hero-stats-bar"><div class="hs"><div class="hs-n">2<em>+</em></div><div class="hs-l">Business Verticals</div></div><div class="hs"><div class="hs-n">4<em>+</em></div><div class="hs-l">Product Categories</div></div><div class="hs"><div class="hs-n">24<em>/7</em></div><div class="hs-l">Reliability-Led Support</div></div></div></section><section id="introduction"><div class="intro-w"><div class="intro-top"><div><div class="sec-tag rv">About AUMNYX Trade</div><h2 class="intro-h2 rv d1">Built for<br/><em>Industrial Supply</em></h2><p class="intro-body rv d2">AUMNYX Trade, a division of AUMNYX Corporate, supports automotive aftermarket and industrial supply needs through focused sourcing, dependable product categories, and practical trade partnerships.</p><div class="pillars rv d3"><div class="pillar"><span class="pillar-n">i.</span><div><h4>Automotive Aftermarket</h4><p>Through Bestin Auto Spare Trading LLC & bestinautosolutions.com</p></div></div><div class="pillar"><span class="pillar-n">ii.</span><div><h4>Industrial Products</h4><p>Solar & EV Solutions · HVAC, Refrigeration & Technical Supplies</p></div></div><div class="pillar"><span class="pillar-n">iii.</span><div><h4>Practical Supply-Driven Approach</h4><p>Dependable delivery with responsive, market-aligned service</p></div></div></div></div><div class="intro-visual rv"><div class="iv-panel image-panel"><img decoding="async" referrerpolicy="no-referrer" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?fm=jpg&fit=crop&w=900&q=68" alt="Industrial warehouse and supply infrastructure"/><div class="iv-corner"></div><div class="iv-badge"><strong>AT</strong><span>Trade Network</span></div></div></div></div></div></section><section id="segments"><div class="seg-w"><div class="seg-header"><div><div class="sec-tag rv">What We Do</div><h2 class="seg-h2 rv d1">Our Business <em>Segments</em></h2></div><p class="seg-lead rv d2">Two focused verticals, each built to serve a distinct market need with category expertise, supply efficiency and operational flexibility.</p></div><div class="seg-switch rv d3"><button class="sw on" data-t="auto">Automotive</button><button class="sw" data-t="ind">Industrial</button></div></div><div class="auto-pane" id="t-auto"><div class="seg-w"><div class="auto-layout rv d4"><div><h3 class="auto-h3">Bestin Auto<br/><em>Spare Trading</em></h3><a href="https://www.bestinautosolutions.com" target="_blank" rel="noopener noreferrer" class="auto-url">www.bestinautosolutions.com ↗</a><p class="auto-p">Our dedicated automotive aftermarket platform supplies a comprehensive range of genuine and OEM-quality automotive products, ensuring performance, safety and reliability across the supply chain.</p><div class="auto-chips"><span class="auto-chip">Workshops</span><span class="auto-chip">Traders</span><span class="auto-chip">Fleet Operators</span><span class="auto-chip">Channel Partners</span></div><div class="auto-image-panel"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?fm=jpg&fit=crop&w=900&q=68" alt="Automotive spare parts and workshop supply"/><span class="auto-image-label">Automotive Aftermarket</span></div></div><div class="auto-feats"><div class="auto-feat"><span class="feat-n">i.</span><div><h4>OEM Quality</h4><p>Genuine and OEM-grade products ensuring performance & reliability</p></div></div><div class="auto-feat"><span class="feat-n">ii.</span><div><h4>Specialized Platform</h4><p>Dedicated company structure for focused automotive expertise</p></div></div><div class="auto-feat"><span class="feat-n">iii.</span><div><h4>Comprehensive Range</h4><p>Full aftermarket portfolio to support diverse automotive supply needs</p></div></div></div></div></div></div><div class="ind-pane" id="t-ind"><div class="seg-w"><div class="seg-cards"><div class="seg-card"><div class="seg-card-bg"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="https://images.unsplash.com/photo-1509391366360-2e959784a276?fm=jpg&fit=crop&w=900&q=68" alt="Solar panels and energy infrastructure"/></div><div class="seg-card-overlay"></div><div class="seg-card-content"><div class="seg-card-tag">Category A</div><div class="seg-card-title">Solar & EV<br/>Solutions</div><div class="seg-products"><span class="seg-ptag">Solar Street Lamps</span><span class="seg-ptag">Solar Water Heaters</span><span class="seg-ptag">EV Chargers</span><span class="seg-ptag">Solar Batteries</span></div><div class="seg-arrow">↗</div></div></div><div class="seg-card"><div class="seg-card-bg"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?fm=jpg&fit=crop&w=900&q=68" alt="Industrial HVAC and technical infrastructure"/></div><div class="seg-card-overlay"></div><div class="seg-card-content"><div class="seg-card-tag">Category B · HVAC</div><div class="seg-card-title">HVAC &<br/>Refrigeration</div><div class="seg-products"><span class="seg-ptag">Split AC</span><span class="seg-ptag">Refrigerants</span><span class="seg-ptag">Copper Products</span><span class="seg-ptag">AC Spare Parts</span></div><div class="seg-arrow">↗</div></div></div></div></div></div></section><section id="approach"><div class="approach-w"><div class="approach-header"><div><div class="sec-tag rv">How We Work</div><h2 class="approach-h2 rv d1">Three principles.<br/><em>Every trade.</em></h2></div><p class="approach-lead rv d2">Deep focus, reliable delivery, and real market alignment — the three things that define how AUMNYX Trade operates with every partner.</p></div><div class="approach-rows"><div class="approach-row rv"><span class="ar-num">01</span><div class="ar-title">Specialized<br/>Category Focus</div><p class="ar-body">Deep understanding of each product segment — automotive, energy, HVAC — allows us to bring genuine expertise, not just logistics, to every supply relationship.</p></div><div class="approach-row rv d1"><span class="ar-num">02</span><div class="ar-title">Supply<br/>Efficiency</div><p class="ar-body">Reliable sourcing and timely delivery, backed by strong supplier networks and practical logistics. Consistent supply is treated as an operating priority, supported by practical sourcing and logistics discipline.</p></div><div class="approach-row rv d2"><span class="ar-num">03</span><div class="ar-title">Market<br/>Relevance</div><p class="ar-body">Solutions aligned with real business needs. We track evolving market demands and adapt our portfolio to ensure our partners always have what they need.</p></div></div></div></section><section id="why-us"><div class="why-w"><div class="why-layout"><div><div class="sec-tag rv">Why AUMNYX Trade</div><h2 class="why-h2 rv d1">Built for<br/><em>long-term trade.</em></h2><div class="why-items rv d2"><div class="why-item"><div><h4>Reliable Product Supply</h4><p>Dependable sourcing support across focused product categories, with clear communication and practical delivery planning.</p></div></div><div class="why-item"><div><h4>Strong Category Specialization</h4><p>Structured verticals mean deeper expertise and better sourcing decisions in each market.</p></div></div><div class="why-item"><div><h4>Global Sourcing Capability</h4><p>Access to international supplier networks to bring quality products to our customers.</p></div></div><div class="why-item"><div><h4>Customer-Focused Service</h4><p>Responsive, practical support built on genuine long-term trade partnerships.</p></div></div></div></div><div class="why-right rv d2"><div class="quote-block"><span class="q-mark">"</span><p class="q-text">AUMNYX Trade is committed to building a dependable trading portfolio that combines specialized category focus with strong market relevance — supporting customers across automotive, energy, HVAC, and industrial supply needs.</p></div></div></div></div></section><section id="cta"><div class="cta-ghost">AT</div><div class="cta-w"><div class="cta-kicker rv">Let's Connect</div><h2 class="cta-h2 rv d1">Let's build<br/><em>stronger</em><br/>chains together.</h2><p class="cta-lead rv d2">Whether you are looking for reliable sourcing, technical supply solutions, or long-term trading partnerships — AUMNYX Trade is ready to support your business.</p><div class="cta-btns rv d3"><a href="mailto:info@aumnyx.com" class="btn-light-circle"><div class="circle">→</div>
+Contact Us
+</a><a href="https://www.bestinautosolutions.com" target="_blank" rel="noopener noreferrer" class="cta-link">Visit Bestin Auto ↗</a></div></div></section><footer><div class="footer-w"><div class="footer-top"><div><div class="f-brand">AUMNYX <em>Trade</em><svg class="trade-mark" viewBox="0 0 64 64" aria-hidden="true"><defs><radialGradient id="oceanGradient" cx="34%" cy="24%" r="72%"><stop offset="0%" stop-color="rgba(255,255,255,0.72)"/><stop offset="36%" stop-color="rgba(62,155,205,0.50)"/><stop offset="100%" stop-color="rgba(26,75,132,0.58)"/></radialGradient></defs><circle class="globe-sphere" cx="32" cy="32" r="16.5"></circle><ellipse class="globe-highlight" cx="26" cy="23" rx="6.5" ry="3.8" transform="rotate(-28 26 23)"></ellipse><path class="land" d="M22 22.5c2.4-2.1 5.4-3.7 8.6-3.6 1.5 0 2.6.5 3.9 1.1-1.6.9-2.9 1.9-3.3 3.2-.5 1.6.8 2.8 2.5 3.3-2.1.5-4.7.5-6.5-.2-1.9-.7-2.4-2.2-5.2-3.8z"></path><path class="land" d="M37.7 22.3c3.6 1.2 6.3 4.3 7.1 8.1-1.9-.7-3.9-.8-5.6-.1-1.9.8-2.8 2.2-4.8 1.7-1.6-.4-2.1-1.7-1.3-3 .9-1.5 2.8-2.3 4.2-3.1 1.2-.8 1.1-2 .4-3.6z"></path><path class="land" d="M26.6 33.4c2.5-.4 4.9.1 6.3 1.6 1.2 1.3 1 3.1.1 4.7-.8 1.4-1.6 2.7-1.2 4.6-4.5-.1-8.4-2.5-10.6-6.3 1.6-.3 2.4-1.2 3.1-2.2.6-.9 1.1-2 2.3-2.4z"></path><path class="land" d="M39 38.2c1.9-.3 3.5.2 4.8 1.1-1.7 2.8-4.3 4.7-7.5 5.4.1-1.4.5-2.4 1.2-3.3.7-1 1-1.9 1.5-3.2z"></path><path class="globe-line" d="M15.5 32h33"></path><path class="globe-line" d="M32 15.5c5.1 5 7.4 10.3 7.4 16.5S37.1 43.5 32 48.5"></path><path class="globe-line" d="M32 15.5c-5.1 5-7.4 10.3-7.4 16.5s2.3 11.5 7.4 16.5"></path><ellipse class="orbit-ring" cx="32" cy="32" rx="28" ry="10.5" transform="rotate(-18 32 32)"></ellipse><ellipse class="orbit-ring" cx="32" cy="32" rx="28" ry="10.5" transform="rotate(25 32 32)"></ellipse><path class="front-pass" d="M7 36c8.2 8 41.8 8 50 0"></path><g class="orbiter plane-orbit vehicle"><g transform="translate(32 32) rotate(16) translate(-6 -6)"><path class="vehicle-fill" d="M0 4.6l12-4.2-4.1 12-2.1-5.1-5.8-2.7z"></path></g></g></svg></div><p class="f-desc">A division of AUMNYX Corporate, delivering reliable automotive aftermarket and industrial trade solutions globally.</p></div><div class="f-col"><h5>Segments</h5><ul><li><a href="#segments">Automotive Aftermarket</a></li><li><a href="#segments">Solar & EV Solutions</a></li><li><a href="#segments">HVAC & Refrigeration</a></li><li><a href="https://www.bestinautosolutions.com" target="_blank" rel="noopener noreferrer">Bestin Auto ↗</a></li></ul></div><div class="f-col"><h5>Company</h5><ul><li><a href="#introduction">About</a></li><li><a href="#approach">Our Approach</a></li><li><a href="#why-us">Why Us</a></li><li><a href="#cta">Contact</a></li></ul></div></div><div class="footer-bottom"><p>© 2025 AUMNYX Trade. A division of AUMNYX Corporate. All rights reserved.</p><p>Built for global trade.</p></div></div></footer><script>
 (function(){
-  const $=(s,c=document)=>c.querySelector(s);
-  const $$=(s,c=document)=>Array.from(c.querySelectorAll(s));
-  function loadDesktopImages(){
-    if(!window.matchMedia('(min-width: 769px)').matches) return;
-    $$('img[data-src]').forEach(img=>{ if(!img.src || img.src.startsWith('data:')) img.src=img.dataset.src; });
-  }
-  const nav=$('#nav');
-  function onScroll(){
-    if(nav) nav.classList.toggle('scrolled', window.scrollY>60);
-    const top=$('#scrollTopArrow');
-    if(top) top.classList.toggle('show', window.scrollY>360);
-  }
-  window.addEventListener('scroll', onScroll, {passive:true});
-  if(window.matchMedia('(min-width: 769px)').matches){window.addEventListener('resize', loadDesktopImages, {passive:true});}
-  window.addEventListener('load', ()=>{loadDesktopImages(); onScroll();});
-  document.addEventListener('DOMContentLoaded', ()=>{
-    loadDesktopImages(); onScroll();
-    const hbg=$('#hbg'), mob=$('#mob');
-    if(hbg&&mob){hbg.addEventListener('click',()=>{hbg.classList.toggle('open');mob.classList.toggle('open');});$$('.ml',mob).forEach(a=>a.addEventListener('click',()=>{hbg.classList.remove('open');mob.classList.remove('open');}));}
-    const mBtn=$('#mMenuBtn'), mMenu=$('#mMenu');
-    if(mBtn&&mMenu){mBtn.addEventListener('click',()=>{mMenu.classList.toggle('open');mBtn.textContent=mMenu.classList.contains('open')?'×':'☰';});$$('a',mMenu).forEach(a=>a.addEventListener('click',()=>{mMenu.classList.remove('open');mBtn.textContent='☰';}));}
-    $$('.sw').forEach(btn=>btn.addEventListener('click',()=>{$$('.sw').forEach(b=>b.classList.remove('on'));btn.classList.add('on');const auto=$('#t-auto'),ind=$('#t-ind');if(!auto||!ind)return;if(btn.dataset.t==='auto'){auto.classList.remove('hidden');ind.classList.remove('active');}else{auto.classList.add('hidden');ind.classList.add('active');}}));
-    const arrow=$('#scrollTopArrow'); if(arrow) arrow.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
-    if('IntersectionObserver' in window){const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});$$('.rv').forEach(el=>io.observe(el));} else {$$('.rv').forEach(el=>el.classList.add('in'));}
-
-    /* Desktop custom cursor restored. It runs only on devices with a fine pointer, so mobile remains light. */
-    const cursor = $('#cur');
-    const desktopPointer = window.matchMedia('(hover: hover) and (pointer: fine)');
-    if (cursor && desktopPointer.matches) {
-      let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0;
-      let cursorActive = false;
-
-      const moveCursor = () => {
-        cursorX += (mouseX - cursorX) * 0.28;
-        cursorY += (mouseY - cursorY) * 0.28;
-        cursor.style.transform = `translate(${cursorX}px, ${cursorY}px) translate(-50%, -50%)`;
-        if (cursorActive) requestAnimationFrame(moveCursor);
-      };
-
-      document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        if (!cursorActive) {
-          cursorActive = true;
-          cursor.style.display = 'block';
-          requestAnimationFrame(moveCursor);
-        }
-      }, { passive: true });
-
-      document.addEventListener('mouseleave', () => {
-        cursor.style.display = 'none';
-        cursorActive = false;
-      });
-
-      document.addEventListener('mouseenter', () => {
-        cursor.style.display = 'block';
-        if (!cursorActive) {
-          cursorActive = true;
-          requestAnimationFrame(moveCursor);
-        }
-      });
-
-      $$('a, button, .seg-card, .sw, .hbg, .scroll-top-arrow').forEach(el => {
-        el.addEventListener('mouseenter', () => cursor.classList.add('big'));
-        el.addEventListener('mouseleave', () => cursor.classList.remove('big'));
-      });
-
-      const footer = $('footer');
-      if (footer) {
-        footer.addEventListener('mouseenter', () => { cursor.style.background = '#f58220'; });
-        footer.addEventListener('mouseleave', () => { cursor.style.background = ''; });
-      }
-    }
-  });
+const $=(s,c=document)=>c.querySelector(s);
+const $$=(s,c=document)=>Array.from(c.querySelectorAll(s));
+function loadDesktopImages(){
+if(!window.matchMedia('(min-width: 769px)').matches) return;
+$$('img[data-src]').forEach(img=>{ if(!img.src || img.src.startsWith('data:')) img.src=img.dataset.src; });
+}
+const nav=$('#nav');
+function onScroll(){
+if(nav) nav.classList.toggle('scrolled', window.scrollY>60);
+const top=$('#scrollTopArrow');
+if(top) top.classList.toggle('show', window.scrollY>360);
+}
+window.addEventListener('scroll', onScroll, {passive:true});
+if(window.matchMedia('(min-width: 769px)').matches){window.addEventListener('resize', loadDesktopImages, {passive:true});}
+window.addEventListener('load', ()=>{loadDesktopImages(); onScroll();});
+document.addEventListener('DOMContentLoaded', ()=>{
+loadDesktopImages(); onScroll();
+const hbg=$('#hbg'), mob=$('#mob');
+if(hbg&&mob){hbg.addEventListener('click',()=>{hbg.classList.toggle('open');mob.classList.toggle('open');});$$('.ml',mob).forEach(a=>a.addEventListener('click',()=>{hbg.classList.remove('open');mob.classList.remove('open');}));}
+const mBtn=$('#mMenuBtn'), mMenu=$('#mMenu');
+if(mBtn&&mMenu){mBtn.addEventListener('click',()=>{mMenu.classList.toggle('open');mBtn.textContent=mMenu.classList.contains('open')?'×':'☰';});$$('a',mMenu).forEach(a=>a.addEventListener('click',()=>{mMenu.classList.remove('open');mBtn.textContent='☰';}));}
+$$('.sw').forEach(btn=>btn.addEventListener('click',()=>{$$('.sw').forEach(b=>b.classList.remove('on'));btn.classList.add('on');const auto=$('#t-auto'),ind=$('#t-ind');if(!auto||!ind)return;if(btn.dataset.t==='auto'){auto.classList.remove('hidden');ind.classList.remove('active');}else{auto.classList.add('hidden');ind.classList.add('active');}}));
+const arrow=$('#scrollTopArrow'); if(arrow) arrow.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+if('IntersectionObserver' in window){const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});$$('.rv').forEach(el=>io.observe(el));} else {$$('.rv').forEach(el=>el.classList.add('in'));}
+const cursor = $('#cur');
+const desktopPointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+if (cursor && desktopPointer.matches) {
+let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0;
+let cursorActive = false;
+const moveCursor = () => {
+cursorX += (mouseX - cursorX) * 0.28;
+cursorY += (mouseY - cursorY) * 0.28;
+cursor.style.transform = `translate(${cursorX}px, ${cursorY}px) translate(-50%, -50%)`;
+if (cursorActive) requestAnimationFrame(moveCursor);
+};
+document.addEventListener('mousemove', (e) => {
+mouseX = e.clientX;
+mouseY = e.clientY;
+if (!cursorActive) {
+cursorActive = true;
+cursor.style.display = 'block';
+requestAnimationFrame(moveCursor);
+}
+}, { passive: true });
+document.addEventListener('mouseleave', () => {
+cursor.style.display = 'none';
+cursorActive = false;
+});
+document.addEventListener('mouseenter', () => {
+cursor.style.display = 'block';
+if (!cursorActive) {
+cursorActive = true;
+requestAnimationFrame(moveCursor);
+}
+});
+$$('a, button, .seg-card, .sw, .hbg, .scroll-top-arrow').forEach(el => {
+el.addEventListener('mouseenter', () => cursor.classList.add('big'));
+el.addEventListener('mouseleave', () => cursor.classList.remove('big'));
+});
+const footer = $('footer');
+if (footer) {
+footer.addEventListener('mouseenter', () => { cursor.style.background = '#f58220'; });
+footer.addEventListener('mouseleave', () => { cursor.style.background = ''; });
+}
+}
+});
 })();
-</script>
-
-</body>
-</html>
+</script></body></html>
