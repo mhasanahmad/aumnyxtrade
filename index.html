@@ -8,57 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600;700;800&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=vBJSCCeQNp8Jm35RkxMjizkwv0Pp-PsFiLafHnJJ2g7yNmbENARPaiLV3jA-hLLbetbqEWWTb7RxqJPgAby9kOozSC6ULF1OrXEvcXa4K5sMDK0XwqvILUDl7cu7-BbTF4yxZ32gyYn4KzZzT3yeYgaIpUT2k0kbCFXSQ_3o1xJM9U26Dr9yiOVHHWnmQ5CjPBJHuTMLzOLTssAQumqcXaDGeVYPYags_5dKtfIbst3AAYUHg1__3txVa4LcbuccP6LoogO8sDjKn3QSiddkww" charset="UTF-8"></script><script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=LIitdoa6NBiC1mI3rZcXldIS1p29pN5p4-EFpDCq1ZJ7994Efnw9-2UIetFzM-3jkgbeX32lHiHdrk92TkK-AnN2vSgRysOjFLLN-4P30PH-ziolkRPHlkvQGqN6j0ycwS-QXZvuThvX9UwGXubpFck8hziS_Av3u7Kd1tfa9ZVCQNsdG8KOOGlAMnJasCF099lDLlhgMKdEB1JJOf53LzGvgeM1kK-b0yHn5MC0xA0IYWWcrNBQFHnWGjMsSpTybyH1b9T0ZVs45_OBHTlWRg" charset="UTF-8"></script><script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=0SMp0mqfNyXawBbkxWCNHNq0tEks53slzkMt8NQvxsY795B9Tlq4B2YDEZb2ZV1V4n7imNnNlmQcR1TW13YP_l1tTWZxbj1a0ObKTnWpQFv1KRAAZviIZ44Zrf9u84SqjmJ04pec9mK3oppSdOM2mFnlDvrsKcrW420y8uUpsaXGFCMV9kV06BnGBp0SO5MkbXOTuT0M_Ujs4c-AeJko9OiMWTl9Nl1c7xyvGX4IlllS8SMBLxb6BE8ks9kk_aEJFQoAHqKiCQB2BUbIlPI6xw" charset="UTF-8">
-document.querySelector('footer').addEventListener('mouseenter', () => {
-  document.getElementById('cur').style.background = '#f58220';
-});
-document.querySelector('footer').addEventListener('mouseleave', () => {
-  document.getElementById('cur').style.background = '';
-});
-
-
-/* ── IMAGE PARALLAX ── */
-const parallaxItems = [
-  ...document.querySelectorAll('.hero-image-card img'),
-  ...document.querySelectorAll('.iv-panel.image-panel img'),
-  ...document.querySelectorAll('.auto-image-panel img'),
-  ...document.querySelectorAll('.seg-card-bg img')
-];
-
-let tickingParallax = false;
-
-function updateImageParallax() {
-  const viewportH = window.innerHeight || document.documentElement.clientHeight;
-
-  parallaxItems.forEach(img => {
-    const parent = img.closest('.hero-image-card, .iv-panel.image-panel, .auto-image-panel, .seg-card-bg');
-    if (!parent) return;
-
-    const rect = parent.getBoundingClientRect();
-    if (rect.bottom < 0 || rect.top > viewportH) return;
-
-    const progress = (rect.top + rect.height / 2 - viewportH / 2) / viewportH;
-    const move = progress * -34;
-
-    img.style.transform = `scale(1.12) translateY(${move}px)`;
-  });
-
-  tickingParallax = false;
-}
-
-function requestImageParallax() {
-  if (!tickingParallax) {
-    window.requestAnimationFrame(updateImageParallax);
-    tickingParallax = true;
-  }
-}
-
-window.addEventListener('scroll', requestImageParallax, { passive: true });
-window.addEventListener('resize', requestImageParallax);
-window.addEventListener('load', updateImageParallax);
-updateImageParallax();
-
-</script><style>
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=Ik4sib3EOEY_piIpg4J48t15hv-19iKlmJZh1qtqfmvSO8eQWqspwQV1e0hDVfXVv1ciBVTfRat-6IVsAxmkzn1rROwdrpyaRNN4tXeK9ulVZbIQx5rnGazkYsgYg4ch2c7-ZnzevC_3ttipOB5YkzPWBVqLL7X4vZAeAAshaLV7I0cASZ8UP26C_KyzvTTNkKHhSDs0Ng-Dy9hHvKDgNmVB-74CJ_GCZGqoU4wRcEASwz2U-RA6w93lpukw04TL7o0RM1WFkPPMwK1xKgTvMw" charset="UTF-8"></script><script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=ExTCd6MmSTVLrIC1zUgZhXJaPE-OBO67WuWuLhNY8Ii1NvWmxBjxhUX3et3B8lo4Pau3vqg-Ft1tO2MPqjKEWGIY4zhPVMdqIGgyc007ILs9H1ZHCQLRY8HTELCTFJ3vS_iGzffeYHWN4eg8FnK15OsBU73tQ0wEfh8jiZBp9AkNhpVb1WW32ts5x59poo2uiPY9AwzNp8RGsiZzS5jX7t750MnbcyscN4NNP3TaHhHNJt76yG1taCFcFE3YaO8K73HsN-4HnYgiYKB6gFrm1A" charset="UTF-8"></script><script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=Ui5AsQEl89DaYd_6rYrvYFLfIR0JCaeQW3qAkrDT7SSBJ7Y0uzZQah3MtsdCpsXctmiNy8Xb7FfHa3eANFdsSH8ISWZpqAa4c4unUAhVg-x_qXfyOsq2mJ9_grEknlsHeIEFGomwxp2LkwFEfXPh4JDFhd5H54ELX3kncFnQlOF8Axy-_5pmJPEXc6KkEGY4dSsPL4_DMJ_4DLvRIPOsarKY3RtxGnGAyqrwGyWhfqMHHbtL7ql_juKHvrL-22Edu_p9mv_fwdapTJgs16SeJg" charset="UTF-8"></script><style>
     :root {
       --bg:      #f7fbff;
       --bg2:     #edf5fb;
@@ -965,6 +915,23 @@ footer #cur {
 }
 
 
+
+/* MOBILE-ONLY MENU */
+const mMenuBtn = document.getElementById('mMenuBtn');
+const mMenu = document.getElementById('mMenu');
+if (mMenuBtn && mMenu) {
+  mMenuBtn.addEventListener('click', () => {
+    mMenu.classList.toggle('open');
+    mMenuBtn.textContent = mMenu.classList.contains('open') ? '×' : '☰';
+  });
+  mMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mMenu.classList.remove('open');
+      mMenuBtn.textContent = '☰';
+    });
+  });
+}
+
 /* ── SCROLL TO TOP ARROW ── */
 .scroll-top-arrow {
   position: fixed;
@@ -1009,12 +976,697 @@ footer #cur {
     font-size: 18px;
   }
 }
+
+
+/* ── MOBILE RESPONSIVE SAFETY FIXES ONLY ── */
+@media (max-width: 768px) {
+  html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  #nav {
+    height: 64px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .nav-w {
+    min-width: 0;
+  }
+
+  .nav-brand {
+    max-width: calc(100vw - 88px);
+    min-width: 0;
+    white-space: nowrap;
+    font-size: 17px;
+    line-height: 1;
+  }
+
+  .nav-brand .trade-mark {
+    width: 34px;
+    height: 34px;
+    margin-left: 7px;
+    vertical-align: middle;
+  }
+
+  .hbg {
+    flex: 0 0 auto;
+    background: transparent;
+    border: 0;
+    padding: 8px;
+  }
+
+  .mob {
+    overflow-y: auto;
+    padding: 30px 28px 42px;
+  }
+
+  .mob a {
+    font-size: 26px;
+    line-height: 1.15;
+  }
+
+  #hero {
+    min-height: auto;
+    padding-top: 64px;
+  }
+
+  .hero-inner {
+    padding-top: 34px;
+    padding-bottom: 52px;
+  }
+
+  .hero-kicker {
+    margin-bottom: 22px;
+    letter-spacing: 0.16em;
+    line-height: 1.5;
+  }
+
+  h1.hero-h1 {
+    max-width: 100%;
+    line-height: 0.96;
+  }
+
+  .hero-bottom {
+    margin-top: 34px;
+    align-items: flex-start;
+    gap: 28px;
+  }
+
+  .hero-desc {
+    max-width: 100%;
+    font-size: 15px;
+  }
+
+  .hero-actions {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .btn-circle {
+    max-width: 100%;
+  }
+
+  .hero-image-card {
+    opacity: 1;
+    max-width: 100%;
+  }
+
+  #introduction,
+  #segments,
+  #approach,
+  #why-us {
+    padding-top: 86px;
+  }
+
+  #approach,
+  #why-us {
+    padding-bottom: 86px;
+  }
+
+  #cta {
+    padding-top: 96px;
+    padding-bottom: 96px;
+  }
+
+  .intro-h2,
+  .seg-h2,
+  .approach-h2,
+  .why-h2 {
+    max-width: 100%;
+  }
+
+  .seg-switch {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .seg-switch::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sw {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+  .auto-layout {
+    gap: 48px;
+    padding-bottom: 86px;
+  }
+
+  .auto-url {
+    max-width: 100%;
+    word-break: break-word;
+  }
+
+  .seg-card-content {
+    padding: 26px 24px;
+  }
+
+  .approach-row {
+    row-gap: 16px;
+  }
+
+  .ar-title {
+    padding-right: 0;
+  }
+
+  .quote-block {
+    padding: 42px 30px;
+  }
+
+  .cta-h2 {
+    max-width: 100%;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  #nav,
+  .intro-w,
+  .seg-w,
+  .approach-w,
+  .why-w,
+  .cta-w,
+  .footer-w {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .hero-inner {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .nav-brand {
+    font-size: 15px;
+    max-width: calc(100vw - 76px);
+  }
+
+  .nav-brand .trade-mark {
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
+  }
+
+  h1.hero-h1 {
+    font-size: clamp(42px, 13vw, 58px);
+  }
+
+  .intro-h2,
+  .seg-h2,
+  .approach-h2,
+  .why-h2 {
+    font-size: clamp(34px, 10vw, 46px);
+  }
+
+  .auto-h3 {
+    font-size: clamp(30px, 9vw, 42px);
+  }
+
+  .cta-h2 {
+    font-size: clamp(44px, 13vw, 64px);
+  }
+
+  .hero-image-card,
+  .auto-image-panel {
+    height: 230px;
+  }
+
+  .seg-card {
+    aspect-ratio: 3/4;
+  }
+
+  .seg-card-title {
+    font-size: 27px;
+  }
+
+  .f-brand .trade-mark {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+
+
+/* ── STRONG MOBILE PRESERVATION FIXES: keeps desktop unchanged ── */
+@media (max-width: 768px) {
+  /* Make sure reveal-animation content never stays invisible on mobile */
+  .rv,
+  .rv.d1,
+  .rv.d2,
+  .rv.d3,
+  .rv.d4 {
+    opacity: 1 !important;
+    transform: none !important;
+    transition-delay: 0s !important;
+  }
+
+  /* Prevent any section from collapsing or disappearing */
+  section,
+  #hero,
+  #introduction,
+  #segments,
+  #approach,
+  #why-us,
+  #cta,
+  footer {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  .hero-inner,
+  .intro-w,
+  .seg-w,
+  .approach-w,
+  .why-w,
+  .cta-w,
+  .footer-w {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Keep main two-column content readable as a full single-column page */
+  .intro-top,
+  .seg-header,
+  .auto-layout,
+  .approach-header,
+  .why-layout,
+  .footer-top,
+  .seg-cards {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 44px !important;
+  }
+
+  /* Show both segment blocks on mobile so no product/service content appears missing */
+  .auto-pane,
+  .auto-pane.hidden,
+  .ind-pane,
+  .ind-pane.active {
+    display: block !important;
+  }
+
+  .ind-pane {
+    margin-top: 18px;
+    padding-bottom: 72px;
+  }
+
+  .seg-switch {
+    display: none !important;
+  }
+
+  /* Preserve visual blocks without cutting them off */
+  .hero-image-card,
+  .iv-panel,
+  .auto-image-panel,
+  .seg-card,
+  .quote-block {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    max-width: 100% !important;
+  }
+
+  .hero-image-card img,
+  .iv-panel.image-panel img,
+  .auto-image-panel img,
+  .seg-card-bg img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  .hero-stats-bar,
+  .stats-strip {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  .hs,
+  .stat {
+    border-right: none !important;
+    border-top: 1px solid var(--line) !important;
+    padding: 28px 22px !important;
+  }
+
+  .approach-row {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .ar-body {
+    grid-column: auto !important;
+  }
+
+  .footer-top > :first-child {
+    grid-column: auto !important;
+  }
+
+  /* Avoid oversized logo/nav from pushing content out of view */
+  .nav-brand,
+  .f-brand {
+    display: inline-flex !important;
+    align-items: center !important;
+    min-width: 0 !important;
+  }
+
+  .trade-mark {
+    flex: 0 0 auto !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-actions,
+  .cta-btns {
+    width: 100% !important;
+    align-items: stretch !important;
+  }
+
+  .btn-circle,
+  .btn-light-circle,
+  .cta-link {
+    width: 100% !important;
+    justify-content: flex-start !important;
+  }
+
+  .seg-card-content {
+    padding: 22px 20px !important;
+  }
+
+  .seg-products,
+  .auto-chips {
+    gap: 7px !important;
+  }
+}
+
+/* SEPARATE MOBILE UI ONLY */
+#mobile-site { display: none; }
+@media (max-width: 768px) {
+  body > :not(#mobile-site):not(#scrollTopArrow) { display: none !important; }
+  html, body { width:100% !important; overflow-x:hidden !important; background:#f7fbff !important; }
+  #mobile-site { display:block !important; min-height:100vh; font-family:var(--sans); color:var(--ink); background:radial-gradient(circle at 100% 0%, rgba(247,201,72,.24), transparent 38%), radial-gradient(circle at 0% 10%, rgba(31,95,153,.16), transparent 34%), linear-gradient(135deg,#f9fcff 0%,#eef6fc 52%,#fff8e8 100%); }
+  .m-shell{width:100%;max-width:480px;margin:0 auto;padding:0 18px;}
+  .m-nav{position:sticky;top:0;z-index:2000;background:rgba(255,255,255,.88);backdrop-filter:blur(18px);border-bottom:1px solid rgba(11,35,65,.10);}
+  .m-nav-inner{height:64px;display:flex;align-items:center;justify-content:space-between;gap:14px;}
+  .m-brand{display:inline-flex;align-items:center;gap:8px;min-width:0;font-family:var(--serif);font-weight:800;font-size:17px;color:var(--ink);white-space:nowrap;}
+  .m-brand em{font-style:italic;color:var(--ink3);}
+  .m-logo-orbit{width:38px;height:38px;flex:0 0 38px;}
+  .m-menu-btn{width:42px;height:42px;border-radius:50%;border:1px solid rgba(245,130,32,.34);background:rgba(245,130,32,.10);color:var(--ink);display:inline-flex;align-items:center;justify-content:center;font-size:20px;line-height:1;}
+  .m-menu{display:none;padding:8px 18px 18px;border-top:1px solid rgba(11,35,65,.08);}
+  .m-menu.open{display:grid;gap:8px;}
+  .m-menu a{display:block;padding:13px 14px;border:1px solid rgba(11,35,65,.08);border-radius:16px;background:rgba(255,255,255,.74);font-size:13px;font-weight:600;color:var(--ink2);}
+  .m-hero{padding:34px 0 28px;}
+  .m-kicker{display:inline-flex;align-items:center;gap:8px;margin-bottom:16px;font-size:10px;font-weight:700;letter-spacing:.20em;text-transform:uppercase;color:var(--ink3);}
+  .m-kicker::before{content:'';width:22px;height:1px;background:var(--accent);}
+  .m-hero h1{font-family:var(--serif);font-size:clamp(42px,12vw,60px);line-height:.92;letter-spacing:-.045em;color:var(--ink);margin-bottom:18px;}
+  .m-hero h1 span,.m-section-title span{color:var(--blue);}
+  .m-hero p,.m-lead{font-size:15px;line-height:1.75;color:var(--ink3);margin-bottom:22px;}
+  .m-actions{display:grid;grid-template-columns:1fr;gap:10px;}
+  .m-btn{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:15px 16px;border-radius:18px;font-size:13px;font-weight:700;letter-spacing:.02em;}
+  .m-btn.primary{background:var(--accent);color:#fff;box-shadow:0 16px 34px rgba(245,130,32,.25);}
+  .m-btn.secondary{background:rgba(255,255,255,.72);border:1px solid rgba(11,35,65,.11);color:var(--ink);}
+  .m-image-card{margin-top:26px;height:260px;border-radius:28px;overflow:hidden;position:relative;border:1px solid rgba(11,35,65,.10);box-shadow:0 22px 60px rgba(11,35,65,.13);background:#dbe8f2;}
+  .m-image-card img,.m-card-img img{width:100%;height:100%;object-fit:cover;display:block;}
+  .m-image-card::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(6,24,43,.55),transparent 62%);}
+  .m-image-label{position:absolute;left:18px;bottom:16px;z-index:2;color:rgba(255,255,255,.88);font-size:10px;font-weight:800;letter-spacing:.20em;text-transform:uppercase;}
+  .m-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0 0;}
+  .m-stat{min-width:0;padding:14px 10px;border-radius:18px;background:rgba(255,255,255,.72);border:1px solid rgba(11,35,65,.08);text-align:center;}
+  .m-stat strong{display:block;font-family:var(--serif);font-size:23px;line-height:1;color:var(--ink);}
+  .m-stat span{display:block;margin-top:5px;font-size:9px;line-height:1.25;color:var(--ink3);font-weight:700;letter-spacing:.03em;}
+  .m-section{padding:54px 0;border-top:1px solid rgba(11,35,65,.09);}
+  .m-section.compact{padding-top:34px;}
+  .m-section-title{font-family:var(--serif);font-size:clamp(31px,9vw,44px);line-height:.98;letter-spacing:-.035em;color:var(--ink);margin-bottom:14px;}
+  .m-list,.m-grid{display:grid;gap:12px;}
+  .m-list-item,.m-card{border-radius:22px;background:rgba(255,255,255,.76);border:1px solid rgba(11,35,65,.09);box-shadow:0 14px 34px rgba(11,35,65,.06);}
+  .m-list-item{padding:18px;display:grid;grid-template-columns:34px 1fr;gap:14px;}
+  .m-num{width:34px;height:34px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:rgba(245,130,32,.12);color:var(--accent);font-family:var(--serif);font-weight:800;font-size:13px;}
+  .m-list-item h3,.m-card h3{font-size:15px;font-weight:800;color:var(--ink);margin-bottom:4px;}
+  .m-list-item p,.m-card p{font-size:13px;line-height:1.65;color:var(--ink3);}
+  .m-card{overflow:hidden;} .m-card-img{height:180px;overflow:hidden;position:relative;background:var(--bg3);} .m-card-body{padding:18px;}
+  .m-chip-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;} .m-chip{padding:6px 10px;border-radius:999px;border:1px solid rgba(11,35,65,.10);background:rgba(247,251,255,.84);color:var(--ink3);font-size:11px;font-weight:700;}
+  .m-quote{padding:26px 22px;border-radius:26px;background:linear-gradient(135deg,var(--deep),#123963 70%,#5a3608);color:#fff;box-shadow:0 20px 48px rgba(6,24,43,.22);}
+  .m-quote p{font-family:var(--serif);font-size:17px;line-height:1.65;color:rgba(255,255,255,.82);}
+  .m-cta{padding:62px 0 38px;background:linear-gradient(135deg,#06182b,#102f55 68%,#5a3608);color:#fff;}
+  .m-cta .m-section-title{color:#fff;} .m-cta .m-lead{color:rgba(255,255,255,.68);}
+  .m-footer{padding:28px 0 34px;background:#07111d;color:rgba(255,255,255,.62);}
+  .m-footer p{font-size:12px;line-height:1.7;color:rgba(255,255,255,.58);}
+  .m-footer-links{display:flex;flex-wrap:wrap;gap:10px 16px;margin:18px 0;} .m-footer-links a{color:rgba(255,255,255,.70);font-size:12px;font-weight:700;}
+  .scroll-top-arrow{right:16px !important;bottom:16px !important;}
+}
+
+
+/* MOBILE FIX: images + bottom navigation */
+@media (max-width: 768px) {
+  #mobile-site img {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    filter: saturate(.92) contrast(1.04);
+  }
+
+  .m-image-card,
+  .m-card-img {
+    background-size: cover;
+    background-position: center;
+  }
+
+  .m-image-card {
+    background-image: linear-gradient(to top, rgba(6,24,43,.22), rgba(6,24,43,.02)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80');
+  }
+
+  .m-card:nth-child(1) .m-card-img {
+    background-image: url('https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1200&q=80');
+  }
+
+  .m-card:nth-child(2) .m-card-img {
+    background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1200&q=80');
+  }
+
+  .m-card:nth-child(3) .m-card-img {
+    background-image: url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80');
+  }
+
+  .m-nav {
+    position: relative !important;
+    top: auto !important;
+    border-bottom: 1px solid rgba(11,35,65,.08);
+  }
+
+  .m-menu-btn,
+  .m-menu {
+    display: none !important;
+  }
+
+  .m-bottom-nav {
+    position: fixed;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    z-index: 3000;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+    padding: 8px;
+    border-radius: 24px;
+    background: rgba(255,255,255,.88);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    border: 1px solid rgba(11,35,65,.12);
+    box-shadow: 0 18px 50px rgba(6,24,43,.18);
+  }
+
+  .m-bottom-nav a {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    padding: 8px 4px;
+    border-radius: 17px;
+    color: var(--ink3);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: .02em;
+    line-height: 1;
+    text-align: center;
+  }
+
+  .m-bottom-nav a span {
+    font-size: 16px;
+    line-height: 1;
+    color: var(--accent);
+  }
+
+  .m-bottom-nav a:active,
+  .m-bottom-nav a:hover {
+    background: rgba(245,130,32,.10);
+    color: var(--ink);
+  }
+
+  #mobile-site {
+    padding-bottom: 92px;
+  }
+
+  .m-footer {
+    padding-bottom: 112px;
+  }
+
+  .scroll-top-arrow {
+    right: 18px !important;
+    bottom: 92px !important;
+  }
+}
+
+
+/* FINAL MOBILE POLISH: light line icons, compact buttons, visible image fallbacks */
+@media (max-width: 768px) {
+  .m-actions {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 10px !important;
+  }
+  .m-btn {
+    width: auto !important;
+    max-width: max-content !important;
+    min-height: 50px;
+    display: inline-flex !important;
+    justify-content: center !important;
+    padding: 14px 18px !important;
+    border-radius: 999px !important;
+    white-space: nowrap;
+  }
+  .m-btn-icon {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.65;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .m-bottom-nav {
+    border-radius: 28px !important;
+    padding: 9px 10px !important;
+  }
+  .m-bottom-nav a {
+    gap: 5px !important;
+    padding: 9px 4px !important;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    color: #58708a !important;
+  }
+  .m-bottom-nav a span { display: none !important; }
+  .m-line-icon {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 1.55;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: .96;
+  }
+  .m-bottom-nav a:hover .m-line-icon,
+  .m-bottom-nav a:active .m-line-icon {
+    stroke: var(--accent);
+  }
+  .m-image-card,
+  .m-card-img {
+    background-color: #dbe8f2 !important;
+    background-size: cover !important;
+    background-position: center !important;
+  }
+}
+@media (max-width: 480px) {
+  .m-actions, .cta-btns {
+    align-items: center !important;
+    justify-content: flex-start !important;
+  }
+  .m-btn {
+    width: auto !important;
+    max-width: calc(100vw - 36px) !important;
+    justify-content: center !important;
+  }
+}
+
 </style>
 </head>
 <body>
 
 <div id="cur"></div>
 <button class="scroll-top-arrow" id="scrollTopArrow" aria-label="Back to top" type="button">↑</button>
+
+<!-- Minimal line icons for mobile UI -->
+<svg class="icon-sprite" width="0" height="0" style="position:absolute; width:0; height:0; overflow:hidden;" aria-hidden="true" focusable="false">
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M4.5 10.8 12 4.7l7.5 6.1"/><path d="M6.8 10.2v8.6h10.4v-8.6"/><path d="M10 18.8v-5h4v5"/></symbol>
+  <symbol id="i-about" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.2"/><path d="M12 10.6v5.2"/><path d="M12 7.7h.01"/></symbol>
+  <symbol id="i-segments" viewBox="0 0 24 24"><rect x="5" y="5" width="6" height="6" rx="1.2"/><rect x="13" y="5" width="6" height="6" rx="1.2"/><rect x="5" y="13" width="6" height="6" rx="1.2"/><rect x="13" y="13" width="6" height="6" rx="1.2"/></symbol>
+  <symbol id="i-approach" viewBox="0 0 24 24"><path d="M5 18.5h14"/><path d="M7 15.5c3.8-6.8 8-9 12-9"/><path d="M15 6.5h4v4"/></symbol>
+  <symbol id="i-contact" viewBox="0 0 24 24"><rect x="4.5" y="6.5" width="15" height="11" rx="2"/><path d="m5.8 8.2 6.2 5 6.2-5"/></symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h13"/><path d="m13 7 5 5-5 5"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24"><path d="M9 7h8v8"/><path d="M17 7 7 17"/><path d="M6.5 10v7.5h7.5"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="m7 14 5 5 5-5"/></symbol>
+</svg>
+
+
+
+<!-- MOBILE-ONLY UI -->
+<div id="mobile-site">
+  <header class="m-nav">
+    <div class="m-shell m-nav-inner">
+      <a href="#m-hero" class="m-brand" aria-label="AUMNYX Trade home">
+        <span>AUMNYX <em>Trade</em></span>
+        <svg class="m-logo-orbit" viewBox="0 0 64 64" aria-hidden="true">
+          <defs><radialGradient id="mOceanGradient" cx="34%" cy="24%" r="72%"><stop offset="0%" stop-color="rgba(255,255,255,0.72)"/><stop offset="42%" stop-color="rgba(62,155,205,0.54)"/><stop offset="100%" stop-color="rgba(22,76,130,0.58)"/></radialGradient></defs>
+          <circle cx="32" cy="32" r="17" fill="url(#mOceanGradient)" stroke="rgba(11,35,65,0.22)" stroke-width="1"/>
+          <path d="M18 31c3-4 6-7 10-8 4-1 7 1 10 0 3-1 5-3 8-2-2 6-5 10-9 12-4 2-8 1-11 3-3 2-5 5-8 4-2-3-2-6 0-9z" fill="rgba(40,142,88,0.72)"/>
+          <path d="M36 42c2-2 4-3 7-3 2 0 3 2 4 3-2 3-6 4-10 5-2-1-2-3-1-5z" fill="rgba(40,142,88,0.58)"/>
+          <ellipse cx="32" cy="32" rx="27" ry="10" fill="none" stroke="rgba(245,130,32,0.30)" stroke-width="1.2" transform="rotate(-18 32 32)"/>
+          <g class="logo-plane-orbit"><path d="M0 4.6l12-4.2-4.1 12-2.1-5.1-5.8-2.7z" fill="#f58220"/></g>
+        </svg>
+      </a>
+      <button class="m-menu-btn" id="mMenuBtn" type="button" aria-label="Open mobile menu">☰</button>
+    </div>
+    <nav class="m-menu" id="mMenu">
+      <a href="#m-about">About</a><a href="#m-segments">Segments</a><a href="#m-approach">Approach</a><a href="#m-why">Why Us</a><a href="#m-contact">Contact</a>
+    </nav>
+  </header>
+  <nav class="m-bottom-nav" aria-label="Mobile bottom navigation">
+    <a href="#m-hero"><svg class="m-line-icon"><use href="#i-home"></use></svg>Home</a>
+    <a href="#m-about"><svg class="m-line-icon"><use href="#i-about"></use></svg>About</a>
+    <a href="#m-segments"><svg class="m-line-icon"><use href="#i-segments"></use></svg>Segments</a>
+    <a href="#m-approach"><svg class="m-line-icon"><use href="#i-approach"></use></svg>Approach</a>
+    <a href="#m-contact"><svg class="m-line-icon"><use href="#i-contact"></use></svg>Contact</a>
+  </nav>
+  <main>
+    <section class="m-hero" id="m-hero"><div class="m-shell"><div class="m-kicker">Global Trade &amp; Supply</div><h1>Industrial trade <span>with precision.</span></h1><p>Reliable automotive aftermarket and industrial supply solutions, built for focused sourcing, dependable delivery, and long-term partnerships.</p><div class="m-actions"><a href="#m-segments" class="m-btn primary">Explore Portfolio <svg class="m-btn-icon"><use href="#i-down"></use></svg></a><a href="#m-contact" class="m-btn secondary">Partner With Us <svg class="m-btn-icon"><use href="#i-arrow-right"></use></svg></a></div><div class="m-image-card"><img loading="lazy" onerror="this.style.display='none'" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80" alt="Industrial supply and engineering workspace"/><span class="m-image-label">Supply Operations</span></div><div class="m-stats"><div class="m-stat"><strong>2+</strong><span>Business Verticals</span></div><div class="m-stat"><strong>4+</strong><span>Product Categories</span></div><div class="m-stat"><strong>24/7</strong><span>Reliability Support</span></div></div></div></section>
+    <section class="m-section compact" id="m-about"><div class="m-shell"><div class="m-kicker">About AUMNYX Trade</div><h2 class="m-section-title">Built for <span>Industrial Supply</span></h2><p class="m-lead">AUMNYX Trade, a division of AUMNYX Corporate, supports automotive aftermarket and industrial supply needs through practical trade partnerships.</p><div class="m-list"><div class="m-list-item"><span class="m-num">i</span><div><h3>Automotive Aftermarket</h3><p>Through Bestin Auto Spare Trading LLC and bestinautosolutions.com.</p></div></div><div class="m-list-item"><span class="m-num">ii</span><div><h3>Industrial Products</h3><p>Solar and EV solutions, HVAC, refrigeration, and technical supplies.</p></div></div><div class="m-list-item"><span class="m-num">iii</span><div><h3>Supply-Driven Approach</h3><p>Dependable delivery with responsive, market-aligned service.</p></div></div></div></div></section>
+    <section class="m-section" id="m-segments"><div class="m-shell"><div class="m-kicker">What We Do</div><h2 class="m-section-title">Our Business <span>Segments</span></h2><p class="m-lead">Two focused verticals, each designed around a clear market need and practical supply efficiency.</p><div class="m-grid"><article class="m-card"><div class="m-card-img"><img loading="lazy" onerror="this.style.display='none'" src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1200&q=80" alt="Automotive spare parts and workshop supply"/></div><div class="m-card-body"><h3>Bestin Auto Spare Trading</h3><p>Genuine and OEM-quality automotive products for workshops, traders, fleet operators, and channel partners.</p><div class="m-chip-row"><span class="m-chip">OEM Quality</span><span class="m-chip">Workshops</span><span class="m-chip">Fleet Operators</span></div></div></article><article class="m-card"><div class="m-card-img"><img loading="lazy" onerror="this.style.display='none'" src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1200&q=80" alt="Solar panels and energy infrastructure"/></div><div class="m-card-body"><h3>Solar &amp; EV Solutions</h3><p>Solar street lamps, water heaters, EV chargers, batteries, and related clean-energy supply products.</p><div class="m-chip-row"><span class="m-chip">EV Chargers</span><span class="m-chip">Solar Batteries</span><span class="m-chip">Water Heaters</span></div></div></article><article class="m-card"><div class="m-card-img"><img loading="lazy" onerror="this.style.display='none'" src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80" alt="Industrial HVAC and technical infrastructure"/></div><div class="m-card-body"><h3>HVAC &amp; Refrigeration</h3><p>Split AC, refrigerants, copper products, AC spare parts, and practical technical supply categories.</p><div class="m-chip-row"><span class="m-chip">Split AC</span><span class="m-chip">Refrigerants</span><span class="m-chip">Copper Products</span></div></div></article></div></div></section>
+    <section class="m-section" id="m-approach"><div class="m-shell"><div class="m-kicker">How We Work</div><h2 class="m-section-title">Three principles. <span>Every trade.</span></h2><div class="m-list"><div class="m-list-item"><span class="m-num">01</span><div><h3>Specialized Category Focus</h3><p>Deep understanding of each product segment, from automotive to energy and HVAC.</p></div></div><div class="m-list-item"><span class="m-num">02</span><div><h3>Supply Efficiency</h3><p>Reliable sourcing, timely delivery, and practical logistics discipline.</p></div></div><div class="m-list-item"><span class="m-num">03</span><div><h3>Market Relevance</h3><p>Solutions aligned with real business needs and evolving market demand.</p></div></div></div></div></section>
+    <section class="m-section" id="m-why"><div class="m-shell"><div class="m-kicker">Why AUMNYX Trade</div><h2 class="m-section-title">Built for <span>long-term trade.</span></h2><div class="m-list"><div class="m-list-item"><span class="m-num">✓</span><div><h3>Reliable Product Supply</h3><p>Focused product categories with clear communication and delivery planning.</p></div></div><div class="m-list-item"><span class="m-num">✓</span><div><h3>Category Specialization</h3><p>Structured verticals for deeper expertise and better sourcing decisions.</p></div></div><div class="m-list-item"><span class="m-num">✓</span><div><h3>Global Sourcing Capability</h3><p>International supplier networks supporting quality product access.</p></div></div><div class="m-list-item"><span class="m-num">✓</span><div><h3>Customer-Focused Service</h3><p>Responsive support built around genuine long-term trade partnerships.</p></div></div></div><div class="m-quote" style="margin-top:16px;"><p>AUMNYX Trade combines specialized category focus with strong market relevance across automotive, energy, HVAC, and industrial supply needs.</p></div></div></section>
+    <section class="m-cta" id="m-contact"><div class="m-shell"><div class="m-kicker">Let's Connect</div><h2 class="m-section-title">Let's build stronger chains together.</h2><p class="m-lead">For reliable sourcing, technical supply solutions, or long-term trading partnerships, AUMNYX Trade is ready to support your business.</p><div class="m-actions"><a href="mailto:info@aumnyx.com" class="m-btn primary">Contact Us <svg class="m-btn-icon"><use href="#i-arrow-right"></use></svg></a><a href="https://www.bestinautosolutions.com" target="_blank" rel="noopener noreferrer" class="m-btn secondary">Visit Bestin Auto <svg class="m-btn-icon"><use href="#i-external"></use></svg></a></div></div></section>
+  </main>
+  <footer class="m-footer"><div class="m-shell"><div class="m-brand" style="color:rgba(255,255,255,0.82);">AUMNYX <em>Trade</em></div><p style="margin-top:10px;">A division of AUMNYX Corporate, delivering reliable automotive aftermarket and industrial trade solutions globally.</p><div class="m-footer-links"><a href="#m-about">About</a><a href="#m-segments">Segments</a><a href="#m-approach">Approach</a><a href="#m-contact">Contact</a></div><p>© 2025 AUMNYX Trade. All rights reserved.</p></div></footer>
+</div>
 
 
 <!-- ════ NAV ════ -->
@@ -1084,7 +1736,7 @@ footer #cur {
   <div class="hero-inner">
     <div class="hero-num">01</div>
     <div class="hero-image-card">
-      <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80" alt="Industrial supply and engineering workspace"/>
+      <img loading="lazy" onerror="this.style.display='none'" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80" alt="Industrial supply and engineering workspace"/>
       <span>Supply Operations</span>
     </div>
     <div class="hero-kicker">Global Trade &amp; Supply Solutions</div>
@@ -1188,7 +1840,7 @@ footer #cur {
             <span class="auto-chip">Channel Partners</span>
           </div>
           <div class="auto-image-panel">
-            <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1200&q=80" alt="Automotive spare parts and workshop supply"/>
+            <img loading="lazy" onerror="this.style.display='none'" src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1200&q=80" alt="Automotive spare parts and workshop supply"/>
             <span class="auto-image-label">Automotive Aftermarket</span>
           </div>
         </div>
@@ -1214,7 +1866,7 @@ footer #cur {
     <div class="seg-w">
       <div class="seg-cards">
       <div class="seg-card">
-        <div class="seg-card-bg"><img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1200&q=80" alt="Solar panels and energy infrastructure"/></div>
+        <div class="seg-card-bg"><img loading="lazy" onerror="this.style.display='none'" src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1200&q=80" alt="Solar panels and energy infrastructure"/></div>
         <div class="seg-card-overlay"></div>
         <div class="seg-card-content">
           <div class="seg-card-tag">Category A</div>
@@ -1229,7 +1881,7 @@ footer #cur {
         </div>
       </div>
       <div class="seg-card">
-        <div class="seg-card-bg"><img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80" alt="Industrial HVAC and technical infrastructure"/></div>
+        <div class="seg-card-bg"><img loading="lazy" onerror="this.style.display='none'" src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80" alt="Industrial HVAC and technical infrastructure"/></div>
         <div class="seg-card-overlay"></div>
         <div class="seg-card-content">
           <div class="seg-card-tag">Category B · HVAC</div>
@@ -1392,13 +2044,15 @@ footer #cur {
 <script>
 /* ── CURSOR ── */
 const cur = document.getElementById('cur');
-document.addEventListener('mousemove', e => {
-  cur.style.left = e.clientX + 'px';
-  cur.style.top = e.clientY + 'px';
-});
+if (cur) {
+  document.addEventListener('mousemove', e => {
+    cur.style.left = e.clientX + 'px';
+    cur.style.top = e.clientY + 'px';
+  });
+}
 document.querySelectorAll('a, button, .seg-card, .why-item, .approach-row, .pillar, .auto-feat').forEach(el => {
-  el.addEventListener('mouseenter', () => cur.classList.add('big'));
-  el.addEventListener('mouseleave', () => cur.classList.remove('big'));
+  el.addEventListener('mouseenter', () => { if (cur) cur.classList.add('big'); });
+  el.addEventListener('mouseleave', () => { if (cur) cur.classList.remove('big'); });
 });
 
 /* ── NAV ── */
@@ -1406,9 +2060,11 @@ window.addEventListener('scroll', () =>
   document.getElementById('nav').classList.toggle('scrolled', scrollY > 60));
 const hbg = document.getElementById('hbg');
 const mob = document.getElementById('mob');
-hbg.addEventListener('click', () => { hbg.classList.toggle('open'); mob.classList.toggle('open'); });
+if (hbg && mob) {
+  hbg.addEventListener('click', () => { hbg.classList.toggle('open'); mob.classList.toggle('open'); });
+}
 document.querySelectorAll('.ml').forEach(l => l.addEventListener('click', () => {
-  hbg.classList.remove('open'); mob.classList.remove('open');
+  if (hbg) hbg.classList.remove('open'); if (mob) mob.classList.remove('open');
 }));
 
 /* ── TABS ── */
@@ -1432,12 +2088,15 @@ const io = new IntersectionObserver(entries => {
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.rv').forEach(el => io.observe(el));
 
-document.querySelector('footer').addEventListener('mouseenter', () => {
+const pageFooter = document.querySelector('footer');
+if (pageFooter && cur) {
+pageFooter.addEventListener('mouseenter', () => {
   document.getElementById('cur').style.background = '#f58220';
 });
-document.querySelector('footer').addEventListener('mouseleave', () => {
-  document.getElementById('cur').style.background = '';
+pageFooter.addEventListener('mouseleave', () => {
+  cur.style.background = '';
 });
+}
 
 
 /* ── IMAGE PARALLAX ── */
