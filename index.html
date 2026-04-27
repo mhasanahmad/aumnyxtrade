@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
   <title>AUMNYX Trade — Global Trade & Supply Solutions</title>
   <meta name="description" content="AUMNYX Trade supports automotive aftermarket and industrial supply needs through focused sourcing, dependable product categories, and practical trade partnerships."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600;700;800&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=Ik4sib3EOEY_piIpg4J48t15hv-19iKlmJZh1qtqfmvSO8eQWqspwQV1e0hDVfXVv1ciBVTfRat-6IVsAxmkzn1rROwdrpyaRNN4tXeK9ulVZbIQx5rnGazkYsgYg4ch2c7-ZnzevC_3ttipOB5YkzPWBVqLL7X4vZAeAAshaLV7I0cASZ8UP26C_KyzvTTNkKHhSDs0Ng-Dy9hHvKDgNmVB-74CJ_GCZGqoU4wRcEASwz2U-RA6w93lpukw04TL7o0RM1WFkPPMwK1xKgTvMw" charset="UTF-8"></script><script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=ExTCd6MmSTVLrIC1zUgZhXJaPE-OBO67WuWuLhNY8Ii1NvWmxBjxhUX3et3B8lo4Pau3vqg-Ft1tO2MPqjKEWGIY4zhPVMdqIGgyc007ILs9H1ZHCQLRY8HTELCTFJ3vS_iGzffeYHWN4eg8FnK15OsBU73tQ0wEfh8jiZBp9AkNhpVb1WW32ts5x59poo2uiPY9AwzNp8RGsiZzS5jX7t750MnbcyscN4NNP3TaHhHNJt76yG1taCFcFE3YaO8K73HsN-4HnYgiYKB6gFrm1A" charset="UTF-8"></script><script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=Ui5AsQEl89DaYd_6rYrvYFLfIR0JCaeQW3qAkrDT7SSBJ7Y0uzZQah3MtsdCpsXctmiNy8Xb7FfHa3eANFdsSH8ISWZpqAa4c4unUAhVg-x_qXfyOsq2mJ9_grEknlsHeIEFGomwxp2LkwFEfXPh4JDFhd5H54ELX3kncFnQlOF8Axy-_5pmJPEXc6KkEGY4dSsPL4_DMJ_4DLvRIPOsarKY3RtxGnGAyqrwGyWhfqMHHbtL7ql_juKHvrL-22Edu_p9mv_fwdapTJgs16SeJg" charset="UTF-8"></script><style>
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=lf7tDs6UVo33gdieRiX8UbjBHOFSVRESjTi5wyU5n6f7ntyHGgg6JiacDTgbwLQ9D3qOX5MeySnyjxxNHZr0njpj0dRQ9AA0kmiIsPNHxleLOtEiA08d5UmhiXAMUtfYHbX7owCd3jeKWCHgk0_kdu3TZXVQhFZ6MPsTo8l9o9Q4tVAY6QE3Z8xx2uFPf1Rb99lcdEy51G9DCpg8ivN7Mw2qhAyzsNZnVK0aTsHpBkp1tv3vmirfPNJl-VUwttOflNH7Y2Pd8Jmjh-7w6XdJzg" charset="UTF-8"></script><style>
     :root {
       --bg:      #f7fbff;
       --bg2:     #edf5fb;
@@ -915,22 +915,6 @@ footer #cur {
 }
 
 
-
-/* MOBILE-ONLY MENU */
-const mMenuBtn = document.getElementById('mMenuBtn');
-const mMenu = document.getElementById('mMenu');
-if (mMenuBtn && mMenu) {
-  mMenuBtn.addEventListener('click', () => {
-    mMenu.classList.toggle('open');
-    mMenuBtn.textContent = mMenu.classList.contains('open') ? '×' : '☰';
-  });
-  mMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      mMenu.classList.remove('open');
-      mMenuBtn.textContent = '☰';
-    });
-  });
-}
 
 /* ── SCROLL TO TOP ARROW ── */
 .scroll-top-arrow {
@@ -2141,6 +2125,23 @@ window.addEventListener('load', updateImageParallax);
 updateImageParallax();
 
 
+
+
+/* MOBILE-ONLY MENU */
+const mMenuBtn = document.getElementById('mMenuBtn');
+const mMenu = document.getElementById('mMenu');
+if (mMenuBtn && mMenu) {
+  mMenuBtn.addEventListener('click', () => {
+    mMenu.classList.toggle('open');
+    mMenuBtn.textContent = mMenu.classList.contains('open') ? '×' : '☰';
+  });
+  mMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mMenu.classList.remove('open');
+      mMenuBtn.textContent = '☰';
+    });
+  });
+}
 
 /* ── SCROLL TO TOP ARROW ── */
 const scrollTopArrow = document.getElementById('scrollTopArrow');
